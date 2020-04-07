@@ -1,13 +1,27 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+KR&family=Roboto&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Do+Hyeon&family=Noto+Sans+KR&family=Roboto&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Noto Sans KR', 'Roboto', 'dotum', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
 }

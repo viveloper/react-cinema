@@ -1,0 +1,87 @@
+.header {
+  background-color: #333;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.header ul {
+  list-style: none;
+}
+
+.header a {
+  color: #fff;
+}
+
+.upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 70px;
+  border-bottom: 1px solid #b2b2b2;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  text-transform: uppercase;
+  font-family: 'Do Hyeon', sans-serif;
+  letter-spacing: 1px;
+}
+
+.menu {
+  display: flex;
+  font-size: 12px;
+}
+
+.menu1 li {
+  margin-right: 15px;
+}
+
+.menu2 li {
+  margin-left: 15px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 40px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+}
+
+.navigation .links a {
+  font-size: 14px;
+}
+
+.menu3 {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+}
+
+.menu3 li {
+  margin-left: 20px;
+}
+
+.btn-menu {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+}
