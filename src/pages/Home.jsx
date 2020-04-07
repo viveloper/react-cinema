@@ -1,11 +1,11 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import Hero from '../components/Home/Hero';
+import Carousel from '../components/Home/Carousel';
 
 const Home = () => {
   return (
     <Layout>
-      <Hero />
+      <Carousel />
     </Layout>
   );
 };

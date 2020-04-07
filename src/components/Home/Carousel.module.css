@@ -1,0 +1,42 @@
+.carousel {
+  background-color: #000;
+  position: relative;
+}
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+.carousel .item {
+  display: none;
+}
+.carousel .active {
+  display: block;
+}
+.carousel .item img {
+  height: 774px;
+  width: 100%;
+  object-fit: cover;
+}
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(100% - 60px);
+  margin: 0 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.nav button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.prev,
+.next {
+  color: #dadada;
+}
+.nav button:hover .prev,
+.nav button:hover .next {
+  color: #eee;
+}

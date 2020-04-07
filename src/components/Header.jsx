@@ -11,7 +11,7 @@ const Header = () => {
             <li>
               <a href="#">
                 <span>
-                  <i class="fab fa-facebook"></i>
+                  <i className="fab fa-facebook"></i>
                 </span>{' '}
                 좋아요
               </a>
@@ -19,7 +19,7 @@ const Header = () => {
             <li>
               <a href="#">
                 <span>
-                  <i class="fab fa-youtube"></i>
+                  <i className="fab fa-youtube"></i>
                 </span>{' '}
                 구독하기
               </a>
@@ -70,15 +70,15 @@ const Header = () => {
             <li>
               <a href="#">
                 <span>
-                  <i class="fas fa-bookmark"></i>
+                  <i className="fas fa-bookmark"></i>
                 </span>{' '}
                 바로예매
               </a>
             </li>
             <li>
               <button className={classes['btn-menu']}>
-                <span>
-                  <i className="fas fa-bars fa-2x"></i>
+                <span className={classes.icon}>
+                  <i className="fas fa-bars"></i>
                 </span>
               </button>
             </li>
