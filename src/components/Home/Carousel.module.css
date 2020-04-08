@@ -4,13 +4,32 @@
 }
 .container {
   max-width: 1920px;
+  min-width: 1040px;
   margin: 0 auto;
+  overflow: hidden;
+}
+.carousel .items {
+  display: flex;
+  transition: transform 0.3s ease;
 }
 .carousel .item {
-  display: none;
+  flex: 0 0 100%;
+  position: relative;
 }
 .carousel .active {
+}
+.carousel .item a::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   display: block;
+  content: '';
+  background-image: url('http://localhost:3000/svg/play-solid.svg');
+  background-size: 50px 50px;
+  height: 50px;
+  width: 50px;
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
 }
 .carousel .item img {
   height: 774px;
@@ -34,7 +53,7 @@
 }
 .prev,
 .next {
-  color: #dadada;
+  color: #bbb;
 }
 .nav button:hover .prev,
 .nav button:hover .next {

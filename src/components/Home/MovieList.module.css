@@ -1,0 +1,25 @@
+.movieList {
+  background-color: #000;
+  min-width: 1040px;
+}
+
+.container {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.cards {
+  display: flex;
+}
+
+.card {
+  width: 184px;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card .info {
+  color: #fff;
+}
