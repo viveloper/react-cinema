@@ -1,5 +1,4 @@
 .header {
-  /* background-color: #333; */
   color: #fff;
   position: absolute;
   top: 0;
@@ -11,12 +10,23 @@
   z-index: 1;
 }
 
+.header.light {
+  color: #000;
+  position: static;
+  height: 112px;
+  background: #fff;
+}
+
 .header ul {
   list-style: none;
 }
 
 .header a {
   color: #fff;
+}
+
+.header.light a {
+  color: #000;
 }
 
 .upper {
@@ -37,6 +47,10 @@
   text-transform: uppercase;
   font-family: 'Do Hyeon', sans-serif;
   letter-spacing: 1px;
+}
+
+.header.light .logo a {
+  color: #f45866;
 }
 
 .menu {
@@ -62,12 +76,10 @@
 
 .links {
   display: flex;
-  /* justify-content: space-between;
-  width: 450px; */
 }
 
 .links li {
-  /* display: inline-block; */
+  border-bottom: 2px solid transparent;
 }
 
 .links li:hover {
@@ -111,6 +123,10 @@
   outline: none;
   color: #fff;
   cursor: pointer;
+}
+
+.header.light .btn-menu {
+  color: #000;
 }
 
 .btn-menu .icon {

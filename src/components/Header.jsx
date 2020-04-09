@@ -1,12 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classes from './Header.module.css';
 
-const Header = () => {
+const Header = ({ theme }) => {
   return (
-    <header className={classes.header}>
+    <header
+      className={`${classes.header} ${
+        theme === 'light' ? `${classes.light}` : ''
+      }`}
+    >
       <div className="container">
         <div className={classes.upper}>
-          <h1 className={classes.logo}>chova cinema</h1>
+          <h1 className={classes.logo}>
+            <Link to="/">chova cinema</Link>
+          </h1>
           <ul className={`${classes.menu} ${classes.menu1}`}>
             <li>
               <a href="#">
@@ -43,7 +50,7 @@ const Header = () => {
               <a href="#">예매</a>
             </li>
             <li>
-              <a href="#">영화</a>
+              <Link to="/movie">영화</Link>
             </li>
             <li>
               <a href="#">영화관</a>

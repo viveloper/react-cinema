@@ -16,6 +16,15 @@
   flex: 0 0 100%;
   position: relative;
 }
+.carousel.gradient .item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
 .carousel .active {
 }
 .carousel .item a::after {
@@ -32,30 +41,27 @@
   opacity: 0.7;
 }
 .carousel .item img {
-  height: 774px;
+  /* height: 774px; */
   width: 100%;
   object-fit: cover;
 }
-.nav {
+.btnNav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: calc(100% - 60px);
   margin: 0 30px;
-  display: flex;
-  justify-content: space-between;
-}
-.nav button {
   background: transparent;
   border: none;
   outline: none;
+  color: #bbb;
   cursor: pointer;
 }
-.prev,
-.next {
-  color: #bbb;
+.btnNavPrev {
+  left: 0;
 }
-.nav button:hover .prev,
-.nav button:hover .next {
+.btnNavNext {
+  right: 0;
+}
+.btnNav:hover {
   color: #eee;
 }
