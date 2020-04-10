@@ -9,7 +9,7 @@ const Header = ({ theme }) => {
         theme === 'light' ? `${classes.light}` : ''
       }`}
     >
-      <div className="container">
+      <div className="center">
         <div className={classes.upper}>
           <h1 className={classes.logo}>
             <Link to="/">chova cinema</Link>

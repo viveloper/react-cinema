@@ -35,9 +35,9 @@ const Carousel = ({ theme, height, items }) => {
   const { src, isActive, handlePlay, handleClose } = useLayerMovieTrailer();
 
   return (
-    <section
+    <div
       className={`${classes.carousel} ${
-        theme === 'gradient' ? `${classes.gradient}` : ''
+        theme === 'dark' ? `${classes.dark}` : ''
       }`}
     >
       <div className={classes.container}>
@@ -78,7 +78,7 @@ const Carousel = ({ theme, height, items }) => {
       </button>
 
       <LayerMovieTrailer src={src} isActive={isActive} onClose={handleClose} />
-    </section>
+    </div>
   );
 };
 

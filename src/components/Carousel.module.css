@@ -16,7 +16,7 @@
   flex: 0 0 100%;
   position: relative;
 }
-.carousel.gradient .item::after {
+.carousel.dark .item::after {
   content: '';
   position: absolute;
   left: 0;

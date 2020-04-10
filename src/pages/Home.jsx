@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import Carousel from '../components/Carousel';
 import MovieList from '../components/MovieList';
+import classes from './Home.module.css';
 
 import movies from '../data/movies.json';
 
@@ -26,8 +27,14 @@ const carouselItems = [
 const Home = () => {
   return (
     <Layout>
-      <Carousel theme="gradient" height={774} items={carouselItems} />
-      <MovieList movies={movies} limit={21} />
+      <section>
+        <Carousel theme="dark" height={774} items={carouselItems} />
+      </section>
+      <section className={classes['section-movie-list']}>
+        <div className="center">
+          <MovieList theme="dark" movies={movies} activeNum={5} />
+        </div>
+      </section>
     </Layout>
   );
 };

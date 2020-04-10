@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from '../components/Layout';
 import Carousel from '../components/Carousel';
 import MovieList from '../components/MovieList';
+import ExhibitionList from '../components/ExhibitionList';
+import classes from './Movie.module.css';
 
 import movies from '../data/movies.json';
 
@@ -26,8 +28,32 @@ const carouselItems = [
 const Movie = () => {
   return (
     <Layout theme="light">
-      <Carousel height={420} items={carouselItems} />
-      <MovieList movies={movies} limit={5} theme="light" />
+      <section>
+        <Carousel height={420} items={carouselItems} />
+      </section>
+
+      <section className={classes['section-movie-list']}>
+        <div className="center">
+          <div className={classes['movie-list']}>
+            <h3 className={classes['movie-list-title']}>
+              현재 상영작 <strong>TOP 5</strong>
+            </h3>
+            <MovieList movies={movies} activeNum={5} theme="light" />
+          </div>
+          <div className={classes['movie-list']}>
+            <h3 className={classes['movie-list-title']}>
+              상영 예정작 <strong>TOP 5</strong>
+            </h3>
+            <MovieList movies={movies} activeNum={5} theme="light" />
+          </div>
+        </div>
+      </section>
+
+      <section className={classes['section-exhibition']}>
+        <div className="center">
+          <ExhibitionList />
+        </div>
+      </section>
     </Layout>
   );
 };

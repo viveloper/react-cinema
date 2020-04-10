@@ -24,7 +24,7 @@ img {
   display: block;
 }
 
-.container {
-  width: 1000px;
+.center {
+  width: 980px;
   margin: 0 auto;
 }

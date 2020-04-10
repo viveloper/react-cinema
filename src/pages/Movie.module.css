@@ -1,0 +1,13 @@
+.section-movie-list {
+  padding: 32px 0;
+}
+.movie-list {
+  margin-top: 16px;
+}
+.movie-list-title {
+  font-size: 18px;
+  font-weight: 400;
+}
+.movie-list-title strong {
+  color: #f45866;
+}
