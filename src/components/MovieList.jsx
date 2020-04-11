@@ -17,9 +17,7 @@ const MovieList = ({ theme, movies, activeNum }) => {
 
   return (
     <div
-      className={`${classes.movieList} ${
-        theme === 'light' ? classes.light : ''
-      }`}
+      className={classes.movieList}
       style={{
         width: `${cardWidth * activeNum + cardMargin * (activeNum - 1)}px`,
       }}

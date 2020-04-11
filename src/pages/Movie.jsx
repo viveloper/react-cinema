@@ -10,18 +10,18 @@ import movies from '../data/movies.json';
 const carouselItems = [
   {
     RepresentationMovieCode: '15684',
-    img: 'http://localhost:3000/adImg/TimeFreak2.jpg',
-    video: 'http://localhost:3000/adImg/TimeFreak.mp4',
+    img: '/img/ad/TimeFreak2.jpg',
+    video: '/img/ad/TimeFreak.mp4',
   },
   {
     RepresentationMovieCode: '15676',
-    img: 'http://localhost:3000/adImg/MySpy2.jpg',
-    video: 'http://localhost:3000/adImg/MySpy.mp4',
+    img: '/img/ad/MySpy2.jpg',
+    video: '/img/ad/MySpy.mp4',
   },
   {
     RepresentationMovieCode: '15688',
-    img: 'http://localhost:3000/adImg/Stray2.jpg',
-    video: 'http://localhost:3000/adImg/Stray.mp4',
+    img: '/img/ad/Stray2.jpg',
+    video: '/img/ad/Stray.mp4',
   },
 ];
 

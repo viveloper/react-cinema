@@ -24,6 +24,10 @@ img {
   display: block;
 }
 
+ul {
+  list-style: none;
+}
+
 .center {
   width: 980px;
   margin: 0 auto;

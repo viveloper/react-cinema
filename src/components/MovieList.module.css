@@ -1,11 +1,6 @@
 .movieList {
-  background-color: #000;
   margin: 0 auto;
   position: relative;
-}
-
-.movieList.light {
-  background-color: #fff;
 }
 
 .listContianer {
