@@ -1,0 +1,71 @@
+.section-movie-list {
+  padding: 32px 0;
+}
+
+.header {
+  position: relative;
+  margin-bottom: 10px;
+  display: flex;
+}
+.header .btn-type {
+  font-size: 18px;
+  font-weight: bold;
+  color: #888;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid transparent;
+  padding: 5px 0;
+  margin-right: 32px;
+  cursor: pointer;
+}
+.header .btn-type.active {
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+.header ul {
+  font-size: 12px;
+  color: #333;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+}
+.sort-type-link {
+  padding: 0 10px;
+  position: relative;
+}
+.sort-type-link:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  border-left: 1px solid #888;
+  height: 12px;
+  margin-top: 5px;
+}
+.sort-type-link a {
+  font-size: 14px;
+  color: #999;
+}
+.sort-type-link a.active {
+  color: #333;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.item {
+  margin: 10px 6px;
+}
+.btn-more {
+  font-size: 12px;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 8px 0;
+  cursor: pointer;
+}
+.btn-more:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}

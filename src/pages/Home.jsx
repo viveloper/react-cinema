@@ -1,28 +1,11 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import Carousel from '../components/Carousel';
-import MovieList from '../components/MovieList';
+import Movies from '../components/Movies';
 import classes from './Home.module.css';
 
 import movies from '../data/movies.json';
-
-const carouselItems = [
-  {
-    RepresentationMovieCode: '15684',
-    img: '/img/ad/TimeFreak.jpg',
-    video: '/img/ad/TimeFreak.mp4',
-  },
-  {
-    RepresentationMovieCode: '15676',
-    img: '/img/ad/MySpy.jpg',
-    video: '/img/ad/MySpy.mp4',
-  },
-  {
-    RepresentationMovieCode: '15688',
-    img: '/img/ad/Stray.jpg',
-    video: '/img/ad/Stray.mp4',
-  },
-];
+import carouselItems from '../data/carouselItems01';
 
 const Home = () => {
   return (
@@ -32,7 +15,7 @@ const Home = () => {
       </section>
       <section className={classes['section-movie-list']}>
         <div className="center">
-          <MovieList theme="dark" movies={movies} activeNum={5} />
+          <Movies theme="dark" movies={movies} activeNum={5} />
         </div>
       </section>
     </Layout>

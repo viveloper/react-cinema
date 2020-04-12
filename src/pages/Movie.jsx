@@ -1,31 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import Carousel from '../components/Carousel';
-import MovieList from '../components/MovieList';
+import Movies from '../components/Movies';
 import ExhibitionList from '../components/ExhibitionList';
 import classes from './Movie.module.css';
 
 import movies from '../data/movies.json';
-
-const carouselItems = [
-  {
-    RepresentationMovieCode: '15684',
-    img: '/img/ad/TimeFreak2.jpg',
-    video: '/img/ad/TimeFreak.mp4',
-  },
-  {
-    RepresentationMovieCode: '15676',
-    img: '/img/ad/MySpy2.jpg',
-    video: '/img/ad/MySpy.mp4',
-  },
-  {
-    RepresentationMovieCode: '15688',
-    img: '/img/ad/Stray2.jpg',
-    video: '/img/ad/Stray.mp4',
-  },
-];
+import carouselItems from '../data/carouselItems02';
 
 const Movie = () => {
+  const top5CurrentMovie = movies
+    .filter((movie) => parseInt(movie.DDay) === 0)
+    .slice(0, 5);
+  const top5PreMovie = movies
+    .filter((movie) => parseInt(movie.DDay) > 0)
+    .slice(0, 5);
   return (
     <Layout theme="light">
       <section>
@@ -35,16 +25,22 @@ const Movie = () => {
       <section className={classes['section-movie-list']}>
         <div className="center">
           <div className={classes['movie-list']}>
-            <h3 className={classes['movie-list-title']}>
-              현재 상영작 <strong>TOP 5</strong>
-            </h3>
-            <MovieList movies={movies} activeNum={5} theme="light" />
+            <div className={classes['movie-list-header']}>
+              <h3 className={classes['title']}>
+                현재 상영작 <strong>TOP 5</strong>
+              </h3>
+              <Link to="/movie/list?type=current">더보기 ></Link>
+            </div>
+            <Movies movies={top5CurrentMovie} activeNum={5} theme="light" />
           </div>
           <div className={classes['movie-list']}>
-            <h3 className={classes['movie-list-title']}>
-              상영 예정작 <strong>TOP 5</strong>
-            </h3>
-            <MovieList movies={movies} activeNum={5} theme="light" />
+            <div className={classes['movie-list-header']}>
+              <h3 className={classes['title']}>
+                상영 예정작 <strong>TOP 5</strong>
+              </h3>
+              <Link to="/movie/list?type=pre">더보기 ></Link>
+            </div>
+            <Movies movies={top5PreMovie} activeNum={5} theme="light" />
           </div>
         </div>
       </section>

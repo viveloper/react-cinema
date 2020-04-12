@@ -1,12 +1,12 @@
 import React from 'react';
-import MovieList from './MovieList';
+import Movies from './Movies';
 import classes from './ExhibitionList.module.css';
 
 import movies from '../data/movies.json';
 
 const ExhibitionList = () => {
   return (
-    <a className={classes.exhibitionList}>
+    <div className={classes.exhibitionList}>
       <li className={`${classes.exhibition} ${classes.arte}`}>
         <div className={classes.info}>
           <div className={classes.description}>
@@ -16,7 +16,7 @@ const ExhibitionList = () => {
           </div>
           <a href="#">아르떼 바로가기 ></a>
         </div>
-        <MovieList movies={movies} activeNum={1} theme="light" />
+        <Movies movies={movies.slice(3, 5)} activeNum={1} theme="light" />
       </li>
       <li className={`${classes.exhibition} ${classes.opera}`}>
         <div className={classes.info}>
@@ -27,7 +27,7 @@ const ExhibitionList = () => {
           </div>
           <a href="#">오페라 바로가기 ></a>
         </div>
-        <MovieList movies={movies} activeNum={1} theme="light" />
+        <Movies movies={movies.slice(18, 19)} activeNum={1} theme="light" />
       </li>
       <li className={`${classes.exhibition} ${classes.festival}`}>
         <div className={classes.info}>
@@ -43,7 +43,7 @@ const ExhibitionList = () => {
           <span>준비중입니다.</span>
         </div>
       </li>
-    </a>
+    </div>
   );
 };
 

@@ -8,7 +8,7 @@ const MovieCard = ({ movie, number, theme }) => {
     >
       <div className={classes.imgContainer}>
         <img src={movie.PosterURL} alt="poster" />
-        <em className={classes.index}>{number + 1}</em>
+        <em className={classes.index}>{number}</em>
         <div className={classes.hoverLayer}>
           <a href="#">예매하기</a>
           <a href="#">상세정보</a>

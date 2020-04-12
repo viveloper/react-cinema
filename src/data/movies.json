@@ -558,24 +558,6 @@
     "ViewRate": 0.11
   },
   {
-    "RepresentationMovieCode": "15726",
-    "MoviePlayYN": "N",
-    "MoviePlayEndYN": 0,
-    "MovieNameKR": "시체들의 새벽: 컨테이젼",
-    "MovieNameUS": "시체들의 새벽: 컨테이젼",
-    "MovieName": null,
-    "PosterURL": "/img/movie/15726.jpg",
-    "ViewGradeCode": 18,
-    "ViewGradeNameKR": "청불",
-    "ViewGradeNameUS": "청소년관람불가",
-    "ViewGradeName": null,
-    "BookingRate": 0.11,
-    "ReleaseDate": "2020-04-09 오전 12:00:00",
-    "DDay": "1",
-    "ViewEvaluation": 0,
-    "ViewRate": 0.11
-  },
-  {
     "RepresentationMovieCode": "11613",
     "MoviePlayYN": "Y",
     "MoviePlayEndYN": 0,

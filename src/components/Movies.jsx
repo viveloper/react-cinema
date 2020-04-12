@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MovieCard from './MovieCard';
-import classes from './MovieList.module.css';
+import classes from './Movies.module.css';
 
 const MovieList = ({ theme, movies, activeNum }) => {
   const [startActiveIndex, setStartActiveIndex] = useState(0);
@@ -50,7 +50,7 @@ const MovieList = ({ theme, movies, activeNum }) => {
           {movies.map((movie, index) => {
             return (
               <li key={movie.RepresentationMovieCode} className={classes.movie}>
-                <MovieCard movie={movie} number={index} theme={theme} />
+                <MovieCard movie={movie} number={index + 1} theme={theme} />
               </li>
             );
           })}
