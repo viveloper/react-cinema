@@ -4,8 +4,10 @@ import Carousel from '../components/Carousel';
 import Movies from '../components/Movies';
 import classes from './Home.module.css';
 
-import movies from '../data/movies.json';
+import movieData from '../data/movies.json';
 import carouselItems from '../data/carouselItems01';
+
+const movies = movieData.Movies.Items[0].Items;
 
 const Home = () => {
   return (

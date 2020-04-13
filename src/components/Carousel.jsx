@@ -3,7 +3,7 @@ import classes from './Carousel.module.css';
 import LayerMovieTrailer from './LayerMovieTrailer';
 import { useLayerMovieTrailer } from '../customHooks';
 
-const Carousel = ({ theme, height, items }) => {
+const Carousel = ({ theme, height, width, items }) => {
   const [activeItem, setActiveItem] = useState(0);
 
   useEffect(() => {
@@ -47,13 +47,21 @@ const Carousel = ({ theme, height, items }) => {
         >
           {items.map((item, index) => (
             <li
-              key={item.RepresentationMovieCode}
+              key={item.sequence}
               className={`${classes.item} ${
-                index === activeItem ? classes.active : ''
+                item.video ? classes.playable : ''
               }`}
             >
               <a href="#" onClick={(e) => handleImgClick(e, index)}>
-                <img src={item.img} alt="poster" height={height} />
+                <div
+                  className={classes.imgContainer}
+                  style={{
+                    width: `${width ? `${width}px` : 'auto'}`,
+                    height: `${height ? `${height}px` : 'auto'}`,
+                  }}
+                >
+                  <img src={item.img} alt="poster" height={height} />
+                </div>
               </a>
             </li>
           ))}

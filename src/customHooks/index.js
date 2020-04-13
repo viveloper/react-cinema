@@ -4,6 +4,7 @@ export const useLayerMovieTrailer = () => {
   const [src, setSrc] = useState('');
   const [isActive, setIsActive] = useState(false);
   const handlePlay = (src) => {
+    if (!src) return;
     setSrc(src);
     setIsActive(true);
   };

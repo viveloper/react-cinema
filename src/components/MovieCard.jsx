@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classes from './MovieCard.module.css';
 
 const MovieCard = ({ movie, number, theme }) => {
@@ -11,7 +12,11 @@ const MovieCard = ({ movie, number, theme }) => {
         <em className={classes.index}>{number}</em>
         <div className={classes.hoverLayer}>
           <a href="#">예매하기</a>
-          <a href="#">상세정보</a>
+          <Link
+            to={`/movie/movieDetailView?movie=${movie.RepresentationMovieCode}`}
+          >
+            상세정보
+          </Link>
         </div>
       </div>
       <div className={classes.info}>

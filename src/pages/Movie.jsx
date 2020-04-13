@@ -6,8 +6,10 @@ import Movies from '../components/Movies';
 import ExhibitionList from '../components/ExhibitionList';
 import classes from './Movie.module.css';
 
-import movies from '../data/movies.json';
+import movieData from '../data/movies.json';
 import carouselItems from '../data/carouselItems02';
+
+const movies = movieData.Movies.Items[0].Items;
 
 const Movie = () => {
   const top5CurrentMovie = movies

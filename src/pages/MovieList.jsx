@@ -5,9 +5,10 @@ import Carousel from '../components/Carousel';
 import MovieCard from '../components/MovieCard';
 import classes from './MovieList.module.css';
 
-import moviesData from '../data/movies.json';
+import movieData from '../data/movies.json';
 import carouselItems from '../data/carouselItems02';
 
+const _movies = movieData.Movies.Items[0].Items;
 const ONE_PAGE_ITEM_NUM = 15;
 
 const MovieList = ({ location }) => {
@@ -28,7 +29,7 @@ const MovieList = ({ location }) => {
 
   useEffect(() => {
     if (type === 'current') {
-      const currentMovies = moviesData
+      const currentMovies = _movies
         .filter((movie) => parseInt(movie.DDay) === 0)
         .sort((a, b) => {
           if (sortType === 'ticketing') {
@@ -44,7 +45,7 @@ const MovieList = ({ location }) => {
         .slice(0, ONE_PAGE_ITEM_NUM * pageOffset);
       setMovies(currentMovies);
     } else if (type === 'pre') {
-      const preMovies = moviesData
+      const preMovies = _movies
         .filter((movie) => parseInt(movie.DDay) > 0)
         .sort((a, b) => {
           if (sortType === 'release') {
