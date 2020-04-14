@@ -47,7 +47,7 @@ const Carousel = ({ theme, height, width, items }) => {
         >
           {items.map((item, index) => (
             <li
-              key={item.sequence}
+              key={item.img}
               className={`${classes.item} ${
                 item.video ? classes.playable : ''
               }`}
