@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import queryString from 'query-string';
+
 import Layout from '../components/Layout';
-import Carousel from '../components/Carousel';
-import ViewGradeIcon from '../components/ViewGradeIcon';
+import PosterCarousel from '../components/MovieDetail/PosterCarousel';
+import Summary from '../components/MovieDetail/Summary';
+import PosterImage from '../components/MovieDetail/PosterImage';
+import SummaryTitle from '../components/MovieDetail/SummaryTitle';
+import SummaryStatistics from '../components/MovieDetail/SummaryStatistics';
+import SummaryDetail from '../components/MovieDetail/SummaryDetail';
+import SummarySpecialScreen from '../components/MovieDetail/SummarySpecialScreen';
+import SummaryAsideMenu from '../components/MovieDetail/SummaryAsideMenu';
 
 import { numberWithCommas } from '../util';
 
 import moviesDetail from '../data/moviesDetail.json';
+
 import classes from './MovieDetail.module.css';
 
 const MovieDetail = ({ location }) => {
@@ -20,141 +28,228 @@ const MovieDetail = ({ location }) => {
     img: trailer.ImageURL,
   }));
 
-  const viewGradeIconOptions = getViewGradeIconOptions(
-    movieDetail.Movie.ViewGradeCode
-  );
+  const [activeTab, setActiveTab] = useState('info');
+
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+  };
+
+  const ageGraphHighlightIndex = getAgeGraphHighlightIndex(movieDetail.Movie);
 
   return (
     <Layout theme="light">
-      <section className={classes['carousel']}>
-        <Carousel height={560} width={840} items={carouselItems} />
-      </section>
+      <PosterCarousel height={560} width={840} carouselItems={carouselItems} />
+      <Summary movieDetail={movieDetail}>
+        <PosterImage
+          posterUrl={movieDetail.Movie.PosterURL}
+          width={205}
+          height={293}
+        />
+        <SummaryTitle
+          viewGradeCode={movieDetail.Movie.ViewGradeCode}
+          movieName={movieDetail.Movie.MovieNameKR}
+        />
+        <SummaryStatistics
+          viewEvaludation={movieDetail.Movie.ViewEvaluation}
+          bookingRate={movieDetail.Movie.BookingRate}
+          cumulativeAudience={movieDetail.Movie.KOFCustCnt}
+        />
+        <SummaryDetail movieDetail={movieDetail} />
+        <SummarySpecialScreen
+          specialScreenDivisionCode={
+            movieDetail.Movie.SpecialScreenDivisionCode
+          }
+        />
+        <SummaryAsideMenu likeCount={movieDetail.Movie.LikeCount} />
+      </Summary>
 
-      <section className={classes['summary']}>
-        <div className={`center ${classes['summary-container']}`}>
-          <img
-            src={movieDetail.Movie.PosterURL}
-            alt="poster"
-            width="205"
-            height="293"
-          />
-          <div className={classes['summary-info']}>
-            <div className={classes['title']}>
-              <ViewGradeIcon
-                size={36}
-                color={viewGradeIconOptions.color}
-                text={viewGradeIconOptions.text}
-              />
-              <span className={classes['text']}>
-                {movieDetail.Movie.MovieNameKR}
-              </span>
-            </div>
-            <ul className={classes['statistics']}>
-              <li>
-                <span className={classes['statistics-type']}>관람객 평점</span>
-                <span className={classes['statistics-value']}>
-                  <span className={classes['icon-star']}>
-                    <i className="fas fa-star"></i>
-                  </span>{' '}
-                  {movieDetail.Movie.ViewEvaluation}
-                </span>
-              </li>
-              <li>
-                <span className={classes['statistics-type']}>예매율</span>
-                <span className={classes['statistics-value']}>
-                  {movieDetail.Movie.BookingRate}%
-                </span>
-              </li>
-              <li>
-                <span className={classes['statistics-type']}>누적 관객수</span>
-                <span className={classes['statistics-value']}>
-                  {numberWithCommas(movieDetail.Movie.KOFCustCnt)} 명
-                </span>
-              </li>
-            </ul>
-            <ul className={classes['detail-info']}>
-              <li>
-                <span className={classes['detail-info-type']}>장르</span>
-                <span
-                  className={classes['detail-info-value']}
-                >{`${movieDetail.Movie.MovieGenreNameKR}, ${movieDetail.Movie.MovieGenreNameKR2} / ${movieDetail.Movie.MakingNationNameKR}`}</span>
-                <span
-                  className={`${classes['detail-info-value']} ${classes['separator']}`}
-                >{`${
-                  movieDetail.Movie.ReleaseDate.split(' ')[0].split('-')[0]
-                }.${
-                  movieDetail.Movie.ReleaseDate.split(' ')[0].split('-')[1]
-                }.${
-                  movieDetail.Movie.ReleaseDate.split(' ')[0].split('-')[2]
-                } 개봉`}</span>
-                <span
-                  className={`${classes['detail-info-value']} ${classes['separator']}`}
-                >{`${movieDetail.Movie.PlayTime}분`}</span>
-              </li>
-              <li>
-                <span className={classes['detail-info-type']}>감독</span>
-                <span className={classes['detail-info-value']}>
-                  {
-                    movieDetail.Casting.Items.find(
-                      (staff) => staff.Role === '감독'
-                    ).StaffName
-                  }
-                </span>
-              </li>
-              <li>
-                <span className={classes['detail-info-type']}>출연</span>
-                <span className={classes['detail-info-value']}>
-                  {movieDetail.Casting.Items.filter(
-                    (staff) => staff.Role === '배우'
-                  )
-                    .map((staff) => staff.StaffName)
-                    .join(', ')}
-                </span>
-              </li>
-            </ul>
+      {/* <DetailInfo /> */}
+      <section className={classes['detail-info']}>
+        <div className="center">
+          {/* <Tabs /> */}
+          <div className={classes['tabs']}>
+            <button
+              className={`${classes['tab']} ${
+                activeTab === 'info' ? classes['active'] : ''
+              }`}
+              onClick={() => handleTabClick('info')}
+            >
+              영화정보
+            </button>
+            <button
+              className={`${classes['tab']} ${
+                activeTab === 'review' ? classes['active'] : ''
+              }`}
+              onClick={() => handleTabClick('review')}
+            >
+              평점 및 관람평
+            </button>
           </div>
+
+          {activeTab === 'info' ? (
+            // <MovieInfo />
+            <div className={classes['movie-info']}>
+              <div className={classes['articles']}>
+                {/* <Synopsis /> */}
+                <article
+                  className={`${classes['article']} ${classes['synopsis']}`}
+                >
+                  <h4 className={classes['title']}>시놉시스</h4>
+                  <p
+                    className={classes['content']}
+                    dangerouslySetInnerHTML={{
+                      __html: movieDetail.Movie.SynopsisKR,
+                    }}
+                  ></p>
+                </article>
+                {/* <Preference /> */}
+                <article
+                  className={`${classes['article']} ${classes['preference']}`}
+                >
+                  <h4 className={classes['title']}>관람 선호도</h4>
+                  <div className={classes['prefer-group']}>
+                    {/* <GenderPrefer /> */}
+                    <div
+                      className={`${classes['prefer']} ${classes['gender']}`}
+                    >
+                      <div className={classes['graph']}>
+                        <div
+                          className={`${classes['bar']} ${classes['male']}`}
+                          style={{ height: `${movieDetail.Movie.ManPrefer}%` }}
+                        ></div>
+                        <div
+                          className={`${classes['bar']} ${classes['female']}`}
+                          style={{
+                            height: `${movieDetail.Movie.WomanPrefer}%`,
+                          }}
+                        ></div>
+                        <span
+                          className={`${classes['value']} ${classes['male']}`}
+                          style={{ bottom: `${movieDetail.Movie.ManPrefer}%` }}
+                        >{`${movieDetail.Movie.ManPrefer}%`}</span>
+                        <span
+                          className={`${classes['value']} ${classes['female']}`}
+                          style={{
+                            bottom: `${movieDetail.Movie.WomanPrefer}%`,
+                          }}
+                        >{`${movieDetail.Movie.WomanPrefer}%`}</span>
+                      </div>
+                      <div className={classes['keyword']}>
+                        <span>남성</span>
+                        <span>여성</span>
+                      </div>
+                    </div>
+                    {/* <AgePrefer /> */}
+                    <div className={`${classes['prefer']} ${classes['age']}`}>
+                      <div className={classes['graph']}>
+                        <div
+                          className={`${classes['bar']} ${classes['gen10']}`}
+                          style={{
+                            height: `${movieDetail.Movie.AgePrefer10}%`,
+                            backgroundColor: `${
+                              ageGraphHighlightIndex === 0 ? '#f51641' : null
+                            }`,
+                          }}
+                        ></div>
+                        <div
+                          className={`${classes['bar']} ${classes['gen20']}`}
+                          style={{
+                            height: `${movieDetail.Movie.AgePrefer20}%`,
+                            backgroundColor: `${
+                              ageGraphHighlightIndex === 1 ? '#f51641' : null
+                            }`,
+                          }}
+                        ></div>
+                        <div
+                          className={`${classes['bar']} ${classes['gen30']}`}
+                          style={{
+                            height: `${movieDetail.Movie.AgePrefer30}%`,
+                            backgroundColor: `${
+                              ageGraphHighlightIndex === 2 ? '#f51641' : null
+                            }`,
+                          }}
+                        ></div>
+                        <div
+                          className={`${classes['bar']} ${classes['gen40']}`}
+                          style={{
+                            height: `${movieDetail.Movie.AgePrefer40}%`,
+                            backgroundColor: `${
+                              ageGraphHighlightIndex === 3 ? '#f51641' : null
+                            }`,
+                          }}
+                        ></div>
+                        <span
+                          className={`${classes['value']} ${classes['gen10']}`}
+                          style={{
+                            bottom: `${movieDetail.Movie.AgePrefer10}%`,
+                            color: `${
+                              ageGraphHighlightIndex === 0 ? '#f51641' : null
+                            }`,
+                          }}
+                        >{`${movieDetail.Movie.AgePrefer10}%`}</span>
+                        <span
+                          className={`${classes['value']} ${classes['gen20']}`}
+                          style={{
+                            bottom: `${movieDetail.Movie.AgePrefer20}%`,
+                            color: `${
+                              ageGraphHighlightIndex === 1 ? '#f51641' : null
+                            }`,
+                          }}
+                        >{`${movieDetail.Movie.AgePrefer20}%`}</span>
+                        <span
+                          className={`${classes['value']} ${classes['gen30']}`}
+                          style={{
+                            bottom: `${movieDetail.Movie.AgePrefer30}%`,
+                            color: `${
+                              ageGraphHighlightIndex === 2 ? '#f51641' : null
+                            }`,
+                          }}
+                        >{`${movieDetail.Movie.AgePrefer30}%`}</span>
+                        <span
+                          className={`${classes['value']} ${classes['gen40']}`}
+                          style={{
+                            bottom: `${movieDetail.Movie.AgePrefer40}%`,
+                            color: `${
+                              ageGraphHighlightIndex === 3 ? '#f51641' : null
+                            }`,
+                          }}
+                        >{`${movieDetail.Movie.AgePrefer40}%`}</span>
+                      </div>
+                      <div className={classes['keyword']}>
+                        <span>10대</span>
+                        <span>20대</span>
+                        <span>30대</span>
+                        <span>40대</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              {/* <TrailerList /> */}
+              <div className={classes['trailer']}></div>
+              {/* <Casting /> */}
+              <div className={classes['casting']}></div>
+            </div>
+          ) : (
+            // <ScoreAndReview />
+            <div className={classes['movie-review']}>평점 및 리뷰</div>
+          )}
         </div>
       </section>
-
-      <section className={classes['tabs']}>
-        <div className="center">
-          <button className={classes['btn-movie-detail']}>영화정보</button>
-          <button className={classes['btn-movie-detail']}>
-            평점 및 관람평
-          </button>
-        </div>
-      </section>
-
-      <section className={classes['info']}>
-        <div className="center">
-          <article className={classes['synopsis']}></article>
-          <article className={classes['preference']}></article>
-          <div className={classes['trailer']}></div>
-          <div className={classes['casting']}></div>
-        </div>
-      </section>
-
-      <section className={classes['review']}></section>
     </Layout>
   );
 };
 
-const getViewGradeIconOptions = (viewGradeCode) => {
-  const options = {};
-  if (viewGradeCode === 0) {
-    options.color = '#5BC77E';
-    options.text = '전체';
-  } else if (viewGradeCode === 12) {
-    options.color = '#4DD6FF';
-    options.text = '12';
-  } else if (viewGradeCode === 15) {
-    options.color = '#FFC134';
-    options.text = '15';
-  } else if (viewGradeCode === 18) {
-    options.color = '#ED4C6B';
-    options.text = '청불';
-  }
-  return options;
+const getAgeGraphHighlightIndex = (movie) => {
+  const agePrefers = [];
+  agePrefers.push(movie.AgePrefer10);
+  agePrefers.push(movie.AgePrefer20);
+  agePrefers.push(movie.AgePrefer30);
+  agePrefers.push(movie.AgePrefer40);
+  const sortedAgePrefers = [...agePrefers];
+  sortedAgePrefers.sort((a, b) => b - a);
+  const max = sortedAgePrefers[0];
+  return agePrefers.findIndex((item) => item === max);
 };
 
 export default MovieDetail;
