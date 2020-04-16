@@ -11,6 +11,9 @@
 # production
 /build
 
+# media files
+/public/img/MovieMedia
+
 # misc
 .DS_Store
 .env.local

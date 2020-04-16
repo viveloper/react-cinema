@@ -2,8 +2,13 @@ import React, { useState, useEffect } from 'react';
 import queryString from 'query-string';
 import Layout from '../components/Layout';
 import Carousel from '../components/Carousel';
-import MovieCard from '../components/MovieCard';
-import classes from './MovieList.module.css';
+import SectionMovieList from '../components/MovieList/SectionMovieList';
+import Menu from '../components/MovieList/Menu';
+import ListTypeButton from '../components/MovieList/ListTypeButton';
+import SortTypeButtons from '../components/MovieList/SortTypeButtons';
+import SortTypeButton from '../components/MovieList/SortTypeButton';
+import List from '../components/MovieList/List';
+import MoreButton from '../components/MovieList/MoreButton';
 
 import movieData from '../data/movies.json';
 import carouselItems from '../data/carouselItems02';
@@ -70,7 +75,7 @@ const MovieList = ({ location }) => {
     }
   }, [type, pageOffset, sortType]);
 
-  const handleTypeBtnClick = (type) => {
+  const handleListTypeBtnClick = (type) => {
     setType(type);
     setPageOffset(1);
     if (type === 'current') {
@@ -79,8 +84,7 @@ const MovieList = ({ location }) => {
       setSortType('release');
     }
   };
-  const handleSortTypeClick = (e, sortType) => {
-    e.preventDefault();
+  const handleSortTypeBtnClick = (sortType) => {
     setSortType(sortType);
     setPageOffset(1);
   };
@@ -90,95 +94,79 @@ const MovieList = ({ location }) => {
 
   return (
     <Layout theme="light">
-      <section>
-        <Carousel height={420} items={carouselItems} />
-      </section>
+      <Carousel height={420} items={carouselItems} />
 
-      <section className={classes['section-movie-list']}>
-        <div className="center">
-          <div className={classes['header']}>
-            <button
-              className={`${classes['btn-type']} ${
-                type === 'current' ? classes['active'] : ''
-              }`}
-              onClick={() => handleTypeBtnClick('current')}
-            >
-              현재 상영작
-            </button>
-            <button
-              className={`${classes['btn-type']} ${
-                type === 'pre' ? classes['active'] : ''
-              }`}
-              onClick={() => handleTypeBtnClick('pre')}
-            >
-              상영 예정작
-            </button>
-            <ul className={classes['sort-type-links']}>
-              {type === 'pre' ? (
-                <li className={classes['sort-type-link']}>
-                  <a
-                    href="#"
-                    className={sortType === 'release' ? classes['active'] : ''}
-                    onClick={(e) => handleSortTypeClick(e, 'release')}
-                  >
-                    개봉일순
-                  </a>
-                </li>
-              ) : null}
-              <li className={classes['sort-type-link']}>
-                <a
-                  href="#"
-                  className={sortType === 'ticketing' ? classes['active'] : ''}
-                  onClick={(e) => handleSortTypeClick(e, 'ticketing')}
-                >
-                  예매순
-                </a>
-              </li>
-              {type === 'current' ? (
-                <>
-                  <li className={classes['sort-type-link']}>
-                    <a
-                      href="#"
-                      className={sortType === 'grade' ? classes['active'] : ''}
-                      onClick={(e) => handleSortTypeClick(e, 'grade')}
-                    >
-                      평점순
-                    </a>
-                  </li>
-                  <li className={classes['sort-type-link']}>
-                    <a
-                      href="#"
-                      className={sortType === 'review' ? classes['active'] : ''}
-                      onClick={(e) => handleSortTypeClick(e, 'review')}
-                    >
-                      관람평 많은순
-                    </a>
-                  </li>
-                </>
-              ) : null}
-              <li className={classes['sort-type-link']}>
-                <a
-                  href="#"
-                  className={sortType === 'wish' ? classes['active'] : ''}
-                  onClick={(e) => handleSortTypeClick(e, 'wish')}
-                >
-                  보고싶어요순
-                </a>
-              </li>
-            </ul>
-          </div>
-          <ul className={classes['list']}>
-            {movies.map((movie, index) => (
-              <li key={movie.RepresentationMovieCode} className={classes.item}>
-                <MovieCard movie={movie} number={index + 1} theme="light" />
-              </li>
-            ))}
-          </ul>
-          <button className={classes['btn-more']} onClick={handleMoreClick}>
-            펼쳐보기 <i className="fas fa-angle-down"></i>
-          </button>
-        </div>
-      </section>
+      <SectionMovieList>
+        <Menu>
+          <ListTypeButton
+            type="current"
+            name="현재 상영작"
+            active={type === 'current' ? true : false}
+            onClick={handleListTypeBtnClick}
+          />
+          <ListTypeButton
+            type="pre"
+            name="상영 예정작"
+            active={type === 'pre' ? true : false}
+            onClick={handleListTypeBtnClick}
+          />
+          <SortTypeButtons>
+            {type === 'current' ? (
+              <>
+                <SortTypeButton
+                  type="ticketing"
+                  name="예매순"
+                  active={sortType === 'ticketing' ? true : false}
+                  onClick={handleSortTypeBtnClick}
+                />
+                <SortTypeButton
+                  type="grade"
+                  name="평점순"
+                  active={sortType === 'grade' ? true : false}
+                  onClick={handleSortTypeBtnClick}
+                />
+                <SortTypeButton
+                  type="review"
+                  name="관람평 많은순"
+                  active={sortType === 'review' ? true : false}
+                  onClick={handleSortTypeBtnClick}
+                />
+                <SortTypeButton
+                  type="wish"
+                  name="보고싶어요순"
+                  active={sortType === 'wish' ? true : false}
+                  onClick={handleSortTypeBtnClick}
+                />
+              </>
+            ) : (
+              <>
+                <SortTypeButton
+                  type="release"
+                  name="개봉일순"
+                  active={sortType === 'release' ? true : false}
+                  onClick={handleSortTypeBtnClick}
+                />
+                <SortTypeButton
+                  type="ticketing"
+                  name="예매순"
+                  active={sortType === 'ticketing' ? true : false}
+                  onClick={handleSortTypeBtnClick}
+                />
+                <SortTypeButton
+                  type="wish"
+                  name="보고싶어요순"
+                  active={sortType === 'wish' ? true : false}
+                  onClick={handleSortTypeBtnClick}
+                />
+              </>
+            )}
+          </SortTypeButtons>
+        </Menu>
+
+        <List movies={movies} />
+
+        <MoreButton onClick={handleMoreClick} />
+      </SectionMovieList>
     </Layout>
   );
 };

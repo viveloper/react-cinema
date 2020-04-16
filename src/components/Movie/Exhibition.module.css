@@ -1,20 +1,6 @@
-.exhibitionList {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-}
 .exhibition {
   width: 316px;
   position: relative;
-}
-.exhibition.arte {
-  background: url('/img/exhibition/bg_exhib_01.png') no-repeat 0 0;
-}
-.exhibition.opera {
-  background: url('/img/exhibition/bg_exhib_02.png') no-repeat 0 0;
-}
-.exhibition.festival {
-  background: url('/img/exhibition/bg_exhib_03.png') no-repeat 0 0;
 }
 .info {
   text-align: center;
@@ -22,20 +8,12 @@
   margin-bottom: 10px;
   color: #fff;
 }
-.arte .info {
-  color: #000;
-}
 .info .description {
   font-size: 23px;
   line-height: 1.2;
 }
 .info a {
   font-size: 10px;
-  color: #fff;
-}
-.arte .info a {
-  font-size: 10px;
-  color: #000;
 }
 .commingSoon {
   background-color: rgba(0, 0, 0, 0.5);

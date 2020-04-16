@@ -210,7 +210,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15688_109_1.jpg",
           "ImageAlter": "오픈 더 도어",
-          "MediaURL": "./img/MovieMedia/202004/15688_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15688_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -220,7 +220,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15688_109_2.jpg",
           "ImageAlter": "오픈 더 도어",
-          "MediaURL": "./img/MovieMedia/202004/15688_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15688_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "추적스릴 예고편"
@@ -230,7 +230,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15688_109_3.jpg",
           "ImageAlter": "오픈 더 도어",
-          "MediaURL": "./img/MovieMedia/202004/15688_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15688_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -528,7 +528,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15684_109_1.jpg",
           "ImageAlter": "n번째 이별중",
-          "MediaURL": "./img/MovieMedia/202004/15684_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15684_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -538,7 +538,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15684_109_2.jpg",
           "ImageAlter": "n번째 이별중",
-          "MediaURL": "./img/MovieMedia/202004/15684_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15684_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -548,7 +548,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15684_109_3.jpg",
           "ImageAlter": "n번째 이별중",
-          "MediaURL": "./img/MovieMedia/202004/15684_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15684_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "에이사 버터필드 영업 영상"
@@ -558,7 +558,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15684_109_4.jpg",
           "ImageAlter": "n번째 이별중",
-          "MediaURL": "./img/MovieMedia/202004/15684_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15684_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "무삭제 영상"
@@ -1038,7 +1038,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15449_109_1.jpg",
           "ImageAlter": "1917",
-          "MediaURL": "./img/MovieMedia/202002/15449_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15449_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "런칭 예고편"
@@ -1048,7 +1048,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15449_109_2.jpg",
           "ImageAlter": "1917",
-          "MediaURL": "./img/MovieMedia/202002/15449_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15449_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "아카데미 노미네이트 영상"
@@ -1058,7 +1058,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15449_109_3.jpg",
           "ImageAlter": "1917",
-          "MediaURL": "./img/MovieMedia/202002/15449_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15449_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -1068,7 +1068,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15449_109_4.jpg",
           "ImageAlter": "1917",
-          "MediaURL": "./img/MovieMedia/202002/15449_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15449_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "제작기 영상"
@@ -1078,7 +1078,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15449_109_5.jpg",
           "ImageAlter": "1917",
-          "MediaURL": "./img/MovieMedia/202002/15449_301_5.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15449_301_5.mp4",
           "SortSequence": 5,
           "ImageTypeCd": "109",
           "MediaTitle": "강력 추천 영상"
@@ -1342,7 +1342,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15680_109_1.jpg",
           "ImageAlter": "신과 나: 100일간의 거래",
-          "MediaURL": "./img/MovieMedia/202004/15680_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15680_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -1352,7 +1352,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15680_109_2.jpg",
           "ImageAlter": "신과 나: 100일간의 거래",
-          "MediaURL": "./img/MovieMedia/202004/15680_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15680_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -1362,7 +1362,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15680_109_3.jpg",
           "ImageAlter": "신과 나: 100일간의 거래",
-          "MediaURL": "./img/MovieMedia/202004/15680_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15680_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "캐릭터 영상"
@@ -1372,7 +1372,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15680_109_4.jpg",
           "ImageAlter": "신과 나: 100일간의 거래",
-          "MediaURL": "./img/MovieMedia/202004/15680_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15680_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "슬기로운 급식생활 영상"
@@ -1642,7 +1642,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15468_109_1.jpg",
           "ImageAlter": "주디",
-          "MediaURL": "./img/MovieMedia/202002/15468_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15468_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -1652,7 +1652,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15468_109_2.jpg",
           "ImageAlter": "주디",
-          "MediaURL": "./img/MovieMedia/202002/15468_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15468_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "컴백 예고편"
@@ -1662,7 +1662,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15468_109_3.jpg",
           "ImageAlter": "주디",
-          "MediaURL": "./img/MovieMedia/202002/15468_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15468_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -1672,7 +1672,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15468_109_4.jpg",
           "ImageAlter": "주디",
-          "MediaURL": "./img/MovieMedia/202002/15468_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15468_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "Who is JUDY? 영상"
@@ -1682,7 +1682,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15468_109_5.jpg",
           "ImageAlter": "주디",
-          "MediaURL": "./img/MovieMedia/202002/15468_301_5.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15468_301_5.mp4",
           "SortSequence": 5,
           "ImageTypeCd": "109",
           "MediaTitle": "주디 From.르네 예고편"
@@ -1982,7 +1982,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15521_109_1.jpg",
           "ImageAlter": "인비저블맨",
-          "MediaURL": "./img/MovieMedia/202002/15521_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15521_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -1992,7 +1992,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15521_109_2.jpg",
           "ImageAlter": "인비저블맨",
-          "MediaURL": "./img/MovieMedia/202002/15521_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15521_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "보이지 않는 습격 예고편"
@@ -2002,7 +2002,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15521_109_3.jpg",
           "ImageAlter": "인비저블맨",
-          "MediaURL": "./img/MovieMedia/202002/15521_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15521_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "보이지 않는 사투 예고편"
@@ -2178,7 +2178,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201911/14888_105_1.jpg",
           "ImageAlter": "윤희에게",
-          "MediaURL": "./img/MovieMedia/201911/14888_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/201911/14888_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -2628,7 +2628,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15669_109_1.jpg",
           "ImageAlter": "더 터닝",
-          "MediaURL": "./img/MovieMedia/202004/15669_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15669_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "런칭 예고편"
@@ -2638,7 +2638,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15669_109_2.jpg",
           "ImageAlter": "더 터닝",
-          "MediaURL": "./img/MovieMedia/202004/15669_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15669_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -2648,7 +2648,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15669_109_3.jpg",
           "ImageAlter": "더 터닝",
-          "MediaURL": "./img/MovieMedia/202004/15669_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15669_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "제작기 영상"
@@ -2984,7 +2984,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201908/14589_105_1.jpg",
           "ImageAlter": "벌새",
-          "MediaURL": "./img/MovieMedia/201908/14589_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/201908/14589_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -3354,7 +3354,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15693_109_1.jpg",
           "ImageAlter": "사랑이 뭘까",
-          "MediaURL": "./img/MovieMedia/202004/15693_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15693_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -3364,7 +3364,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15693_109_2.jpg",
           "ImageAlter": "사랑이 뭘까",
-          "MediaURL": "./img/MovieMedia/202004/15693_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15693_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -3374,7 +3374,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15693_109_3.jpg",
           "ImageAlter": "사랑이 뭘까",
-          "MediaURL": "./img/MovieMedia/202004/15693_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15693_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "테루코의 loVeLOG 영상"
@@ -3786,7 +3786,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15378_109_1.jpg",
           "ImageAlter": "지푸라기라도 잡고 싶은 짐승들",
-          "MediaURL": "./img/MovieMedia/202002/15378_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15378_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": ""
@@ -3796,7 +3796,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15378_109_2.jpg",
           "ImageAlter": "지푸라기라도 잡고 싶은 짐승들",
-          "MediaURL": "./img/MovieMedia/202002/15378_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15378_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "런칭 예고편"
@@ -3806,7 +3806,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15378_109_3.jpg",
           "ImageAlter": "지푸라기라도 잡고 싶은 짐승들",
-          "MediaURL": "./img/MovieMedia/202002/15378_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15378_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -3816,7 +3816,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15378_109_4.jpg",
           "ImageAlter": "지푸라기라도 잡고 싶은 짐승들",
-          "MediaURL": "./img/MovieMedia/202002/15378_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15378_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "캐릭터 스틸 영상"
@@ -3826,7 +3826,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15378_109_5.jpg",
           "ImageAlter": "지푸라기라도 잡고 싶은 짐승들",
-          "MediaURL": "./img/MovieMedia/202002/15378_301_5.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15378_301_5.mp4",
           "SortSequence": 5,
           "ImageTypeCd": "109",
           "MediaTitle": "비주얼 영상"
@@ -3996,7 +3996,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201908/14612_105_1.jpg",
           "ImageAlter": "우리집",
-          "MediaURL": "./img/MovieMedia/201908/14612_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/201908/14612_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -4244,7 +4244,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15604_109_1.jpg",
           "ImageAlter": "돈 조반니",
-          "MediaURL": "./img/MovieMedia/202004/15604_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15604_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "예고편"
@@ -4494,7 +4494,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15659_109_1.jpg",
           "ImageAlter": "스케어리 스토리: 어둠의 속삭임",
-          "MediaURL": "./img/MovieMedia/202003/15659_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15659_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -4504,7 +4504,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15659_109_2.jpg",
           "ImageAlter": "스케어리 스토리: 어둠의 속삭임",
-          "MediaURL": "./img/MovieMedia/202003/15659_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15659_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "2차 예고편"
@@ -4514,7 +4514,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15659_109_3.jpg",
           "ImageAlter": "스케어리 스토리: 어둠의 속삭임",
-          "MediaURL": "./img/MovieMedia/202003/15659_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15659_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -4524,7 +4524,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15659_109_4.jpg",
           "ImageAlter": "스케어리 스토리: 어둠의 속삭임",
-          "MediaURL": "./img/MovieMedia/202003/15659_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15659_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "그것들이 나타날 확률 1000% 예고편"
@@ -4534,7 +4534,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15659_109_5.jpg",
           "ImageAlter": "스케어리 스토리: 어둠의 속삭임",
-          "MediaURL": "./img/MovieMedia/202003/15659_301_5.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15659_301_5.mp4",
           "SortSequence": 5,
           "ImageTypeCd": "109",
           "MediaTitle": "코멘터리 영상"
@@ -4804,7 +4804,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15747_109_1.jpg",
           "ImageAlter": "핀란드 메탈밴드",
-          "MediaURL": "./img/MovieMedia/202004/15747_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15747_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -4814,7 +4814,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15747_109_2.jpg",
           "ImageAlter": "핀란드 메탈밴드",
-          "MediaURL": "./img/MovieMedia/202004/15747_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15747_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -5154,7 +5154,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15415_109_1.jpg",
           "ImageAlter": "작은 아씨들",
-          "MediaURL": "./img/MovieMedia/202002/15415_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15415_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": ""
@@ -5164,7 +5164,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15415_109_2.jpg",
           "ImageAlter": "작은 아씨들",
-          "MediaURL": "./img/MovieMedia/202002/15415_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15415_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -5424,7 +5424,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201912/15346_109_1.jpg",
           "ImageAlter": "기도의 힘",
-          "MediaURL": "./img/MovieMedia/201912/15346_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/201912/15346_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "런칭 예고편"
@@ -5434,7 +5434,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201912/15346_109_2.jpg",
           "ImageAlter": "기도의 힘",
-          "MediaURL": "./img/MovieMedia/201912/15346_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/201912/15346_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -5893,7 +5893,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15509_109_1.jpg",
           "ImageAlter": "찬실이는 복도 많지",
-          "MediaURL": "./img/MovieMedia/202003/15509_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15509_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -5903,7 +5903,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15509_109_2.jpg",
           "ImageAlter": "찬실이는 복도 많지",
-          "MediaURL": "./img/MovieMedia/202003/15509_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15509_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -5913,7 +5913,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15509_109_3.jpg",
           "ImageAlter": "찬실이는 복도 많지",
-          "MediaURL": "./img/MovieMedia/202003/15509_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15509_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "복복복_복 캐릭터 영상"
@@ -5923,7 +5923,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15509_109_4.jpg",
           "ImageAlter": "찬실이는 복도 많지",
-          "MediaURL": "./img/MovieMedia/202003/15509_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15509_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "장국영 TO YOU 영상"
@@ -5933,7 +5933,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15509_109_5.jpg",
           "ImageAlter": "찬실이는 복도 많지",
-          "MediaURL": "./img/MovieMedia/202003/15509_301_5.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15509_301_5.mp4",
           "SortSequence": 5,
           "ImageTypeCd": "109",
           "MediaTitle": "엔딩송 뮤직비디오 영상"
@@ -6243,7 +6243,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15636_109_1.jpg",
           "ImageAlter": "온다",
-          "MediaURL": "./img/MovieMedia/202003/15636_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15636_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -6253,7 +6253,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15636_109_2.jpg",
           "ImageAlter": "온다",
-          "MediaURL": "./img/MovieMedia/202003/15636_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15636_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -6263,7 +6263,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15636_109_3.jpg",
           "ImageAlter": "온다",
-          "MediaURL": "./img/MovieMedia/202003/15636_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15636_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -6273,7 +6273,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15636_109_4.jpg",
           "ImageAlter": "온다",
-          "MediaURL": "./img/MovieMedia/202003/15636_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15636_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "Before-After 영상"
@@ -6577,7 +6577,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15708_109_1.jpg",
           "ImageAlter": "펠리칸 베이커리",
-          "MediaURL": "./img/MovieMedia/202004/15708_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15708_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -6587,7 +6587,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15708_109_2.jpg",
           "ImageAlter": "펠리칸 베이커리",
-          "MediaURL": "./img/MovieMedia/202004/15708_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15708_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -6757,7 +6757,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201904/14133_105_1.jpg",
           "ImageAlter": "노팅 힐",
-          "MediaURL": "./img/MovieMedia/201904/14133_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/201904/14133_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -7151,7 +7151,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15570_109_1.jpg",
           "ImageAlter": "다크 워터스",
-          "MediaURL": "./img/MovieMedia/202003/15570_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15570_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -7161,7 +7161,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15570_109_2.jpg",
           "ImageAlter": "다크 워터스",
-          "MediaURL": "./img/MovieMedia/202003/15570_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15570_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -7171,7 +7171,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15570_109_3.jpg",
           "ImageAlter": "다크 워터스",
-          "MediaURL": "./img/MovieMedia/202003/15570_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15570_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "C8 중독 예고편"
@@ -7181,7 +7181,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15570_109_4.jpg",
           "ImageAlter": "다크 워터스",
-          "MediaURL": "./img/MovieMedia/202003/15570_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15570_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "99% 예고편"
@@ -7191,7 +7191,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15570_109_5.jpg",
           "ImageAlter": "다크 워터스",
-          "MediaURL": "./img/MovieMedia/202003/15570_301_5.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15570_301_5.mp4",
           "SortSequence": 5,
           "ImageTypeCd": "109",
           "MediaTitle": "사건 추적 예고편"
@@ -7361,7 +7361,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201810/13293_105_1.jpg",
           "ImageAlter": "스타 이즈 본",
-          "MediaURL": "./img/MovieMedia/201810/13293_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/201810/13293_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -7649,7 +7649,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15726_109_1.jpg",
           "ImageAlter": "시체들의 새벽: 컨테이젼",
-          "MediaURL": "./img/MovieMedia/202004/15726_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15726_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "예고편"
@@ -7819,7 +7819,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201707/11613_105_1.jpg",
           "ImageAlter": "예수는 역사다",
-          "MediaURL": "./img/MovieMedia/201707/11613_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/201707/11613_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -8359,7 +8359,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15418_109_1.jpg",
           "ImageAlter": "정직한 후보",
-          "MediaURL": "./img/MovieMedia/202002/15418_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15418_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": ""
@@ -8369,7 +8369,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15418_109_2.jpg",
           "ImageAlter": "정직한 후보",
-          "MediaURL": "./img/MovieMedia/202002/15418_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15418_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -8379,7 +8379,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15418_109_3.jpg",
           "ImageAlter": "정직한 후보",
-          "MediaURL": "./img/MovieMedia/202002/15418_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15418_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "캐릭터 영상"
@@ -8389,7 +8389,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15418_109_4.jpg",
           "ImageAlter": "정직한 후보",
-          "MediaURL": "./img/MovieMedia/202002/15418_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15418_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "제작기 영상"
@@ -8399,7 +8399,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15418_109_5.jpg",
           "ImageAlter": "정직한 후보",
-          "MediaURL": "./img/MovieMedia/202002/15418_301_5.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15418_301_5.mp4",
           "SortSequence": 5,
           "ImageTypeCd": "109",
           "MediaTitle": "리뷰 예고편"
@@ -8657,7 +8657,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15715_109_1.jpg",
           "ImageAlter": "행복의 단추를 채우는 완벽한 방법",
-          "MediaURL": "./img/MovieMedia/202004/15715_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15715_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -8827,7 +8827,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201909/14849_105_1.jpg",
           "ImageAlter": "메기",
-          "MediaURL": "./img/MovieMedia/201909/14849_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/201909/14849_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -9201,7 +9201,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15716_109_1.jpg",
           "ImageAlter": "선생님과 길고양이",
-          "MediaURL": "./img/MovieMedia/202004/15716_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15716_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 메인 예고편"
@@ -9511,7 +9511,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15579_109_1.jpg",
           "ImageAlter": "이장",
-          "MediaURL": "./img/MovieMedia/202003/15579_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15579_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -9521,7 +9521,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15579_109_2.jpg",
           "ImageAlter": "이장",
-          "MediaURL": "./img/MovieMedia/202003/15579_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15579_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -9531,7 +9531,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15579_109_3.jpg",
           "ImageAlter": "이장",
-          "MediaURL": "./img/MovieMedia/202003/15579_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15579_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -9541,7 +9541,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15579_109_4.jpg",
           "ImageAlter": "이장",
-          "MediaURL": "./img/MovieMedia/202003/15579_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15579_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "배우 코멘터리 영상"
@@ -9717,7 +9717,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201803/12523_105_1.jpg",
           "ImageAlter": "곤지암",
-          "MediaURL": "./img/MovieMedia/201803/12523_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/201803/12523_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -10041,7 +10041,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15694_109_1.jpg",
           "ImageAlter": "모리의 정원",
-          "MediaURL": "./img/MovieMedia/202003/15694_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15694_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -10051,7 +10051,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15694_109_2.jpg",
           "ImageAlter": "모리의 정원",
-          "MediaURL": "./img/MovieMedia/202003/15694_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15694_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -10215,7 +10215,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201810/13347_105_1.jpg",
           "ImageAlter": "바울",
-          "MediaURL": "./img/MovieMedia/201810/13347_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/201810/13347_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -10675,7 +10675,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15425_109_1.jpg",
           "ImageAlter": "젠틀맨",
-          "MediaURL": "./img/MovieMedia/202002/15425_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15425_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "런칭 예고편"
@@ -10685,7 +10685,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15425_109_2.jpg",
           "ImageAlter": "젠틀맨",
-          "MediaURL": "./img/MovieMedia/202002/15425_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15425_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -10695,7 +10695,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15425_109_3.jpg",
           "ImageAlter": "젠틀맨",
-          "MediaURL": "./img/MovieMedia/202002/15425_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15425_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "캐릭터 예고편"
@@ -10705,7 +10705,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15425_109_4.jpg",
           "ImageAlter": "젠틀맨",
-          "MediaURL": "./img/MovieMedia/202002/15425_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15425_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "관객 리뷰 영상"
@@ -10863,7 +10863,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201906/14255_105_1.jpg",
           "ImageAlter": "천로역정: 천국을 찾아서",
-          "MediaURL": "./img/MovieMedia/201906/14255_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/201906/14255_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -10873,7 +10873,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201906/14255_105_1.jpg",
           "ImageAlter": "천로역정: 천국을 찾아서",
-          "MediaURL": "./img/MovieMedia/201907/14255_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/201907/14255_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -11262,7 +11262,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/3400_109_1.jpg",
           "ImageAlter": "페임",
-          "MediaURL": "./img/MovieMedia/202003/3400_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/3400_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -11272,7 +11272,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/3400_109_2.jpg",
           "ImageAlter": "페임",
-          "MediaURL": "./img/MovieMedia/202003/3400_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202003/3400_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -11282,7 +11282,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/3400_109_3.jpg",
           "ImageAlter": "페임",
-          "MediaURL": "./img/MovieMedia/202003/3400_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202003/3400_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "하이라이트 댄스 모음 영상"
@@ -11292,7 +11292,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/3400_109_4.jpg",
           "ImageAlter": "페임",
-          "MediaURL": "./img/MovieMedia/202003/3400_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202003/3400_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "뮤직 로맨스 영상"
@@ -11302,7 +11302,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/3400_109_5.jpg",
           "ImageAlter": "페임",
-          "MediaURL": "./img/MovieMedia/202003/3400_301_5.mp4",
+          "MediaURL": "/img/MovieMedia/202003/3400_301_5.mp4",
           "SortSequence": 5,
           "ImageTypeCd": "109",
           "MediaTitle": "손호영 강력 추천 영상"
@@ -11596,7 +11596,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15709_109_1.jpg",
           "ImageAlter": "그 누구도 아닌",
-          "MediaURL": "./img/MovieMedia/202003/15709_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15709_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -11606,7 +11606,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15709_109_2.jpg",
           "ImageAlter": "그 누구도 아닌",
-          "MediaURL": "./img/MovieMedia/202003/15709_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15709_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -11893,7 +11893,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/201609/10663_105_1.jpg",
           "ImageAlter": "브리짓 존스의 베이비",
-          "MediaURL": "./img/MovieMedia/201609/10663_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/201609/10663_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -12241,7 +12241,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15677_109_1.jpg",
           "ImageAlter": "사랑하고 있습니까",
-          "MediaURL": "./img/MovieMedia/202003/15677_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15677_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -12251,7 +12251,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15677_109_2.jpg",
           "ImageAlter": "사랑하고 있습니까",
-          "MediaURL": "./img/MovieMedia/202003/15677_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15677_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -12261,7 +12261,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15677_109_3.jpg",
           "ImageAlter": "사랑하고 있습니까",
-          "MediaURL": "./img/MovieMedia/202003/15677_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15677_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "캐릭터 영상_소정 편"
@@ -12271,7 +12271,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15677_109_4.jpg",
           "ImageAlter": "사랑하고 있습니까",
-          "MediaURL": "./img/MovieMedia/202003/15677_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15677_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "캐릭터 영상_승재 편"
@@ -12561,7 +12561,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15695_109_1.jpg",
           "ImageAlter": "아웃사이더",
-          "MediaURL": "./img/MovieMedia/202004/15695_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15695_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "런칭 예고편"
@@ -12571,7 +12571,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15695_109_2.jpg",
           "ImageAlter": "아웃사이더",
-          "MediaURL": "./img/MovieMedia/202004/15695_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15695_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -12581,7 +12581,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15695_109_3.jpg",
           "ImageAlter": "아웃사이더",
-          "MediaURL": "./img/MovieMedia/202004/15695_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15695_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "무삭제 영상"
@@ -12845,7 +12845,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15690_109_1.jpg",
           "ImageAlter": "프리저베이션 홀 재즈밴드",
-          "MediaURL": "./img/MovieMedia/202004/15690_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15690_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -12855,7 +12855,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15690_109_2.jpg",
           "ImageAlter": "프리저베이션 홀 재즈밴드",
-          "MediaURL": "./img/MovieMedia/202004/15690_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15690_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -12865,7 +12865,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15690_109_3.jpg",
           "ImageAlter": "프리저베이션 홀 재즈밴드",
-          "MediaURL": "./img/MovieMedia/202004/15690_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15690_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "뉴올리언스 영상"
@@ -12875,7 +12875,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15690_109_4.jpg",
           "ImageAlter": "프리저베이션 홀 재즈밴드",
-          "MediaURL": "./img/MovieMedia/202004/15690_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15690_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "아바나의 일상 영상"
@@ -13165,7 +13165,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15730_109_1.jpg",
           "ImageAlter": "애프터 웨딩 인 뉴욕",
-          "MediaURL": "./img/MovieMedia/202004/15730_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15730_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -13175,7 +13175,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15730_109_2.jpg",
           "ImageAlter": "애프터 웨딩 인 뉴욕",
-          "MediaURL": "./img/MovieMedia/202004/15730_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15730_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -13533,7 +13533,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15761_109_1.jpg",
           "ImageAlter": "피델리티",
-          "MediaURL": "./img/MovieMedia/202004/15761_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15761_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -13703,7 +13703,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15731_109_1.jpg",
           "ImageAlter": "헌트",
-          "MediaURL": "./img/MovieMedia/202004/15731_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15731_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -13713,7 +13713,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15731_109_2.jpg",
           "ImageAlter": "헌트",
-          "MediaURL": "./img/MovieMedia/202004/15731_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15731_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -13963,7 +13963,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202005/15756_109_1.jpg",
           "ImageAlter": "헌티드 파크",
-          "MediaURL": "./img/MovieMedia/202005/15756_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202005/15756_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -14233,7 +14233,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15748_109_1.jpg",
           "ImageAlter": "체이싱",
-          "MediaURL": "./img/MovieMedia/202004/15748_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15748_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -14397,7 +14397,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202005/15758_109_1.jpg",
           "ImageAlter": "그집",
-          "MediaURL": "./img/MovieMedia/202005/15758_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202005/15758_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -14881,7 +14881,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15707_109_1.jpg",
           "ImageAlter": "고양이와 할아버지",
-          "MediaURL": "./img/MovieMedia/202004/15707_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15707_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -14891,7 +14891,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15707_109_2.jpg",
           "ImageAlter": "고양이와 할아버지",
-          "MediaURL": "./img/MovieMedia/202004/15707_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15707_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -15359,7 +15359,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15725_109_1.jpg",
           "ImageAlter": "너의 새는 노래할 수 있어",
-          "MediaURL": "./img/MovieMedia/202004/15725_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15725_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -15369,7 +15369,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15725_109_2.jpg",
           "ImageAlter": "너의 새는 노래할 수 있어",
-          "MediaURL": "./img/MovieMedia/202004/15725_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15725_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -15379,7 +15379,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15725_109_3.jpg",
           "ImageAlter": "너의 새는 노래할 수 있어",
-          "MediaURL": "./img/MovieMedia/202004/15725_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15725_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -15389,7 +15389,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15725_109_4.jpg",
           "ImageAlter": "너의 새는 노래할 수 있어",
-          "MediaURL": "./img/MovieMedia/202004/15725_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15725_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "Caffeine 감성 뮤직비디오 영상"
@@ -15399,7 +15399,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15725_109_5.jpg",
           "ImageAlter": "너의 새는 노래할 수 있어",
-          "MediaURL": "./img/MovieMedia/202004/15725_301_5.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15725_301_5.mp4",
           "SortSequence": 5,
           "ImageTypeCd": "109",
           "MediaTitle": "배우, 감독 인사 영상"
@@ -15649,7 +15649,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15746_109_1.jpg",
           "ImageAlter": "애니 레보비츠 : 렌즈를 통해 들여다본 삶",
-          "MediaURL": "./img/MovieMedia/202004/15746_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15746_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -16183,7 +16183,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15600_109_1.jpg",
           "ImageAlter": "패왕별희 디 오리지널",
-          "MediaURL": "./img/MovieMedia/202003/15600_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15600_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -16193,7 +16193,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15600_109_2.jpg",
           "ImageAlter": "패왕별희 디 오리지널",
-          "MediaURL": "./img/MovieMedia/202003/15600_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15600_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -16463,7 +16463,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15621_109_1.jpg",
           "ImageAlter": "나는보리",
-          "MediaURL": "./img/MovieMedia/202003/15621_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15621_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -16627,7 +16627,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15662_109_1.jpg",
           "ImageAlter": "그녀의 비밀정원",
-          "MediaURL": "./img/MovieMedia/202004/15662_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15662_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -16637,7 +16637,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15662_109_2.jpg",
           "ImageAlter": "그녀의 비밀정원",
-          "MediaURL": "./img/MovieMedia/202004/15662_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15662_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -16937,7 +16937,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15611_109_1.jpg",
           "ImageAlter": "트롤: 월드 투어",
-          "MediaURL": "./img/MovieMedia/202004/15611_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15611_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "로운 더빙 소감 영상"
@@ -16947,7 +16947,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15611_109_2.jpg",
           "ImageAlter": "트롤: 월드 투어",
-          "MediaURL": "./img/MovieMedia/202004/15611_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15611_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "레드벨벳 런칭 그리팅 영상"
@@ -16957,7 +16957,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15611_109_3.jpg",
           "ImageAlter": "트롤: 월드 투어",
-          "MediaURL": "./img/MovieMedia/202004/15611_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15611_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -17543,7 +17543,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15629_109_1.jpg",
           "ImageAlter": "엘라 벨라 빙고: 친구 찾기 대작전",
-          "MediaURL": "./img/MovieMedia/202003/15629_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15629_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -17813,7 +17813,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15660_109_1.jpg",
           "ImageAlter": "아이 엠 어 히어로 2: 이누야시키",
-          "MediaURL": "./img/MovieMedia/202004/15660_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15660_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -17823,7 +17823,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15660_109_2.jpg",
           "ImageAlter": "이누야시키 : 히어로 VS 빌런",
-          "MediaURL": "./img/MovieMedia/202004/15660_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15660_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -17833,7 +17833,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15660_109_3.jpg",
           "ImageAlter": "이누야시키 : 히어로 VS 빌런",
-          "MediaURL": "./img/MovieMedia/202004/15660_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15660_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -17843,7 +17843,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15660_109_4.jpg",
           "ImageAlter": "이누야시키 : 히어로 VS 빌런",
-          "MediaURL": "./img/MovieMedia/202004/15660_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15660_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "캐릭터 예고편"
@@ -18157,7 +18157,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15670_109_1.jpg",
           "ImageAlter": "서치 아웃",
-          "MediaURL": "./img/MovieMedia/202004/15670_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15670_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -18167,7 +18167,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15670_109_2.jpg",
           "ImageAlter": "서치 아웃",
-          "MediaURL": "./img/MovieMedia/202004/15670_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15670_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -18177,7 +18177,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15670_109_3.jpg",
           "ImageAlter": "서치 아웃",
-          "MediaURL": "./img/MovieMedia/202004/15670_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15670_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "사건일지 영상"
@@ -18457,7 +18457,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15676_109_1.jpg",
           "ImageAlter": "마이 스파이",
-          "MediaURL": "./img/MovieMedia/202004/15676_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15676_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -18467,7 +18467,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15676_109_2.jpg",
           "ImageAlter": "마이 스파이",
-          "MediaURL": "./img/MovieMedia/202004/15676_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15676_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -18477,7 +18477,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15676_109_3.jpg",
           "ImageAlter": "마이 스파이",
-          "MediaURL": "./img/MovieMedia/202004/15676_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15676_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "JJ쌤의 스파이 강의영상"
@@ -18487,7 +18487,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15676_109_4.jpg",
           "ImageAlter": "마이 스파이",
-          "MediaURL": "./img/MovieMedia/202004/15676_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15676_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -18737,7 +18737,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15724_109_1.jpg",
           "ImageAlter": "라라걸",
-          "MediaURL": "./img/MovieMedia/202004/15724_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15724_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -18747,7 +18747,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15724_109_2.jpg",
           "ImageAlter": "라라걸",
-          "MediaURL": "./img/MovieMedia/202004/15724_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15724_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "임파워링 예고편"
@@ -18757,7 +18757,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15724_109_3.jpg",
           "ImageAlter": "라라걸",
-          "MediaURL": "./img/MovieMedia/202004/15724_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15724_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "LikeAGirl 예고편"
@@ -18767,7 +18767,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15724_109_4.jpg",
           "ImageAlter": "라라걸",
-          "MediaURL": "./img/MovieMedia/202004/15724_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15724_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "챌린지 예고편"
@@ -19017,7 +19017,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15369_109_1.jpg",
           "ImageAlter": "온워드: 단 하루의 기적",
-          "MediaURL": "./img/MovieMedia/202003/15369_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15369_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -19027,7 +19027,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15369_109_2.jpg",
           "ImageAlter": "온워드: 단 하루의 기적",
-          "MediaURL": "./img/MovieMedia/202003/15369_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15369_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -19037,7 +19037,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15369_109_3.jpg",
           "ImageAlter": "온워드: 단 하루의 기적",
-          "MediaURL": "./img/MovieMedia/202003/15369_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15369_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "픽사의 감동 판타지 예고편"
@@ -19207,7 +19207,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15359_105_1.jpg",
           "ImageAlter": "007 노 타임 투 다이",
-          "MediaURL": "./img/MovieMedia/202004/15359_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15359_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -19523,7 +19523,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15351_109_1.jpg",
           "ImageAlter": "부니베어: 원시시대 대모험",
-          "MediaURL": "./img/MovieMedia/202002/15351_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15351_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": ""
@@ -19533,7 +19533,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15351_109_2.jpg",
           "ImageAlter": "부니베어: 원시시대 대모험",
-          "MediaURL": "./img/MovieMedia/202002/15351_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15351_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -19543,7 +19543,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15351_109_3.jpg",
           "ImageAlter": "부니베어: 원시시대 대모험",
-          "MediaURL": "./img/MovieMedia/202002/15351_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15351_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편(자막)"
@@ -19553,7 +19553,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15351_109_4.jpg",
           "ImageAlter": "부니베어: 원시시대 대모험",
-          "MediaURL": "./img/MovieMedia/202002/15351_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15351_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "뮤직비디오 영상"
@@ -20309,7 +20309,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15770_109_1.jpg",
           "ImageAlter": "유령선",
-          "MediaURL": "./img/MovieMedia/202004/15770_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15770_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -20479,7 +20479,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202007/15368_105_1.jpg",
           "ImageAlter": "고스트버스터즈 라이즈",
-          "MediaURL": "./img/MovieMedia/202007/15368_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202007/15368_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "105",
           "MediaTitle": ""
@@ -20739,7 +20739,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15740_109_1.jpg",
           "ImageAlter": "바람의 언덕",
-          "MediaURL": "./img/MovieMedia/202004/15740_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15740_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -20749,7 +20749,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15740_109_2.jpg",
           "ImageAlter": "바람의 언덕",
-          "MediaURL": "./img/MovieMedia/202004/15740_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15740_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -21057,7 +21057,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15732_109_1.jpg",
           "ImageAlter": "나의 청춘은 너의 것",
-          "MediaURL": "./img/MovieMedia/202004/15732_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15732_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -21067,7 +21067,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15732_109_2.jpg",
           "ImageAlter": "나의 청춘은 너의 것",
-          "MediaURL": "./img/MovieMedia/202004/15732_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15732_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -21077,7 +21077,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15732_109_3.jpg",
           "ImageAlter": "나의 청춘은 너의 것",
-          "MediaURL": "./img/MovieMedia/202004/15732_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15732_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "첫키스 비하인드 영상"
@@ -21515,7 +21515,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15558_109_1.jpg",
           "ImageAlter": "밥정",
-          "MediaURL": "./img/MovieMedia/202003/15558_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15558_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -21525,7 +21525,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15558_109_2.jpg",
           "ImageAlter": "밥정",
-          "MediaURL": "./img/MovieMedia/202003/15558_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15558_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -21535,7 +21535,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15558_109_3.jpg",
           "ImageAlter": "밥정",
-          "MediaURL": "./img/MovieMedia/202003/15558_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15558_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "김혜수 배우 추천영상"
@@ -21545,7 +21545,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15558_109_4.jpg",
           "ImageAlter": "밥정",
-          "MediaURL": "./img/MovieMedia/202003/15558_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15558_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "30초 예고편"
@@ -21555,7 +21555,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202003/15558_109_5.jpg",
           "ImageAlter": "밥정",
-          "MediaURL": "./img/MovieMedia/202003/15558_301_5.mp4",
+          "MediaURL": "/img/MovieMedia/202003/15558_301_5.mp4",
           "SortSequence": 5,
           "ImageTypeCd": "109",
           "MediaTitle": "내레이션 예고편"
@@ -21839,7 +21839,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15467_109_1.jpg",
           "ImageAlter": "슈퍼스타 뚜루",
-          "MediaURL": "./img/MovieMedia/202002/15467_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15467_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -22103,7 +22103,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15648_109_1.jpg",
           "ImageAlter": "캣츠토피아",
-          "MediaURL": "./img/MovieMedia/202004/15648_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15648_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 예고편"
@@ -22113,7 +22113,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15648_109_2.jpg",
           "ImageAlter": "캣츠토피아",
-          "MediaURL": "./img/MovieMedia/202004/15648_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15648_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "티저 30초 예고편"
@@ -22123,7 +22123,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15648_109_3.jpg",
           "ImageAlter": "캣츠토피아",
-          "MediaURL": "./img/MovieMedia/202004/15648_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15648_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 30초 예고편"
@@ -22133,7 +22133,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202004/15648_109_4.jpg",
           "ImageAlter": "캣츠토피아",
-          "MediaURL": "./img/MovieMedia/202004/15648_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202004/15648_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -22617,7 +22617,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15571_109_1.jpg",
           "ImageAlter": "비밀정보원: 인 더 프리즌",
-          "MediaURL": "./img/MovieMedia/202002/15571_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15571_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "1차 예고편"
@@ -22627,7 +22627,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15571_109_2.jpg",
           "ImageAlter": "비밀정보원: 인 더 프리즌",
-          "MediaURL": "./img/MovieMedia/202002/15571_301_2.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15571_301_2.mp4",
           "SortSequence": 2,
           "ImageTypeCd": "109",
           "MediaTitle": "메인 예고편"
@@ -22637,7 +22637,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15571_109_3.jpg",
           "ImageAlter": "비밀정보원: 인 더 프리즌",
-          "MediaURL": "./img/MovieMedia/202002/15571_301_3.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15571_301_3.mp4",
           "SortSequence": 3,
           "ImageTypeCd": "109",
           "MediaTitle": "캐릭터 예고편"
@@ -22647,7 +22647,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15571_109_4.jpg",
           "ImageAlter": "비밀정보원: 인 더 프리즌",
-          "MediaURL": "./img/MovieMedia/202002/15571_301_4.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15571_301_4.mp4",
           "SortSequence": 4,
           "ImageTypeCd": "109",
           "MediaTitle": "파이널 예고편"
@@ -22657,7 +22657,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202002/15571_109_5.jpg",
           "ImageAlter": "비밀정보원: 인 더 프리즌",
-          "MediaURL": "./img/MovieMedia/202002/15571_301_5.mp4",
+          "MediaURL": "/img/MovieMedia/202002/15571_301_5.mp4",
           "SortSequence": 5,
           "ImageTypeCd": "109",
           "MediaTitle": "액션 예고편"
@@ -22827,7 +22827,7 @@
           "ImageDivisionName": "Movie",
           "ImageURL": "/img/MovieImg/202005/15586_109_1.jpg",
           "ImageAlter": "분노의 질주: 더 얼티메이트",
-          "MediaURL": "./img/MovieMedia/202005/15586_301_1.mp4",
+          "MediaURL": "/img/MovieMedia/202005/15586_301_1.mp4",
           "SortSequence": 1,
           "ImageTypeCd": "109",
           "MediaTitle": "1차 예고편"
