@@ -1,0 +1,36 @@
+.review-list {
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #ccc;
+}
+.header .total {
+  font-size: 15px;
+}
+.header button {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #666;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.header button::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin: -2px 8px 0 0;
+  background: #ddd;
+  border-radius: 50%;
+  vertical-align: middle;
+  transition: all 0.3s ease;
+}
+.header button.active::before {
+  background: #ff7787;
+}

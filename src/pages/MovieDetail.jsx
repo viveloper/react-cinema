@@ -19,10 +19,15 @@ import Preference from '../components/MovieDetail/Preference';
 import GenderPrefer from '../components/MovieDetail/GenderPrefer';
 import AgePrefer from '../components/MovieDetail/AgePrefer';
 import Trailer from '../components/MovieDetail/Trailer.jsx';
+import Poster from '../components/MovieDetail/Poster.jsx';
 import Casting from '../components/MovieDetail/Casting';
 import ScoreAndReview from '../components/MovieDetail/ScoreAndReview';
+import ScoreBox from '../components/MovieDetail/ScoreBox';
+import ReviewBox from '../components/MovieDetail/ReviewBox';
+import ReviewList from '../components/MovieDetail/ReviewList';
 
 import moviesDetail from '../data/moviesDetail.json';
+import moviesReview from '../data/reviewData.json';
 
 const MovieDetail = ({ location }) => {
   const [activeTab, setActiveTab] = useState('info');
@@ -31,6 +36,9 @@ const MovieDetail = ({ location }) => {
   const movieCode = query.movie;
   const movieDetail = moviesDetail.filter(
     (movieDetail) => movieDetail.Movie.RepresentationMovieCode === movieCode
+  )[0];
+  const movieReview = moviesReview.filter(
+    (moviesReview) => moviesReview.RepresentationMovieCode === movieCode
   )[0];
 
   const carouselItems = movieDetail.Trailer.Items.filter(
@@ -71,7 +79,11 @@ const MovieDetail = ({ location }) => {
       </Summary>
 
       <DetailInfo>
-        <Tabs activeTab={activeTab} onTabClick={handleTabClick} />
+        <Tabs
+          activeTab={activeTab}
+          reviewCount={movieReview.ReviewCounts.TotalReviewCount}
+          onTabClick={handleTabClick}
+        />
         {activeTab === 'info' ? (
           <MovieInfo>
             <Articles>
@@ -90,10 +102,18 @@ const MovieDetail = ({ location }) => {
               </Preference>
             </Articles>
             <Trailer items={movieDetail.Trailer.Items} />
+            <Poster items={movieDetail.Trailer.Items} />
             <Casting items={movieDetail.Casting.Items} />
           </MovieInfo>
         ) : (
-          <ScoreAndReview />
+          <ScoreAndReview>
+            <ScoreBox score={movieReview.ReviewCounts.MarkAvg} />
+            <ReviewBox />
+            <ReviewList
+              items={movieReview.TotalReviewItems.Items}
+              total={movieReview.ReviewCounts.TotalReviewCount}
+            />
+          </ScoreAndReview>
         )}
       </DetailInfo>
     </Layout>

@@ -1,7 +1,8 @@
 import React from 'react';
 import classes from './Tabs.module.css';
+import { numberWithCommas } from '../../util';
 
-const Tabs = ({ activeTab, onTabClick }) => {
+const Tabs = ({ activeTab, onTabClick, reviewCount }) => {
   return (
     <div className={classes['tabs']}>
       <button
@@ -18,7 +19,7 @@ const Tabs = ({ activeTab, onTabClick }) => {
         }`}
         onClick={() => onTabClick('review')}
       >
-        평점 및 관람평
+        {`평점 및 관람평 (${numberWithCommas(reviewCount)})`}
       </button>
     </div>
   );
