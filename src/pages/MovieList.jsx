@@ -8,7 +8,7 @@ import ListTypeButton from '../components/MovieList/ListTypeButton';
 import SortTypeButtons from '../components/MovieList/SortTypeButtons';
 import SortTypeButton from '../components/MovieList/SortTypeButton';
 import List from '../components/MovieList/List';
-import MoreButton from '../components/MovieList/MoreButton';
+import MoreButton from '../components/MoreButton';
 
 import movieData from '../data/movies.json';
 import carouselItems from '../data/carouselItems02';
