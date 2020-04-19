@@ -3,32 +3,49 @@ import MoreButton from '../MoreButton';
 import classes from './ReviewList.module.css';
 import { numberWithCommas } from '../../util';
 
+const ONE_PAGE_REVIEW_NUM = 10;
+
 const ReviewList = ({ items, total }) => {
-  const [reviewData, setReviewData] = useState([...items]);
+  const [reviewData, setReviewData] = useState([]);
   const [sortType, setSortType] = useState('recent');
   const [pageOffset, setPageOffset] = useState(1);
-
-  const ONE_PAGE_REVIEW_NUM = 10;
+  const [visibleMoreButton, setVisibleMoreButton] = useState(false);
 
   useEffect(() => {
-    const sortedReviewData = [...reviewData];
-    if (sortType === 'recent') {
-      sortedReviewData.sort((a, b) => {
-        const dateA = a.RegistDate.toUpperCase(); // ignore upper and lowercase
-        var dateB = b.RegistDate.toUpperCase(); // ignore upper and lowercase
-        if (dateA < dateB) {
-          return 1;
-        }
-        if (dateA > dateB) {
-          return -1;
-        }
-        return 0;
-      });
-    } else if (sortType === 'like') {
-      sortedReviewData.sort((a, b) => b.RecommandCount - a.RecommandCount);
+    const getReviewData = () => {
+      const allReview = [...items];
+      if (sortType === 'recent') {
+        allReview.sort((a, b) => {
+          const dateA = a.RegistDate.toUpperCase(); // ignore upper and lowercase
+          var dateB = b.RegistDate.toUpperCase(); // ignore upper and lowercase
+          if (dateA < dateB) {
+            return 1;
+          }
+          if (dateA > dateB) {
+            return -1;
+          }
+          return 0;
+        });
+      } else if (sortType === 'like') {
+        allReview.sort((a, b) => b.RecommandCount - a.RecommandCount);
+      }
+      return allReview;
+    };
+
+    const allReview = getReviewData();
+    const paginationReview = allReview.slice(
+      0,
+      ONE_PAGE_REVIEW_NUM * pageOffset
+    );
+
+    setReviewData(paginationReview);
+
+    if (pageOffset * ONE_PAGE_REVIEW_NUM < allReview.length) {
+      setVisibleMoreButton(true);
+    } else {
+      setVisibleMoreButton(false);
     }
-    setReviewData(sortedReviewData);
-  }, [sortType]);
+  }, [items, sortType, pageOffset]);
 
   const handleSortBtnClick = (type) => {
     setSortType(type);
@@ -61,7 +78,7 @@ const ReviewList = ({ items, total }) => {
         </div>
       </div>
       <ul className={classes['items']}>
-        {reviewData.slice(0, ONE_PAGE_REVIEW_NUM * pageOffset).map((item) => {
+        {reviewData.map((item) => {
           let iconUrl = '';
           if (item.Evaluation >= 9) {
             iconUrl = '/img/icons/ic_survey_01.png';
@@ -107,7 +124,8 @@ const ReviewList = ({ items, total }) => {
           );
         })}
       </ul>
-      <MoreButton onClick={handleMoreClick} />
+
+      {visibleMoreButton ? <MoreButton onClick={handleMoreClick} /> : null}
     </div>
   );
 };

@@ -16,7 +16,7 @@ const Header = ({ theme }) => {
           </h1>
           <ul className={`${classes.menu} ${classes.menu1}`}>
             <li>
-              <a href="#">
+              <a href="##">
                 <span>
                   <i className="fab fa-facebook"></i>
                 </span>{' '}
@@ -24,7 +24,7 @@ const Header = ({ theme }) => {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="##">
                 <span>
                   <i className="fab fa-youtube"></i>
                 </span>{' '}
@@ -34,40 +34,40 @@ const Header = ({ theme }) => {
           </ul>
           <ul className={`${classes.menu} ${classes.menu2}`}>
             <li>
-              <a href="#">멤버십</a>
+              <a href="##">멤버십</a>
             </li>
             <li>
-              <a href="#">고객센터</a>
+              <a href="##">고객센터</a>
             </li>
             <li>
-              <a href="#">로그인</a>
+              <a href="##">로그인</a>
             </li>
           </ul>
         </div>
         <nav className={classes.navigation}>
           <ul className={classes.links}>
             <li>
-              <a href="#">예매</a>
+              <a href="##">예매</a>
             </li>
             <li>
               <Link to="/movie">영화</Link>
             </li>
             <li>
-              <a href="#">영화관</a>
+              <a href="##">영화관</a>
             </li>
             <li>
-              <a href="#">이벤트</a>
+              <a href="##">이벤트</a>
             </li>
             <li>
-              <a href="#">스토어</a>
+              <a href="##">스토어</a>
             </li>
             <li>
-              <a href="#">VOD</a>
+              <a href="##">VOD</a>
             </li>
           </ul>
           <ul className={`${classes.menu} ${classes.menu3}`}>
             <li>
-              <a href="#">
+              <a href="##">
                 <span>
                   <i className="fas fa-user"></i>
                 </span>{' '}
@@ -75,7 +75,7 @@ const Header = ({ theme }) => {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="##">
                 <span>
                   <i className="fas fa-bookmark"></i>
                 </span>{' '}

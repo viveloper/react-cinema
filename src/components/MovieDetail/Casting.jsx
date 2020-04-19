@@ -10,13 +10,13 @@ const Casting = ({ items }) => {
           <li key={item.StaffImage} className={classes['staff']}>
             <img
               src={item.StaffImage}
-              alt="Staff Image"
+              alt="Staff"
               width="90"
               height="90"
               className={classes['staff-image']}
             />
             <div className={classes['staff-info']}>
-              <a href="#" className={classes['name']}>
+              <a href="##" className={classes['name']}>
                 {item.StaffName}
               </a>
               <p className={classes['role']}>{item.Role}</p>

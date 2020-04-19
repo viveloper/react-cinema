@@ -54,7 +54,7 @@ const Trailer = ({ items }) => {
             <img
               className={classes['media-image']}
               src={item.ImageURL}
-              alt="Media Image"
+              alt="trailer"
               width={313}
               height={193}
             />

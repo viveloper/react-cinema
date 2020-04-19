@@ -52,7 +52,7 @@ const Carousel = ({ theme, height, width, items }) => {
                 item.video ? classes.playable : ''
               }`}
             >
-              <a href="#" onClick={(e) => handleImgClick(e, index)}>
+              <a href="#play" onClick={(e) => handleImgClick(e, index)}>
                 <div
                   className={classes.imgContainer}
                   style={{

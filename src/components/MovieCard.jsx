@@ -11,7 +11,7 @@ const MovieCard = ({ movie, number, theme }) => {
         <img src={movie.PosterURL} alt="poster" />
         <em className={classes.index}>{number}</em>
         <div className={classes.hoverLayer}>
-          <a href="#">예매하기</a>
+          <a href="##">예매하기</a>
           <Link
             to={`/movie/movieDetailView?movie=${movie.RepresentationMovieCode}`}
           >

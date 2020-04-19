@@ -9,7 +9,7 @@ const SortTypeButton = ({ type, name, active, onClick }) => {
   return (
     <li className={classes['sort-type-btn']}>
       <a
-        href="#"
+        href="##"
         className={active ? classes['active'] : ''}
         onClick={handleClick}
       >

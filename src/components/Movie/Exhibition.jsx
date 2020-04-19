@@ -17,7 +17,7 @@ const Exhibition = ({ type, title, subTitle, linkName, movies }) => {
           <br />
           {title}
         </div>
-        <a href="#" style={{ color: fontColor }}>
+        <a href="##" style={{ color: fontColor }}>
           {linkName ? linkName + ' >' : ''}
         </a>
       </div>
