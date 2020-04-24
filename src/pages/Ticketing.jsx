@@ -13,6 +13,9 @@ import SectionMovie from '../components/Ticketing/SectionMovie';
 import TypeMenu from '../components/Ticketing/TypeMenu';
 import MovieList from '../components/Ticketing/MovieList';
 import SectionTime from '../components/Ticketing/SectionTime';
+import Calendar from '../components/Ticketing/Calendar';
+import FilteringTabs from '../components/Ticketing/FilteringTabs';
+import ResultView from '../components/Ticketing/ResultView';
 
 import ticketingInfo from '../data/ticketingInfo.json';
 
