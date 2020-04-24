@@ -103,6 +103,9 @@ const Ticketing = () => {
           </SectionMovie>
           <SectionTime>
             <SectionTitle title="2020-04-22(오늘)" />
+            <Calendar />
+            <FilteringTabs />
+            <ResultView />
           </SectionTime>
         </Step01>
 
