@@ -38,6 +38,9 @@ const Ticketing = () => {
   const movies = ticketingInfo.Movies.Movies.Items.filter(
     (movie) => movie.BookingYN === 'Y'
   );
+  const playDates = ticketingInfo.MoviePlayDates.Items.Items.filter(
+    (date) => date.IsPlayDate === 'Y'
+  );
 
   const handleStepClick = (step) => {
     setStep(step);
@@ -106,7 +109,7 @@ const Ticketing = () => {
           </SectionMovie>
           <SectionTime>
             <SectionTitle title="2020-04-22(오늘)" />
-            <Calendar />
+            <Calendar playDates={playDates} />
             <FilteringTabs />
             <ResultView />
           </SectionTime>
