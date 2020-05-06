@@ -1,0 +1,12 @@
+.result-view {
+  padding: 0 20px;
+}
+.movie-time-title {
+  display: flex;
+  align-items: center;
+}
+.movie-time-title .movie-name {
+  font-size: 15px;
+  color: #000;
+  margin-left: 10px;
+}

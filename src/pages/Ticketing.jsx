@@ -18,6 +18,7 @@ import FilteringTabs from '../components/Ticketing/FilteringTabs';
 import ResultView from '../components/Ticketing/ResultView';
 
 import ticketingInfo from '../data/ticketingInfo.json';
+import playSeqsInfo from '../data/playSeqs.json';
 
 const Ticketing = () => {
   const [step, setStep] = useState(1);
@@ -41,6 +42,7 @@ const Ticketing = () => {
   const playDates = ticketingInfo.MoviePlayDates.Items.Items.filter(
     (date) => date.IsPlayDate === 'Y'
   );
+  const playSeqs = playSeqsInfo.PlaySeqs.Items;
 
   const handleStepClick = (step) => {
     setStep(step);
@@ -111,7 +113,7 @@ const Ticketing = () => {
             <SectionTitle title="2020-04-22(오늘)" />
             <Calendar playDates={playDates} />
             <FilteringTabs />
-            <ResultView />
+            <ResultView playSeqs={playSeqs} />
           </SectionTime>
         </Step01>
 
