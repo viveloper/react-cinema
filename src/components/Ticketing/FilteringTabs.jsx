@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classes from './FilteringTabs.module.css';
 const FilteringTabs = () => {
-  const [activeTab, setActiveTab] = useState('special');
+  const [activeTab, setActiveTab] = useState('all');
   const handleClick = (tabName) => {
     setActiveTab(tabName);
   };
