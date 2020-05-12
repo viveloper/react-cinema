@@ -18,7 +18,6 @@ const MovieList = ({
 
   const sortedMovies = sortMovies([...movies], sortType);
 
-  console.log(sortedMovies);
   return (
     <ul className={classes['movie-list']}>
       {sortedMovies.map((movie, index) => {
