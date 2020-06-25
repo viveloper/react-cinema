@@ -1,31 +1,20 @@
 import React from 'react';
 
-import Layout from '../components/Layout';
-import Carousel from '../components/Carousel';
-import SectionTop5Movies from '../components/Movie/SectionTop5Movies';
-import Top5Movies from '../components/Movie/Top5Movies';
-import ExhibitionList from '../components/Movie/ExhibitionList';
-import Exhibition from '../components/Movie/Exhibition';
+import Carousel from '../Carousel';
+import SectionTop5Movies from './SectionTop5Movies';
+import Top5Movies from './Top5Movies';
+import ExhibitionList from './ExhibitionList';
+import Exhibition from './Exhibition';
 
-import movieData from '../data/movies.json';
-import carouselItems from '../data/carouselItems02';
-
-const movies = movieData.Movies.Items[0].Items;
-
-const Movie = () => {
-  const top5CurrentMovies = movies
-    .filter((movie) => parseInt(movie.DDay) === 0)
-    .slice(0, 5);
-
-  const top5PreMovies = movies
-    .filter((movie) => parseInt(movie.DDay) > 0)
-    .slice(0, 5);
-
-  const arteMovies = movies.slice(1, 4);
-  const operaMovies = movies.slice(5, 6);
-
+const Movies = ({
+  carouselItems,
+  top5CurrentMovies,
+  top5PreMovies,
+  arteMovies,
+  operaMovies,
+}) => {
   return (
-    <Layout theme="light">
+    <>
       <Carousel height={420} items={carouselItems} />
 
       <SectionTop5Movies>
@@ -54,8 +43,8 @@ const Movie = () => {
         />
         <Exhibition type="festival" title="인생영화" subTitle="초바시네마의" />
       </ExhibitionList>
-    </Layout>
+    </>
   );
 };
 
-export default Movie;
+export default Movies;

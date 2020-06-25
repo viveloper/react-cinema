@@ -1,5 +1,5 @@
 import React from 'react';
-import Movies from '../Movies';
+import MovieCardList from '../MovieCardList';
 import classes from './Exhibition.module.css';
 
 const Exhibition = ({ type, title, subTitle, linkName, movies }) => {
@@ -22,7 +22,7 @@ const Exhibition = ({ type, title, subTitle, linkName, movies }) => {
         </a>
       </div>
       {movies && movies.length > 0 ? (
-        <Movies movies={movies} activeNum={1} theme="light" />
+        <MovieCardList movies={movies} activeNum={1} theme="light" />
       ) : (
         <div className={classes.commingSoon}>
           <div>comming soon</div>

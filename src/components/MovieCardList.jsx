@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MovieCard from './MovieCard';
 import classes from './Movies.module.css';
 
-const MovieList = ({ theme, movies, activeNum }) => {
+const MovieCardList = ({ theme, movies, activeNum }) => {
   const [startActiveIndex, setStartActiveIndex] = useState(0);
 
   const handlePrevClick = () => {
@@ -60,4 +60,4 @@ const MovieList = ({ theme, movies, activeNum }) => {
   );
 };
 
-export default MovieList;
+export default MovieCardList;

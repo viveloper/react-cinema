@@ -1,0 +1,32 @@
+[
+  {
+    "img": "/img/ad/TimeFreak.jpg",
+    "video": "/img/ad/TimeFreak.mp4",
+    "use": "home"
+  },
+  {
+    "img": "/img/ad/MySpy.jpg",
+    "video": "/img/ad/MySpy.mp4",
+    "use": "home"
+  },
+  {
+    "img": "/img/ad/Stray.jpg",
+    "video": "/img/ad/Stray.mp4",
+    "use": "home"
+  },
+  {
+    "img": "/img/ad/TimeFreak2.jpg",
+    "video": "/img/ad/TimeFreak.mp4",
+    "use": "movie"
+  },
+  {
+    "img": "/img/ad/MySpy2.jpg",
+    "video": "/img/ad/MySpy.mp4",
+    "use": "movie"
+  },
+  {
+    "img": "/img/ad/Stray2.jpg",
+    "video": "/img/ad/Stray.mp4",
+    "use": "movie"
+  }
+]

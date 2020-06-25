@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Movies from '../Movies';
+import MovieCardList from '../MovieCardList';
 
 import classes from './Top5Movies.module.css';
 
@@ -13,9 +13,9 @@ const Top5Movies = ({ title, movies, type }) => {
           <h3 className={classes['title']}>
             {title} <strong>TOP 5</strong>
           </h3>
-          <Link to={`/movie/list?type=${type}`}>더보기 ></Link>
+          <Link to={`/movies/${type}`}>{'더보기 >'}</Link>
         </div>
-        <Movies movies={movies} activeNum={5} theme="light" />
+        <MovieCardList movies={movies} activeNum={5} theme="light" />
       </div>
     </div>
   );

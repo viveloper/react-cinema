@@ -50,7 +50,7 @@ const Header = ({ theme }) => {
               <a href="/ticketing">예매</a>
             </li>
             <li>
-              <Link to="/movie">영화</Link>
+              <Link to="/movies">영화</Link>
             </li>
             <li>
               <a href="##">영화관</a>
