@@ -21,9 +21,9 @@ const HomeContainer = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCarouselItems());
-    dispatch(getMovies());
-  }, [dispatch]);
+    if (!carouselItems) dispatch(getCarouselItems());
+    if (!movies) dispatch(getMovies());
+  }, [dispatch, carouselItems, movies]);
 
   const filteredCarouselItems = useMemo(
     () =>
