@@ -1,29 +1,59 @@
-import React from 'react';
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import MovieDetail from '../components/MovieDetail';
-
-import moviesDetail from '../data/moviesDetail.json';
-import moviesReview from '../data/reviewData.json';
+import { useSelector, useDispatch } from 'react-redux';
+import { getMovieDetail, getMovieReview } from '../modules/movie';
 
 const MovieDetailContainer = ({ movieCode }) => {
   const [activeTab, setActiveTab] = useState('info');
 
-  const movieDetail = moviesDetail.filter(
-    (movieDetail) => movieDetail.Movie.RepresentationMovieCode === movieCode
-  )[0];
-  const movieReview = moviesReview.filter(
-    (moviesReview) => moviesReview.RepresentationMovieCode === movieCode
-  )[0];
+  const {
+    loading: movieDetailLoading,
+    data: movieDetail,
+    error: movieDetailError,
+  } = useSelector((state) => state.movie.movieDetail);
 
-  const carouselItems = movieDetail.Trailer.Items.filter(
-    (trailer) => trailer.ImageDivisionCode === '1'
-  ).map((trailer) => ({
-    img: trailer.ImageURL,
-  }));
+  const {
+    loading: movieReviewLoading,
+    data: movieReview,
+    error: movieReviewError,
+  } = useSelector((state) => state.movie.movieReview);
 
-  const handleTabClick = (tabName) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMovieDetail(movieCode));
+    dispatch(getMovieReview(movieCode));
+  }, [dispatch, movieCode]);
+
+  const carouselItems = useMemo(
+    () =>
+      movieDetail
+        ? movieDetail.Trailer.Items.filter(
+            (trailer) => trailer.ImageDivisionCode === '1'
+          ).map((trailer) => ({
+            img: trailer.ImageURL,
+          }))
+        : null,
+    [movieDetail]
+  );
+
+  const handleTabClick = useCallback((tabName) => {
     setActiveTab(tabName);
-  };
-  return <MovieDetail />;
+  }, []);
+
+  if (movieDetailLoading || movieReviewLoading) return <div>loading...</div>;
+  if (movieDetailError || movieReviewError) return <div>error!</div>;
+  if (!movieDetail || !movieReview) return null;
+
+  return (
+    <MovieDetail
+      carouselItems={carouselItems}
+      movieDetail={movieDetail}
+      movieReview={movieReview}
+      activeTab={activeTab}
+      handleTabClick={handleTabClick}
+    />
+  );
 };
 
 export default MovieDetailContainer;
