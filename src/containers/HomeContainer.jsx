@@ -26,7 +26,10 @@ const HomeContainer = () => {
   }, [dispatch]);
 
   const filteredCarouselItems = useMemo(
-    () => carouselItems && carouselItems.filter((item) => item.use === 'home'),
+    () =>
+      carouselItems
+        ? carouselItems.filter((item) => item.use === 'home')
+        : null,
     [carouselItems]
   );
 

@@ -29,7 +29,7 @@ import ReviewList from '../components/MovieDetail/ReviewList';
 import moviesDetail from '../data/moviesDetail.json';
 import moviesReview from '../data/reviewData.json';
 
-const MovieDetail = ({ location }) => {
+const MovieDetailPage = ({ location }) => {
   const [activeTab, setActiveTab] = useState('info');
 
   const query = queryString.parse(location.search);
@@ -120,4 +120,4 @@ const MovieDetail = ({ location }) => {
   );
 };
 
-export default MovieDetail;
+export default MovieDetailPage;

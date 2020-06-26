@@ -3,8 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
 import MoviesPage from './pages/MoviesPage';
-// import MovieListPage from './pages/MovieListPage';
-// import MovieDetailPage from './pages/MovieDetail';
+import MovieListPage from './pages/MovieListPage';
+// import MovieDetailPage from './pages/MovieDetailPage';
 // import Ticketing from './pages/Ticketing';
 import LoginPage from './pages/Login';
 import ErrorPage from './pages/Error';
@@ -32,7 +32,7 @@ function App() {
           <Route path="/" exact component={HomePage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/movies" exact component={MoviesPage} />
-          {/* <Route path="/movies/:type" component={MovieListPage} /> */}
+          <Route path="/movies/:listType" component={MovieListPage} />
           {/* <Route path="/movie/movieDetailView" component={MovieDetailPage} /> */}
           {/* <Route path="/ticketing" exact component={Ticketing} /> */}
           <Route path="*" component={ErrorPage} />

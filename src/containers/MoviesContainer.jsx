@@ -26,25 +26,35 @@ const MoviesContainer = () => {
   }, [dispatch]);
 
   const filteredCarouselItems = useMemo(
-    () => carouselItems && carouselItems.filter((item) => item.use === 'movie'),
+    () =>
+      carouselItems
+        ? carouselItems.filter((item) => item.use === 'movie')
+        : null,
     [carouselItems]
   );
 
   const top5CurrentMovies = useMemo(
     () =>
-      movies &&
-      movies.filter((movie) => parseInt(movie.DDay) === 0).slice(0, 5),
+      movies
+        ? movies.filter((movie) => parseInt(movie.DDay) === 0).slice(0, 5)
+        : null,
     [movies]
   );
 
   const top5PreMovies = useMemo(
     () =>
-      movies && movies.filter((movie) => parseInt(movie.DDay) > 0).slice(0, 5),
+      movies
+        ? movies.filter((movie) => parseInt(movie.DDay) > 0).slice(0, 5)
+        : null,
     [movies]
   );
 
-  const arteMovies = useMemo(() => movies && movies.slice(1, 4), [movies]);
-  const operaMovies = useMemo(() => movies && movies.slice(5, 6), [movies]);
+  const arteMovies = useMemo(() => (movies ? movies.slice(1, 4) : null), [
+    movies,
+  ]);
+  const operaMovies = useMemo(() => (movies ? movies.slice(5, 6) : null), [
+    movies,
+  ]);
 
   if (carouselItemsLoading || moviesLoading) return <div>loading...</div>;
   if (carouselItemsError || moviesError) return <div>error!</div>;

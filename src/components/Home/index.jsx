@@ -15,4 +15,4 @@ const Home = ({ movies, carouselItems }) => {
   );
 };
 
-export default Home;
+export default React.memo(Home);
