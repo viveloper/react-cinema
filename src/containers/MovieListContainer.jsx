@@ -4,10 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import MovieList from '../components/MovieList';
 import { getCarouselItems } from '../modules/carouselItems';
 import { getMovies } from '../modules/movies';
+import { redirectPath } from '../modules/browserHistory';
 
 const ONE_PAGE_ITEM_NUM = 15;
 
-const MovieListContainer = ({ history, listType }) => {
+const MovieListContainer = ({ listType }) => {
   const [pageOffset, setPageOffset] = useState(1);
   const [sortType, setSortType] = useState('');
 
@@ -37,10 +38,10 @@ const MovieListContainer = ({ history, listType }) => {
   const handleListTypeBtnClick = useCallback(
     (type) => {
       if (listType === type) return;
-      history.push(`/movies/${type}`);
+      dispatch(redirectPath(`/movies/${type}`));
       setPageOffset(1);
     },
-    [history, listType]
+    [listType, dispatch]
   );
 
   const handleSortTypeBtnClick = useCallback(
