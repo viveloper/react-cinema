@@ -47,7 +47,7 @@ const Header = ({ theme }) => {
         <nav className={classes.navigation}>
           <ul className={classes.links}>
             <li>
-              <a href="/ticketing">예매</a>
+              <Link to="/ticketing">예매</Link>
             </li>
             <li>
               <Link to="/movies">영화</Link>

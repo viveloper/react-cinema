@@ -95,85 +95,86 @@ const ResultView = ({ playSeqs }) => {
       }
     }
   });
-  console.log(movieList);
 
-  const sampleMovieList = [
-    {
-      RepresentationMovieCode: '15449',
-      MovieNameKR: '1917',
-      MovieNameUS: '1917',
-      ViewGradeCode: 15,
-      divisions: [
-        {
-          FilmCode: 200,
-          FilmNameKR: '2D',
-          FilmNameUS: '2D',
-          ScreenDivisionCode: 100,
-          ScreenDivisionNameKR: '일반',
-          ScreenDivisionNameUS: '(EN)일반',
-          ScreenDesc: '본 상영관은 타 상영관과 영화 요금이 동일합니다.',
-          times: [
-            {
-              PlaySequence: 1,
-              PlayDt: '2020-04-24',
-              StartTime: '11:00',
-              EndTime: '11:56',
-              TotalSeatCount: 175,
-              BookingSeatCount: 172,
-              ScreenID: 100407,
-              ScreenNameKR: '7관',
-              ScreenNameUS: 'CINEMA 7',
-            },
-            {
-              PlaySequence: 2,
-              PlayDt: '2020-04-24',
-              StartTime: '13:00',
-              EndTime: '13:56',
-              TotalSeatCount: 175,
-              BookingSeatCount: 172,
-              ScreenID: 100407,
-              ScreenNameKR: '7관',
-              ScreenNameUS: 'CINEMA 7',
-            },
-          ],
-        },
-        {
-          FilmCode: 200,
-          FilmNameKR: '2D',
-          FilmNameUS: '2D',
-          ScreenDivisionCode: 980,
-          ScreenDivisionNameKR: '수퍼 S',
-          ScreenDivisionNameUS: '(US)수퍼 S',
-          ScreenDesc:
-            '더욱 선명한 화질의 수퍼 S는 일반 요금과 동일한 프로모션이 진행 중입니다. ',
-          times: [
-            {
-              PlaySequence: 1,
-              PlayDt: '2020-04-24',
-              StartTime: '11:00',
-              EndTime: '11:56',
-              TotalSeatCount: 175,
-              BookingSeatCount: 172,
-              ScreenID: 100407,
-              ScreenNameKR: '7관',
-              ScreenNameUS: 'CINEMA 7',
-            },
-            {
-              PlaySequence: 2,
-              PlayDt: '2020-04-24',
-              StartTime: '13:00',
-              EndTime: '13:56',
-              TotalSeatCount: 175,
-              BookingSeatCount: 172,
-              ScreenID: 100407,
-              ScreenNameKR: '7관',
-              ScreenNameUS: 'CINEMA 7',
-            },
-          ],
-        },
-      ],
-    },
-  ];
+  // console.log(movieList);
+
+  // const sampleMovieList = [
+  //   {
+  //     RepresentationMovieCode: '15449',
+  //     MovieNameKR: '1917',
+  //     MovieNameUS: '1917',
+  //     ViewGradeCode: 15,
+  //     divisions: [
+  //       {
+  //         FilmCode: 200,
+  //         FilmNameKR: '2D',
+  //         FilmNameUS: '2D',
+  //         ScreenDivisionCode: 100,
+  //         ScreenDivisionNameKR: '일반',
+  //         ScreenDivisionNameUS: '(EN)일반',
+  //         ScreenDesc: '본 상영관은 타 상영관과 영화 요금이 동일합니다.',
+  //         times: [
+  //           {
+  //             PlaySequence: 1,
+  //             PlayDt: '2020-04-24',
+  //             StartTime: '11:00',
+  //             EndTime: '11:56',
+  //             TotalSeatCount: 175,
+  //             BookingSeatCount: 172,
+  //             ScreenID: 100407,
+  //             ScreenNameKR: '7관',
+  //             ScreenNameUS: 'CINEMA 7',
+  //           },
+  //           {
+  //             PlaySequence: 2,
+  //             PlayDt: '2020-04-24',
+  //             StartTime: '13:00',
+  //             EndTime: '13:56',
+  //             TotalSeatCount: 175,
+  //             BookingSeatCount: 172,
+  //             ScreenID: 100407,
+  //             ScreenNameKR: '7관',
+  //             ScreenNameUS: 'CINEMA 7',
+  //           },
+  //         ],
+  //       },
+  //       {
+  //         FilmCode: 200,
+  //         FilmNameKR: '2D',
+  //         FilmNameUS: '2D',
+  //         ScreenDivisionCode: 980,
+  //         ScreenDivisionNameKR: '수퍼 S',
+  //         ScreenDivisionNameUS: '(US)수퍼 S',
+  //         ScreenDesc:
+  //           '더욱 선명한 화질의 수퍼 S는 일반 요금과 동일한 프로모션이 진행 중입니다. ',
+  //         times: [
+  //           {
+  //             PlaySequence: 1,
+  //             PlayDt: '2020-04-24',
+  //             StartTime: '11:00',
+  //             EndTime: '11:56',
+  //             TotalSeatCount: 175,
+  //             BookingSeatCount: 172,
+  //             ScreenID: 100407,
+  //             ScreenNameKR: '7관',
+  //             ScreenNameUS: 'CINEMA 7',
+  //           },
+  //           {
+  //             PlaySequence: 2,
+  //             PlayDt: '2020-04-24',
+  //             StartTime: '13:00',
+  //             EndTime: '13:56',
+  //             TotalSeatCount: 175,
+  //             BookingSeatCount: 172,
+  //             ScreenID: 100407,
+  //             ScreenNameKR: '7관',
+  //             ScreenNameUS: 'CINEMA 7',
+  //           },
+  //         ],
+  //       },
+  //     ],
+  //   },
+  // ];
 
   return (
     <div className={classes['result-view']}>

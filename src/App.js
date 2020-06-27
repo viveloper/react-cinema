@@ -5,7 +5,7 @@ import HomePage from './pages/HomePage';
 import MoviesPage from './pages/MoviesPage';
 import MovieListPage from './pages/MovieListPage';
 import MovieDetailPage from './pages/MovieDetailPage';
-// import Ticketing from './pages/Ticketing';
+import TicketingPage from './pages/TicketingPage';
 import LoginPage from './pages/Login';
 import ErrorPage from './pages/Error';
 
@@ -41,7 +41,7 @@ function App() {
           <Route path="/movies" exact component={MoviesPage} />
           <Route path="/movies/:listType" component={MovieListPage} />
           <Route path="/movieDetail/:movieCode" component={MovieDetailPage} />
-          {/* <Route path="/ticketing" exact component={Ticketing} /> */}
+          <Route path="/ticketing" exact component={TicketingPage} />
           <Route path="*" component={ErrorPage} />
         </Switch>
       </Router>
