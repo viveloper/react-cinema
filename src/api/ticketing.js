@@ -1,6 +1,9 @@
 import ticketingInfo from './data/ticketingInfo.json';
 import playSeqsInfo from './data/playSeqs.json';
 
+// params
+// playDate(required), cinemaId(required), representationMovieCode(option)
+
 export const getTicketingInfo = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
