@@ -19,7 +19,13 @@ const TicketingContainer = () => {
 
   useEffect(() => {
     if (data) return;
-    dispatch(getTicketingInfo());
+    dispatch(
+      getTicketingInfo({
+        playDate: '2020-06-29',
+        cinemaId: 1004,
+        movieCode: null,
+      })
+    );
   }, [dispatch, data]);
 
   const {

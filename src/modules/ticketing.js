@@ -7,12 +7,25 @@ const GET_TICKETING_INFO_SUCCESS = 'GET_TICKETING_INFO_SUCCESS';
 const GET_TICKETING_INFO_ERROR = 'GET_TICKETING_INFO_ERROR';
 
 // action creator
-export const getTicketingInfo = () => ({ type: GET_TICKETING_INFO });
+export const getTicketingInfo = ({ playDate, cinemaId, movieCode }) => ({
+  type: GET_TICKETING_INFO,
+  payload: {
+    playDate,
+    cinemaId,
+    movieCode,
+  },
+});
 
 // worker saga
-function* getTicketingInfoSaga() {
+function* getTicketingInfoSaga(action) {
+  const { playDate, cinemaId, movieCode } = action.payload;
   try {
-    const ticketingInfo = yield call(ticketingApi.getTicketingInfo);
+    const ticketingInfo = yield call(
+      ticketingApi.getTicketingInfo,
+      playDate,
+      cinemaId,
+      movieCode
+    );
     yield put({
       type: GET_TICKETING_INFO_SUCCESS,
       payload: ticketingInfo,
