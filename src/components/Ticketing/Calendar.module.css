@@ -4,7 +4,7 @@
 }
 .center-container {
   width: 420px;
-  margin: 0 auto;
+  margin: 22px auto 10px auto;
   overflow: hidden;
 }
 .calendar ul {

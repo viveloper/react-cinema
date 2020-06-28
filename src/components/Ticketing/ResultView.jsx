@@ -120,29 +120,54 @@ const ResultView = ({ playSeqs }) => {
                 className={classes['division']}
               >
                 <div className={classes['division-title']}>
-                  <div>
+                  <div className={classes['hall']}>
                     {`${division.FilmNameKR}${
                       division.TranslationDivisionCode === 900
                         ? ''
-                        : ` | ${division.TranslationDivisionNameKR}`
+                        : division.TranslationDivisionCode === 100
+                        ? ` | 자막`
+                        : division.TranslationDivisionCode === 50
+                        ? ' | 더빙'
+                        : ''
                     }${
                       division.ScreenDivisionCode === 100
                         ? ''
                         : ` | ${division.ScreenDivisionNameKR}`
                     }`}
                   </div>
-                  <div>{`${division.ScreenDesc}`}</div>
-                </div>
-                {division.times.map((time) => (
                   <div
-                    key={`${time.ScreenID}|${time.PlaySequence}`}
-                    className={classes['time']}
-                  >
-                    <div>{time.StartTime}</div>
-                    <div>{`${time.BookingSeatCount} / ${time.TotalSeatCount}`}</div>
-                    <div>{`${time.ScreenNameKR}`}</div>
-                  </div>
-                ))}
+                    className={classes['desc']}
+                  >{`${division.ScreenDesc}`}</div>
+                </div>
+                <ul className={classes['play-seqs']}>
+                  {division.times
+                    .sort((a, b) => (a.StartTime < b.StartTime ? -1 : 1))
+                    .map((time) => (
+                      <li
+                        key={`${time.ScreenID}|${time.PlaySequence}`}
+                        className={classes['play-seq']}
+                      >
+                        <a href="##">
+                          <strong className={classes['time']}>
+                            {time.StartTime}
+                          </strong>
+                          <div className={classes['screen-info']}>
+                            <span className={classes['seat-count']}>
+                              <span className={classes['booking-seat-count']}>
+                                {time.BookingSeatCount}
+                              </span>
+                              <span
+                                className={classes['total-seat-count']}
+                              >{` / ${time.TotalSeatCount}`}</span>
+                            </span>
+                            <span
+                              className={classes['screen-name']}
+                            >{`${time.ScreenNameKR}`}</span>
+                          </div>
+                        </a>
+                      </li>
+                    ))}
+                </ul>
               </div>
             ))}
           </div>
