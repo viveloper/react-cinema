@@ -5,6 +5,18 @@ import classes from './ResultView.module.css';
 import { getViewGradeIconOptions } from '../../util';
 
 const ResultView = ({ playSeqs }) => {
+  if (!playSeqs || !playSeqs.length) {
+    return (
+      <div className={classes['no-result']}>
+        <div className={classes['center']}>
+          <img src="/img/icons/film.png" alt="film.png" />
+          <p>조회 가능한 상영시간이 없습니다.</p>
+          <p>조건을 변경해주세요.</p>
+        </div>
+      </div>
+    );
+  }
+
   const movieList = [];
 
   playSeqs.forEach((playSeq) => {

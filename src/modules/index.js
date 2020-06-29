@@ -4,6 +4,7 @@ import carouselItemsReducer, { carouselItemsSaga } from './carouselItems';
 import moviesReducer, { moviesSaga } from './movies';
 import movieReducer, { movieSaga } from './movie';
 import ticketingReducer, { ticketingSaga } from './ticketing';
+import playSeqsReducer, { playSeqsSaga } from './playSeqs';
 import { browserHistorySaga } from './browserHistory';
 
 export function* rootSaga() {
@@ -12,6 +13,7 @@ export function* rootSaga() {
     moviesSaga(),
     movieSaga(),
     ticketingSaga(),
+    playSeqsSaga(),
     browserHistorySaga(),
   ]);
 }
@@ -21,6 +23,7 @@ const rootReducer = combineReducers({
   movies: moviesReducer,
   movie: movieReducer,
   ticketing: ticketingReducer,
+  playSeqs: playSeqsReducer,
 });
 
 export default rootReducer;

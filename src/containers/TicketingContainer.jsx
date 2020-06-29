@@ -3,9 +3,15 @@ import Ticketing from '../components/Ticketing';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getTicketingInfo } from '../modules/ticketing';
+import { getPlaySeqs } from '../modules/playSeqs';
 
 const TicketingContainer = () => {
-  const { loading, data, error } = useSelector((state) => state.ticketing);
+  const { loading, data: ticketingInfo, error } = useSelector(
+    (state) => state.ticketing
+  );
+  const { playSeqsLoading, data: playSeqs, playSeqsError } = useSelector(
+    (state) => state.playSeqs
+  );
 
   const [step, setStep] = useState(1);
   const [tab, setTab] = useState('all');
@@ -14,19 +20,14 @@ const TicketingContainer = () => {
   const [movieListSortType, setMovieSortType] = useState('A');
   const [movieListViewType, setMovieListViewType] = useState('text');
   const [selectedMovie, setSelectedMovie] = useState('');
+  const [selectedDate, setSelectedDate] = useState('2020-04-19');
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (data) return;
-    dispatch(
-      getTicketingInfo({
-        playDate: '2020-06-29',
-        cinemaId: 1004,
-        movieCode: null,
-      })
-    );
-  }, [dispatch, data]);
+    if (ticketingInfo) return;
+    dispatch(getTicketingInfo());
+  }, [dispatch, ticketingInfo]);
 
   const {
     areaDivisions,
@@ -34,8 +35,7 @@ const TicketingContainer = () => {
     cinemas,
     movies,
     playDates,
-    playSeqs,
-  } = !data ? {} : data;
+  } = !ticketingInfo ? {} : ticketingInfo;
 
   const divisions = useMemo(
     () =>
@@ -75,9 +75,19 @@ const TicketingContainer = () => {
     setDetailDivisionCode(code);
   }, []);
 
-  const handleCinemaClick = useCallback((code) => {
-    setCinemaId(code);
-  }, []);
+  const handleCinemaClick = useCallback(
+    (id) => {
+      setCinemaId(id);
+      dispatch(
+        getPlaySeqs({
+          playDate: selectedDate,
+          cinemaId: id,
+          movieCode: selectedMovie,
+        })
+      );
+    },
+    [dispatch, selectedDate, selectedMovie]
+  );
 
   const handleMovieListSortTypeClick = useCallback((type) => {
     setMovieSortType(type);
@@ -87,13 +97,38 @@ const TicketingContainer = () => {
     setMovieListViewType(type);
   }, []);
 
-  const handleMovieClick = useCallback((code) => {
-    setSelectedMovie(code);
-  }, []);
+  const handleMovieClick = useCallback(
+    (code) => {
+      const movieCode = code !== selectedMovie ? code : '';
+      setSelectedMovie(movieCode);
+      dispatch(
+        getPlaySeqs({
+          playDate: selectedDate,
+          cinemaId: cinemaId,
+          movieCode,
+        })
+      );
+    },
+    [dispatch, selectedDate, cinemaId, selectedMovie]
+  );
+
+  const handleDateClick = useCallback(
+    (date) => {
+      setSelectedDate(date);
+      dispatch(
+        getPlaySeqs({
+          playDate: date,
+          cinemaId: cinemaId,
+          movieCode: selectedMovie,
+        })
+      );
+    },
+    [dispatch, cinemaId, selectedMovie]
+  );
 
   if (loading) return <div>loading...</div>;
   if (error) return <div>error!</div>;
-  if (!data) return null;
+  if (!ticketingInfo) return null;
 
   return (
     <Ticketing
@@ -109,6 +144,7 @@ const TicketingContainer = () => {
       movieListSortType={movieListSortType}
       movieListViewType={movieListViewType}
       selectedMovie={selectedMovie}
+      selectedDate={selectedDate}
       handleDivisionClick={handleDivisionClick}
       handleCinemaClick={handleCinemaClick}
       handleMovieListSortTypeClick={handleMovieListSortTypeClick}
@@ -116,6 +152,7 @@ const TicketingContainer = () => {
       handleMovieClick={handleMovieClick}
       handleStepClick={handleStepClick}
       handleTabClick={handleTabClick}
+      handleDateClick={handleDateClick}
     />
   );
 };

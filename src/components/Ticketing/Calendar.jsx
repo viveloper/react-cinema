@@ -3,7 +3,7 @@ import classes from './Calendar.module.css';
 
 const DATE_WIDTH = 52.5;
 
-const Calendar = ({ playDates }) => {
+const Calendar = ({ playDates, onDateClick }) => {
   const [slideDateIndex, setSlideDateIndex] = useState(0);
   const [currentDateIndex, setCurrentDateIndex] = useState(0);
 
@@ -17,6 +17,9 @@ const Calendar = ({ playDates }) => {
   };
   const handleDateClick = (year, month, day, index) => {
     setCurrentDateIndex(index);
+    onDateClick(
+      year + '-' + (month.length === 1 ? month : '0' + month) + '-' + day
+    );
   };
   return (
     <div className={classes['calendar']}>

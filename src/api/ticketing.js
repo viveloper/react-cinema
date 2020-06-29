@@ -1,42 +1,26 @@
 import ticketingInfo from './data/ticketingInfo.json';
-import playSeqsInfo from './data/playSeqs.json';
-// import playSeqsInfo2 from './data/playSeqs2.json';
 
-// params
-// playDate(required), cinemaId(required), representationMovieCode(option)
-export const getTicketingInfo = (playDate, cinemaId, movieCode) => {
+export const getTicketingInfo = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (!playDate || !cinemaId) {
-        resolve(null);
-      } else {
-        const areaDivisions = ticketingInfo.CinemaDivison.AreaDivisions.Items;
-        const specialTypeDivisions =
-          ticketingInfo.CinemaDivison.SpecialTypeDivisions.Items;
-        const cinemas = ticketingInfo.Cinemas.Cinemas.Items;
-        const movies = ticketingInfo.Movies.Movies.Items.filter(
-          (movie) => movie.BookingYN === 'Y'
-        );
-        const playDates = ticketingInfo.MoviePlayDates.Items.Items.filter(
-          (date) => date.IsPlayDate === 'Y'
-        );
-        const playSeqs = playSeqsInfo.PlaySeqs.Items.filter(
-          (item) => item.PlayDt === playDate
-        ).filter((item) => item.CinemaID === cinemaId);
+      const areaDivisions = ticketingInfo.CinemaDivison.AreaDivisions.Items;
+      const specialTypeDivisions =
+        ticketingInfo.CinemaDivison.SpecialTypeDivisions.Items;
+      const cinemas = ticketingInfo.Cinemas.Cinemas.Items;
+      const movies = ticketingInfo.Movies.Movies.Items.filter(
+        (movie) => movie.BookingYN === 'Y'
+      );
+      const playDates = ticketingInfo.MoviePlayDates.Items.Items.filter(
+        (date) => date.IsPlayDate === 'Y'
+      );
 
-        resolve({
-          areaDivisions,
-          specialTypeDivisions,
-          cinemas,
-          movies,
-          playDates,
-          playSeqs: !movieCode
-            ? playSeqs
-            : playSeqs.filter(
-                (item) => item.RepresentationMovieCode === movieCode
-              ),
-        });
-      }
+      resolve({
+        areaDivisions,
+        specialTypeDivisions,
+        cinemas,
+        movies,
+        playDates,
+      });
     }, 300);
   });
 };

@@ -30,6 +30,7 @@ const Ticketing = ({
   movieListSortType,
   movieListViewType,
   selectedMovie,
+  selectedDate,
   handleStepClick,
   handleTabClick,
   handleDivisionClick,
@@ -37,6 +38,7 @@ const Ticketing = ({
   handleMovieListSortTypeClick,
   handleMovieListViewTypeClick,
   handleMovieClick,
+  handleDateClick,
 }) => {
   return (
     <>
@@ -77,8 +79,8 @@ const Ticketing = ({
             />
           </SectionMovie>
           <SectionTime>
-            <SectionTitle title="2020-04-22(오늘)" />
-            <Calendar playDates={playDates} />
+            <SectionTitle title={selectedDate} />
+            <Calendar playDates={playDates} onDateClick={handleDateClick} />
             <FilteringTabs />
             <ResultView playSeqs={playSeqs} />
           </SectionTime>
