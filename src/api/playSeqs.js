@@ -1,5 +1,6 @@
 // import playSeqsInfo from './data/playSeqs.json';
 import playSeqsInfo from './data/playSeqs2.json';
+// import playSeqsInfo from './data/playSeqsSample.json';
 
 export const getPlaySeqs = (playDate, cinemaId, movieCode) => {
   return new Promise((resolve, reject) => {
