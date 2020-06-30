@@ -1,0 +1,129 @@
+{
+  "castInfo": [
+    {
+      "RepresentationMovieCode": "15560",
+      "PersonCode": "104636",
+      "PersonName": "박상현",
+      "CastName": "감독",
+      "PersonImgPath": "http://caching.lottecinema.co.kr//Media/MovieFile/PersonImg/105000/104636_107_1.jpg",
+      "creator": null,
+      "createDts": null,
+      "modifier": null,
+      "modifyDts": null
+    },
+    {
+      "RepresentationMovieCode": "15560",
+      "PersonCode": "94926",
+      "PersonName": "신혜선",
+      "CastName": "정인",
+      "PersonImgPath": "http://caching.lottecinema.co.kr//Media/MovieFile/PersonImg/95000/94926_107_4.jpg",
+      "creator": null,
+      "createDts": null,
+      "modifier": null,
+      "modifyDts": null
+    },
+    {
+      "RepresentationMovieCode": "15560",
+      "PersonCode": "5561",
+      "PersonName": "배종옥",
+      "CastName": "화자",
+      "PersonImgPath": "http://caching.lottecinema.co.kr//Media/MovieFile/PersonImg/6000/5561_107_5.jpg",
+      "creator": null,
+      "createDts": null,
+      "modifier": null,
+      "modifyDts": null
+    },
+    {
+      "RepresentationMovieCode": "15560",
+      "PersonCode": "5693",
+      "PersonName": "허준호",
+      "CastName": "추사장",
+      "PersonImgPath": "http://caching.lottecinema.co.kr//Media/MovieFile/PersonImg/6000/5693_107_4.jpg",
+      "creator": null,
+      "createDts": null,
+      "modifier": null,
+      "modifyDts": null
+    },
+    {
+      "RepresentationMovieCode": "15560",
+      "PersonCode": "105009",
+      "PersonName": "홍경",
+      "CastName": "정수",
+      "PersonImgPath": "http://caching.lottecinema.co.kr//Media/MovieFile/PersonImg/106000/105009_107_5.jpg",
+      "creator": null,
+      "createDts": null,
+      "modifier": null,
+      "modifyDts": null
+    },
+    {
+      "RepresentationMovieCode": "15560",
+      "PersonCode": "105010",
+      "PersonName": "태항호",
+      "CastName": "양순경",
+      "PersonImgPath": "http://caching.lottecinema.co.kr//Media/MovieFile/PersonImg/106000/105010_107_6.jpg",
+      "creator": null,
+      "createDts": null,
+      "modifier": null,
+      "modifyDts": null
+    },
+    {
+      "RepresentationMovieCode": "15560",
+      "PersonCode": "24843",
+      "PersonName": "고창석",
+      "CastName": "",
+      "PersonImgPath": "http://caching.lottecinema.co.kr//Media/MovieFile/PersonImg/25000/24843_107_2.jpg",
+      "creator": null,
+      "createDts": null,
+      "modifier": null,
+      "modifyDts": null
+    },
+    {
+      "RepresentationMovieCode": "15560",
+      "PersonCode": "29065",
+      "PersonName": "박철민",
+      "CastName": "",
+      "PersonImgPath": "http://caching.lottecinema.co.kr//Media/MovieFile/PersonImg/30000/29065_107_3.jpg",
+      "creator": null,
+      "createDts": null,
+      "modifier": null,
+      "modifyDts": null
+    },
+    {
+      "RepresentationMovieCode": "15560",
+      "PersonCode": "1733",
+      "PersonName": "김수현",
+      "CastName": "",
+      "PersonImgPath": "http://caching.lottecinema.co.kr//Media/MovieFile/PersonImg/2000/1733_107_4.jpg",
+      "creator": null,
+      "createDts": null,
+      "modifier": null,
+      "modifyDts": null
+    },
+    {
+      "RepresentationMovieCode": "15560",
+      "PersonCode": "103449",
+      "PersonName": "차순배",
+      "CastName": "",
+      "PersonImgPath": "http://caching.lottecinema.co.kr//Media/MovieFile/PersonImg/104000/103449_107_5.jpg",
+      "creator": null,
+      "createDts": null,
+      "modifier": null,
+      "modifyDts": null
+    },
+    {
+      "RepresentationMovieCode": "15560",
+      "PersonCode": "62926",
+      "PersonName": "정인겸",
+      "CastName": "",
+      "PersonImgPath": "",
+      "creator": null,
+      "createDts": null,
+      "modifier": null,
+      "modifyDts": null
+    }
+  ],
+  "IsOK": "true",
+  "ResultMessage": "SUCCESS",
+  "ResultCode": null,
+  "EventResultYn": null
+}
