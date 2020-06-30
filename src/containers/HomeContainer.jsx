@@ -37,7 +37,9 @@ const HomeContainer = () => {
   if (carouselItemsError || moviesError) return <div>error!</div>;
   if (!carouselItems || !movies) return null;
 
-  return <Home movies={movies} carouselItems={filteredCarouselItems} />;
+  return (
+    <Home movies={movies.slice(0, 21)} carouselItems={filteredCarouselItems} />
+  );
 };
 
 export default HomeContainer;

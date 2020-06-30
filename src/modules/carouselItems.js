@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import * as carouselApi from '../api/carousel';
+import * as api from '../api';
 
 const GET_CAROUSEL_ITEMS = 'GET_CAROUSEL_ITEMS';
 const GET_CAROUSEL_ITEMS_SUCCESS = 'GET_CAROUSEL_ITEMS_SUCCESS';
@@ -9,7 +9,7 @@ export const getCarouselItems = () => ({ type: GET_CAROUSEL_ITEMS });
 
 function* getCarouselItemsSaga() {
   try {
-    const data = yield call(carouselApi.getCarouselItems);
+    const data = yield call(api.getCarouselItems);
     yield put({
       type: GET_CAROUSEL_ITEMS_SUCCESS,
       payload: data,

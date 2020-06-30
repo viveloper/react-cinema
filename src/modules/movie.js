@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import * as movieApi from '../api/movie';
+import * as api from '../api';
 
 // action type
 const GET_MOVIE_DETAIL = 'GET_MOVIE_DETAIL';
@@ -24,7 +24,7 @@ export const getMovieReview = (movieCode) => ({
 function* getMovieDetailSaga(action) {
   const movieCode = action.payload;
   try {
-    const movieDetail = yield call(movieApi.getMovieDetail, movieCode);
+    const movieDetail = yield call(api.getMovieDetail, movieCode);
     yield put({
       type: GET_MOVIE_DETAIL_SUCCESS,
       payload: movieDetail,
@@ -40,7 +40,7 @@ function* getMovieDetailSaga(action) {
 function* getMovieReviewSaga(action) {
   const movieCode = action.payload;
   try {
-    const movieReview = yield call(movieApi.getMovieReview, movieCode);
+    const movieReview = yield call(api.getMovieReview, movieCode, 25);
     yield put({
       type: GET_MOVIE_REVIEW_SUCCESS,
       payload: movieReview,

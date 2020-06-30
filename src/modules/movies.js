@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import * as moviesApi from '../api/movies';
+import * as api from '../api';
 
 const GET_MOVIES = 'GET_MOVIES';
 const GET_MOVIES_SUCCESS = 'GET_MOVIES_SUCCESS';
@@ -9,10 +9,12 @@ export const getMovies = () => ({ type: GET_MOVIES });
 
 function* getMoviesSaga() {
   try {
-    const data = yield call(moviesApi.getMovies);
+    const data = yield call(api.getMovies);
     yield put({
       type: GET_MOVIES_SUCCESS,
-      payload: data,
+      payload: data.Movies.Items[0].Items.filter(
+        (item) => item.RepresentationMovieCode !== 'AD'
+      ),
     });
   } catch (e) {
     yield put({
