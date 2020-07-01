@@ -1,84 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import MoreButton from '../MoreButton';
 import classes from './ReviewList.module.css';
 import { numberWithCommas } from '../../util';
 
-const ONE_PAGE_REVIEW_NUM = 10;
-
-const ReviewList = ({ items, total }) => {
-  const [reviewData, setReviewData] = useState([]);
-  const [sortType, setSortType] = useState('recent');
-  const [pageOffset, setPageOffset] = useState(1);
-  const [visibleMoreButton, setVisibleMoreButton] = useState(false);
-
-  useEffect(() => {
-    const getReviewData = () => {
-      const allReview = [...items];
-      if (sortType === 'recent') {
-        allReview.sort((a, b) => {
-          const dateA = a.RegistDate.toUpperCase(); // ignore upper and lowercase
-          var dateB = b.RegistDate.toUpperCase(); // ignore upper and lowercase
-          if (dateA < dateB) {
-            return 1;
-          }
-          if (dateA > dateB) {
-            return -1;
-          }
-          return 0;
-        });
-      } else if (sortType === 'like') {
-        allReview.sort((a, b) => b.RecommandCount - a.RecommandCount);
-      }
-      return allReview;
-    };
-
-    const allReview = getReviewData();
-    const paginationReview = allReview.slice(
-      0,
-      ONE_PAGE_REVIEW_NUM * pageOffset
-    );
-
-    setReviewData(paginationReview);
-
-    if (pageOffset * ONE_PAGE_REVIEW_NUM < allReview.length) {
-      setVisibleMoreButton(true);
-    } else {
-      setVisibleMoreButton(false);
-    }
-  }, [items, sortType, pageOffset]);
-
-  const handleSortBtnClick = (type) => {
-    setSortType(type);
-    setPageOffset(1);
-  };
-
-  const handleMoreClick = () => {
-    setPageOffset(pageOffset + 1);
-  };
-
+const ReviewList = ({
+  reviewList,
+  totalCount,
+  sortType,
+  onMoreClick,
+  onSortClick,
+}) => {
   return (
     <div className={classes['review-list']}>
       <div className={classes['header']}>
         <span className={classes['total']}>{`총 ${numberWithCommas(
-          total
+          totalCount
         )}건`}</span>
         <div>
           <button
             className={sortType === 'recent' ? classes['active'] : ''}
-            onClick={() => handleSortBtnClick('recent')}
+            onClick={() => onSortClick('recent')}
           >
             최신순
           </button>
           <button
             className={sortType === 'like' ? classes['active'] : ''}
-            onClick={() => handleSortBtnClick('like')}
+            onClick={() => onSortClick('like')}
           >
             공감순
           </button>
         </div>
       </div>
       <ul className={classes['items']}>
-        {reviewData.map((item) => {
+        {reviewList.map((item) => {
           let iconUrl = '';
           if (item.Evaluation >= 9) {
             iconUrl = '/img/icons/ic_survey_01.png';
@@ -125,7 +79,9 @@ const ReviewList = ({ items, total }) => {
         })}
       </ul>
 
-      {visibleMoreButton ? <MoreButton onClick={handleMoreClick} /> : null}
+      {reviewList.length < totalCount ? (
+        <MoreButton onClick={onMoreClick} />
+      ) : null}
     </div>
   );
 };

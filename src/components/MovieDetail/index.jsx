@@ -29,7 +29,12 @@ const MovieDetail = ({
   movieDetail,
   activeTab,
   movieReview,
+  movieScore,
+  totalReviewCount,
+  reviewSortType,
   handleTabClick,
+  handleReviewSortClick,
+  handleReivewMoreClick,
 }) => {
   return (
     <>
@@ -61,7 +66,7 @@ const MovieDetail = ({
       <DetailInfo>
         <Tabs
           activeTab={activeTab}
-          reviewCount={movieReview.ReviewCounts.TotalReviewCount}
+          reviewCount={totalReviewCount}
           onTabClick={handleTabClick}
         />
         {activeTab === 'info' ? (
@@ -87,11 +92,14 @@ const MovieDetail = ({
           </MovieInfo>
         ) : (
           <ScoreAndReview>
-            <ScoreBox score={movieReview.ReviewCounts.MarkAvg} />
+            <ScoreBox score={movieScore} />
             <ReviewBox />
             <ReviewList
-              items={movieReview.TotalReviewItems.Items}
-              total={movieReview.ReviewCounts.TotalReviewCount}
+              reviewList={movieReview}
+              totalCount={totalReviewCount}
+              sortType={reviewSortType}
+              onSortClick={handleReviewSortClick}
+              onMoreClick={handleReivewMoreClick}
             />
           </ScoreAndReview>
         )}

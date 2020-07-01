@@ -2,9 +2,10 @@ import axios from 'axios';
 import qs from 'querystring';
 import carouselItems from './data/carouselItems.json';
 
-// const osVersion = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36';
 const osVersion =
-  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36';
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36';
+// const osVersion =
+//   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36';
 
 export const getCarouselItems = () => {
   return new Promise((resolve, reject) => {
@@ -64,7 +65,7 @@ export const getMovieList = async (type) => {
         division: 1,
         moviePlayYN: 'Y',
         orderType: 1,
-        blockSize: 5,
+        blockSize: 100,
         pageNo: 1,
       }),
     };
@@ -79,7 +80,7 @@ export const getMovieList = async (type) => {
         division: 1,
         moviePlayYN: 'N',
         orderType: 5,
-        blockSize: 5,
+        blockSize: 100,
         pageNo: 1,
       }),
     };
@@ -166,7 +167,7 @@ export const getMovieDetail = async (movieCode) => {
   return res.data;
 };
 
-export const getMovieReview = async (movieCode, count) => {
+export const getMovieReview = async (movieCode, page, count) => {
   const requestBody = {
     paramList: JSON.stringify({
       MethodName: 'GetReviews',
@@ -177,7 +178,7 @@ export const getMovieReview = async (movieCode, count) => {
       memberID: '',
       realReviewYN: 'Y',
       sortSeq: 1,
-      pageNo: 1,
+      pageNo: page,
       pageSize: count,
     }),
   };

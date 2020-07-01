@@ -3,7 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Movies from '../components/Movies';
 import { getCarouselItems } from '../modules/carouselItems';
-import { getMovies } from '../modules/movies';
+import {
+  getCurrentMovieList,
+  getPreMovieList,
+  getArteMovieList,
+  getOperaMovieList,
+} from '../modules/movies';
 
 const MoviesContainer = () => {
   const {
@@ -13,17 +18,45 @@ const MoviesContainer = () => {
   } = useSelector((state) => state.carouselItems);
 
   const {
-    loading: moviesLoading,
-    data: movies,
-    error: moviesError,
-  } = useSelector((state) => state.movies);
+    loading: currentMovieListLoading,
+    data: currentMovieList,
+    error: currentMovieListError,
+  } = useSelector((state) => state.movies.currentMovieList);
+
+  const {
+    loading: preMovieListLoading,
+    data: preMovieList,
+    error: preMovieListError,
+  } = useSelector((state) => state.movies.preMovieList);
+
+  const {
+    loading: arteMovieListLoading,
+    data: arteMovieList,
+    error: arteMovieListError,
+  } = useSelector((state) => state.movies.arteMovieList);
+
+  const {
+    loading: operaMovieListLoading,
+    data: operaMovieList,
+    error: operaMovieListError,
+  } = useSelector((state) => state.movies.operaMovieList);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (!carouselItems) dispatch(getCarouselItems());
-    if (!movies) dispatch(getMovies());
-  }, [dispatch, carouselItems, movies]);
+    if (!currentMovieList) dispatch(getCurrentMovieList());
+    if (!preMovieList) dispatch(getPreMovieList());
+    if (!arteMovieList) dispatch(getArteMovieList());
+    if (!operaMovieList) dispatch(getOperaMovieList());
+  }, [
+    dispatch,
+    carouselItems,
+    currentMovieList,
+    preMovieList,
+    arteMovieList,
+    operaMovieList,
+  ]);
 
   const filteredCarouselItems = useMemo(
     () =>
@@ -33,40 +66,56 @@ const MoviesContainer = () => {
     [carouselItems]
   );
 
-  const top5CurrentMovies = useMemo(
+  const top5CurrentMovieList = useMemo(
     () =>
-      movies
-        ? movies.filter((movie) => parseInt(movie.DDay) === 0).slice(0, 5)
+      currentMovieList
+        ? currentMovieList
+            .filter((movie) => parseInt(movie.DDay) === 0)
+            .slice(0, 5)
         : null,
-    [movies]
+    [currentMovieList]
   );
 
-  const top5PreMovies = useMemo(
+  const top5PreMovieList = useMemo(
     () =>
-      movies
-        ? movies.filter((movie) => parseInt(movie.DDay) > 0).slice(0, 5)
+      preMovieList
+        ? preMovieList.filter((movie) => parseInt(movie.DDay) > 0).slice(0, 5)
         : null,
-    [movies]
+    [preMovieList]
   );
 
-  const arteMovies = useMemo(() => (movies ? movies.slice(1, 4) : null), [
-    movies,
-  ]);
-  const operaMovies = useMemo(() => (movies ? movies.slice(5, 6) : null), [
-    movies,
-  ]);
-
-  if (carouselItemsLoading || moviesLoading) return <div>loading...</div>;
-  if (carouselItemsError || moviesError) return <div>error!</div>;
-  if (!carouselItems || !movies) return null;
+  if (
+    carouselItemsLoading ||
+    currentMovieListLoading ||
+    preMovieListLoading ||
+    arteMovieListLoading ||
+    operaMovieListLoading
+  )
+    return <div>loading...</div>;
+  if (
+    carouselItemsError ||
+    currentMovieListError ||
+    preMovieListError ||
+    arteMovieListError ||
+    operaMovieListError
+  )
+    return <div>error!</div>;
+  if (
+    !carouselItems ||
+    !currentMovieList ||
+    !preMovieList ||
+    !arteMovieList ||
+    !operaMovieList
+  )
+    return null;
 
   return (
     <Movies
       carouselItems={filteredCarouselItems}
-      top5CurrentMovies={top5CurrentMovies}
-      top5PreMovies={top5PreMovies}
-      arteMovies={arteMovies}
-      operaMovies={operaMovies}
+      top5CurrentMovies={top5CurrentMovieList}
+      top5PreMovies={top5PreMovieList}
+      arteMovies={arteMovieList}
+      operaMovies={operaMovieList}
     />
   );
 };

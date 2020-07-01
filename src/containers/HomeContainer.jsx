@@ -16,7 +16,7 @@ const HomeContainer = () => {
     loading: moviesLoading,
     data: movies,
     error: moviesError,
-  } = useSelector((state) => state.movies);
+  } = useSelector((state) => state.movies.movies);
 
   const dispatch = useDispatch();
 

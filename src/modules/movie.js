@@ -15,9 +15,9 @@ export const getMovieDetail = (movieCode) => ({
   payload: movieCode,
 });
 
-export const getMovieReview = (movieCode) => ({
+export const getMovieReview = ({ movieCode, page, count }) => ({
   type: GET_MOVIE_REVIEW,
-  payload: movieCode,
+  payload: { movieCode, page, count },
 });
 
 // worker saga
@@ -38,9 +38,9 @@ function* getMovieDetailSaga(action) {
 }
 
 function* getMovieReviewSaga(action) {
-  const movieCode = action.payload;
+  const { movieCode, page, count } = action.payload;
   try {
-    const movieReview = yield call(api.getMovieReview, movieCode, 25);
+    const movieReview = yield call(api.getMovieReview, movieCode, page, count);
     yield put({
       type: GET_MOVIE_REVIEW_SUCCESS,
       payload: movieReview,
