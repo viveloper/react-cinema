@@ -7,8 +7,8 @@ const ONE_PAGE_REVIEW_NUM = 10;
 
 const MovieDetailContainer = ({ movieCode }) => {
   const [activeTab, setActiveTab] = useState('info');
-  const [reviewSortType, setReviewSortType] = useState('recent');
   const [reviewPageOffset, setReviewPageOffset] = useState(1);
+  const [sortType, setSortType] = useState('recent');
 
   const {
     loading: movieDetailLoading,
@@ -26,14 +26,18 @@ const MovieDetailContainer = ({ movieCode }) => {
 
   useEffect(() => {
     dispatch(getMovieDetail(movieCode));
+  }, [dispatch, movieCode]);
+
+  useEffect(() => {
     dispatch(
       getMovieReview({
         movieCode,
         page: 1,
         count: 10,
+        sortType,
       })
     );
-  }, [dispatch, movieCode]);
+  }, [dispatch, movieCode, sortType]);
 
   const carouselItems = useMemo(
     () =>
@@ -47,32 +51,25 @@ const MovieDetailContainer = ({ movieCode }) => {
     [movieDetail]
   );
 
-  const sortedReviewList = useMemo(() => {
-    if (!movieReview) return null;
-
-    return reviewSortType === 'recent'
-      ? [...movieReview.TotalReviewItems.Items].sort((a, b) => {
-          const dateA = a.RegistDate.toUpperCase(); // ignore upper and lowercase
-          var dateB = b.RegistDate.toUpperCase(); // ignore upper and lowercase
-          if (dateA < dateB) {
-            return 1;
-          }
-          if (dateA > dateB) {
-            return -1;
-          }
-          return 0;
-        })
-      : [...movieReview.TotalReviewItems.Items].sort(
-          (a, b) => b.RecommandCount - a.RecommandCount
-        );
-  }, [movieReview, reviewSortType]);
+  const totalReviewCount = useMemo(
+    () => (movieReview ? movieReview.ReviewCounts.TotalReviewCount : 0),
+    [movieReview]
+  );
+  const reviewScore = useMemo(
+    () => (movieReview ? movieReview.ReviewCounts.MarkAvg : 0),
+    [movieReview]
+  );
+  const reviewList = useMemo(
+    () => (movieReview ? movieReview.TotalReviewItems.Items : null),
+    [movieReview]
+  );
 
   const handleTabClick = useCallback((tabName) => {
     setActiveTab(tabName);
   }, []);
 
-  const handleReviewSortClick = useCallback((sortType) => {
-    setReviewSortType(sortType);
+  const handleReviewSortClick = useCallback((type) => {
+    setSortType(type);
     setReviewPageOffset(1);
   }, []);
 
@@ -82,27 +79,32 @@ const MovieDetailContainer = ({ movieCode }) => {
         movieCode,
         page: 1,
         count: (reviewPageOffset + 1) * ONE_PAGE_REVIEW_NUM,
+        sortType,
       })
     );
     setReviewPageOffset(reviewPageOffset + 1);
-  }, [dispatch, movieCode, reviewPageOffset]);
+  }, [dispatch, movieCode, reviewPageOffset, sortType]);
 
-  if (movieDetailLoading || movieReviewLoading) return <div>loading...</div>;
+  if (
+    (movieDetailLoading && !movieDetail) ||
+    (movieReviewLoading && !movieReview)
+  )
+    return <div>loading...</div>;
   if (movieDetailError || movieReviewError) return <div>error!</div>;
-  if (!movieDetail || !movieDetail) return null;
+  if (!movieDetail || !movieReview) return null;
 
   return (
     <MovieDetail
       carouselItems={carouselItems}
       movieDetail={movieDetail}
-      movieScore={movieReview.ReviewCounts.MarkAvg}
-      movieReview={sortedReviewList}
-      totalReviewCount={movieReview.ReviewCounts.TotalReviewCount}
-      reviewSortType={reviewSortType}
-      handleReivewMoreClick={handleReivewMoreClick}
-      handleReviewSortClick={handleReviewSortClick}
       activeTab={activeTab}
-      handleTabClick={handleTabClick}
+      reviewList={reviewList}
+      totalReviewCount={totalReviewCount}
+      reviewScore={reviewScore}
+      reviewSortType={sortType}
+      onTabClick={handleTabClick}
+      onReviewSortClick={handleReviewSortClick}
+      onReviewMoreClick={handleReivewMoreClick}
     />
   );
 };

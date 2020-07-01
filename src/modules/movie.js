@@ -8,6 +8,9 @@ const GET_MOVIE_DETAIL_ERROR = 'GET_MOVIE_DETAIL_ERROR';
 const GET_MOVIE_REVIEW = 'GET_MOVIE_REVIEW';
 const GET_MOVIE_REVIEW_SUCCESS = 'GET_MOVIE_REVIEW_SUCCESS';
 const GET_MOVIE_REVIEW_ERROR = 'GET_MOVIE_REVIEW_ERROR';
+// const ADD_MOVIE_REVIEW = 'ADD_MOVIE_REVIEW';
+// const ADD_MOVIE_REVIEW_SUCCESS = 'ADD_MOVIE_REVIEW_SUCCESS';
+// const ADD_MOVIE_REVIEW_ERROR = 'ADD_MOVIE_REVIEW_ERROR';
 
 // action creator
 export const getMovieDetail = (movieCode) => ({
@@ -15,10 +18,15 @@ export const getMovieDetail = (movieCode) => ({
   payload: movieCode,
 });
 
-export const getMovieReview = ({ movieCode, page, count }) => ({
+export const getMovieReview = ({ movieCode, page, count, sortType }) => ({
   type: GET_MOVIE_REVIEW,
-  payload: { movieCode, page, count },
+  payload: { movieCode, page, count, sortType },
 });
+
+// export const addMovieReview = ({ movieCode, page, count, sortType }) => ({
+//   type: ADD_MOVIE_REVIEW,
+//   payload: { movieCode, page, count, sortType },
+// });
 
 // worker saga
 function* getMovieDetailSaga(action) {
@@ -38,9 +46,15 @@ function* getMovieDetailSaga(action) {
 }
 
 function* getMovieReviewSaga(action) {
-  const { movieCode, page, count } = action.payload;
+  const { movieCode, page, count, sortType } = action.payload;
   try {
-    const movieReview = yield call(api.getMovieReview, movieCode, page, count);
+    const movieReview = yield call(
+      api.getMovieReview,
+      movieCode,
+      page,
+      count,
+      sortType
+    );
     yield put({
       type: GET_MOVIE_REVIEW_SUCCESS,
       payload: movieReview,
@@ -80,7 +94,7 @@ export default function movieReducer(state = initialState, action) {
         ...state,
         movieDetail: {
           loading: true,
-          data: null,
+          data: state.movieDetail.data,
           error: null,
         },
       };
@@ -107,7 +121,7 @@ export default function movieReducer(state = initialState, action) {
         ...state,
         movieReview: {
           loading: true,
-          data: null,
+          data: state.movieReview.data,
           error: null,
         },
       };

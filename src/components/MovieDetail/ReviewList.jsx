@@ -86,4 +86,4 @@ const ReviewList = ({
   );
 };
 
-export default ReviewList;
+export default React.memo(ReviewList);

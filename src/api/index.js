@@ -167,7 +167,12 @@ export const getMovieDetail = async (movieCode) => {
   return res.data;
 };
 
-export const getMovieReview = async (movieCode, page, count) => {
+export const getMovieReview = async (
+  movieCode,
+  page = 1,
+  count = 10,
+  sortType = 'recent'
+) => {
   const requestBody = {
     paramList: JSON.stringify({
       MethodName: 'GetReviews',
@@ -177,7 +182,7 @@ export const getMovieReview = async (movieCode, page, count) => {
       representationMovieCode: movieCode,
       memberID: '',
       realReviewYN: 'Y',
-      sortSeq: 1,
+      sortSeq: sortType === 'recent' ? 1 : 3,
       pageNo: page,
       pageSize: count,
     }),

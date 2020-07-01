@@ -28,18 +28,18 @@ const MovieDetail = ({
   carouselItems,
   movieDetail,
   activeTab,
-  movieReview,
-  movieScore,
   totalReviewCount,
+  reviewScore,
+  reviewList,
   reviewSortType,
-  handleTabClick,
-  handleReviewSortClick,
-  handleReivewMoreClick,
+  onTabClick,
+  onReviewSortClick,
+  onReviewMoreClick,
 }) => {
   return (
     <>
       <Carousel height={560} width={840} items={carouselItems} />
-      <Summary movieDetail={movieDetail}>
+      <Summary>
         <PosterImage
           posterUrl={movieDetail.Movie.PosterURL}
           width={205}
@@ -67,7 +67,7 @@ const MovieDetail = ({
         <Tabs
           activeTab={activeTab}
           reviewCount={totalReviewCount}
-          onTabClick={handleTabClick}
+          onTabClick={onTabClick}
         />
         {activeTab === 'info' ? (
           <MovieInfo>
@@ -92,14 +92,14 @@ const MovieDetail = ({
           </MovieInfo>
         ) : (
           <ScoreAndReview>
-            <ScoreBox score={movieScore} />
+            <ScoreBox score={reviewScore} />
             <ReviewBox />
             <ReviewList
-              reviewList={movieReview}
+              reviewList={reviewList}
               totalCount={totalReviewCount}
               sortType={reviewSortType}
-              onSortClick={handleReviewSortClick}
-              onMoreClick={handleReivewMoreClick}
+              onSortClick={onReviewSortClick}
+              onMoreClick={onReviewMoreClick}
             />
           </ScoreAndReview>
         )}
@@ -108,4 +108,4 @@ const MovieDetail = ({
   );
 };
 
-export default MovieDetail;
+export default React.memo(MovieDetail);
