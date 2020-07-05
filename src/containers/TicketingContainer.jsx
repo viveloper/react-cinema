@@ -113,28 +113,22 @@ const getPlayMovieList = (playSeqs, filteringTabName) => {
   });
   return filteringTabName === 'all'
     ? playMovieList
-    : playMovieList.map((playMovie) => ({
-        ...playMovie,
-        divisions: playMovie.divisions.filter(
-          (division) => division.ScreenDivisionCode !== 100
-        ),
-      }));
+    : playMovieList
+        .map((playMovie) => ({
+          ...playMovie,
+          divisions: playMovie.divisions.filter(
+            (division) => division.ScreenDivisionCode !== 100
+          ),
+        }))
+        .filter((playMovie) => playMovie.divisions.length !== 0);
 };
 
 const TicketingContainer = () => {
   const { loading, data: ticketingInfo, error } = useSelector(
     (state) => state.ticketing
   );
-  const {
-    loading: playSeqsInfoLoading,
-    data: playSeqsInfo,
-    error: playSeqsInfoError,
-  } = useSelector((state) => state.playSeqs);
-  // const {
-  //   loading: invisibleMoviesLoading,
-  //   data: invisibleMovies,
-  //   error: invisibleMoviesError,
-  // } = useSelector((state) => state.invisibleMovies);
+
+  const playSeqsState = useSelector((state) => state.playSeqs);
 
   const [step, setStep] = useState(1);
   const [divisionTab, setDivisionTab] = useState('all');
@@ -143,7 +137,7 @@ const TicketingContainer = () => {
   const [movieListSortType, setMovieSortType] = useState('A');
   const [movieListViewType, setMovieListViewType] = useState('text');
   const [selectedMovie, setSelectedMovie] = useState('');
-  const [selectedDate, setSelectedDate] = useState('2020-07-05');
+  const [selectedDate, setSelectedDate] = useState(getToday());
   const [filteringTab, setFilteringTab] = useState('all');
 
   const dispatch = useDispatch();
@@ -183,11 +177,18 @@ const TicketingContainer = () => {
     [cinemas, detailDivisionCode]
   );
 
-  const playSeqs = playSeqsInfo ? playSeqsInfo.PlaySeqs.Items : null;
+  const playSeqs = playSeqsState.data
+    ? playSeqsState.data.PlaySeqs.Items
+    : null;
   const playMovieList = useMemo(
     () => getPlayMovieList(playSeqs, filteringTab),
     [playSeqs, filteringTab]
   );
+  const playMovieListState = {
+    loading: playSeqsState.loading,
+    data: playMovieList,
+    error: playSeqsState.error,
+  };
 
   const handleStepClick = useCallback((step) => {
     setStep(step);
@@ -287,7 +288,7 @@ const TicketingContainer = () => {
       cinemas={filteredCimemas}
       movies={movies}
       playDates={playDates}
-      playMovieList={playMovieList}
+      playMovieListState={playMovieListState}
       step={step}
       divisionTab={divisionTab}
       detailDivisionCode={detailDivisionCode}

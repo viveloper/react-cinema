@@ -85,10 +85,7 @@ const MovieDetailContainer = ({ movieCode }) => {
     setReviewPageOffset(reviewPageOffset + 1);
   }, [dispatch, movieCode, reviewPageOffset, sortType]);
 
-  if (
-    (movieDetailLoading && !movieDetail) ||
-    (movieReviewLoading && !movieReview)
-  )
+  if (movieDetailLoading || (movieReviewLoading && !movieReview))
     return <div>loading...</div>;
   if (movieDetailError || movieReviewError) return <div>error!</div>;
   if (!movieDetail || !movieReview) return null;

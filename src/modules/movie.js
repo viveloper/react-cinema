@@ -94,7 +94,7 @@ export default function movieReducer(state = initialState, action) {
         ...state,
         movieDetail: {
           loading: true,
-          data: state.movieDetail.data,
+          data: null,
           error: null,
         },
       };

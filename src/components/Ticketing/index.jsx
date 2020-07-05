@@ -22,7 +22,7 @@ const Ticketing = ({
   cinemas,
   movies,
   playDates,
-  playMovieList,
+  playMovieListState,
   step,
   divisionTab,
   detailDivisionCode,
@@ -84,7 +84,13 @@ const Ticketing = ({
             <SectionTitle title={selectedDate} />
             <Calendar playDates={playDates} onDateClick={onDateClick} />
             <FilteringTabs tab={filteringTab} onClick={onFilteringTabClick} />
-            <ResultView playMovieList={playMovieList} />
+            {playMovieListState.loading ? (
+              <div>loading...</div>
+            ) : playMovieListState.error ? (
+              <div>error!</div>
+            ) : (
+              <ResultView playMovieList={playMovieListState.data} />
+            )}
           </SectionTime>
         </Step01>
 
