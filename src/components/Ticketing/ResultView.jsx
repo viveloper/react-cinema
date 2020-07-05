@@ -4,8 +4,8 @@ import classes from './ResultView.module.css';
 
 import { getViewGradeIconOptions } from '../../util';
 
-const ResultView = ({ playSeqs }) => {
-  if (!playSeqs || !playSeqs.length) {
+const ResultView = ({ playMovieList }) => {
+  if (!playMovieList || !playMovieList.length) {
     return (
       <div className={classes['no-result']}>
         <div className={classes['center']}>
@@ -17,102 +17,9 @@ const ResultView = ({ playSeqs }) => {
     );
   }
 
-  const movieList = [];
-
-  playSeqs.forEach((playSeq) => {
-    const movie = movieList.find(
-      (movie) =>
-        movie.RepresentationMovieCode === playSeq.RepresentationMovieCode
-    );
-    if (!movie) {
-      const newMovie = {
-        RepresentationMovieCode: playSeq.RepresentationMovieCode,
-        MovieNameKR: playSeq.MovieNameKR,
-        MovieNameUS: playSeq.MovieNameUS,
-        ViewGradeCode: playSeq.ViewGradeCode,
-        divisions: [
-          {
-            FilmCode: playSeq.FilmCode,
-            FilmNameKR: playSeq.FilmNameKR,
-            FilmNameUS: playSeq.FilmNameUS,
-            TranslationDivisionCode: playSeq.TranslationDivisionCode,
-            TranslationDivisionNameKR: playSeq.TranslationDivisionNameKR,
-            TranslationDivisionNameUS: playSeq.TranslationDivisionNameUS,
-            ScreenDivisionCode: playSeq.ScreenDivisionCode,
-            ScreenDivisionNameKR: playSeq.ScreenDivisionNameKR,
-            ScreenDivisionNameUS: playSeq.ScreenDivisionNameUS,
-            ScreenDesc: playSeq.ScreenDesc,
-            times: [
-              {
-                PlaySequence: playSeq.PlaySequence,
-                PlayDt: playSeq.PlayDt,
-                StartTime: playSeq.StartTime,
-                EndTime: playSeq.EndTime,
-                TotalSeatCount: playSeq.TotalSeatCount,
-                BookingSeatCount: playSeq.BookingSeatCount,
-                ScreenID: playSeq.ScreenID,
-                ScreenNameKR: playSeq.ScreenNameKR,
-                ScreenNameUS: playSeq.ScreenNameUS,
-              },
-            ],
-          },
-        ],
-      };
-      movieList.push(newMovie);
-    } else {
-      const division = movie.divisions.find(
-        (division) =>
-          division.FilmCode === playSeq.FilmCode &&
-          division.ScreenDivisionCode === playSeq.ScreenDivisionCode &&
-          division.TranslationDivisionCode === playSeq.TranslationDivisionCode
-      );
-      if (!division) {
-        const newDivision = {
-          FilmCode: playSeq.FilmCode,
-          FilmNameKR: playSeq.FilmNameKR,
-          FilmNameUS: playSeq.FilmNameUS,
-          TranslationDivisionCode: playSeq.TranslationDivisionCode,
-          TranslationDivisionNameKR: playSeq.TranslationDivisionNameKR,
-          TranslationDivisionNameUS: playSeq.TranslationDivisionNameUS,
-          ScreenDivisionCode: playSeq.ScreenDivisionCode,
-          ScreenDivisionNameKR: playSeq.ScreenDivisionNameKR,
-          ScreenDivisionNameUS: playSeq.ScreenDivisionNameUS,
-          ScreenDesc: playSeq.ScreenDesc,
-          times: [
-            {
-              PlaySequence: playSeq.PlaySequence,
-              PlayDt: playSeq.PlayDt,
-              StartTime: playSeq.StartTime,
-              EndTime: playSeq.EndTime,
-              TotalSeatCount: playSeq.TotalSeatCount,
-              BookingSeatCount: playSeq.BookingSeatCount,
-              ScreenID: playSeq.ScreenID,
-              ScreenNameKR: playSeq.ScreenNameKR,
-              ScreenNameUS: playSeq.ScreenNameUS,
-            },
-          ],
-        };
-        movie.divisions.push(newDivision);
-      } else {
-        const newTime = {
-          PlaySequence: playSeq.PlaySequence,
-          PlayDt: playSeq.PlayDt,
-          StartTime: playSeq.StartTime,
-          EndTime: playSeq.EndTime,
-          TotalSeatCount: playSeq.TotalSeatCount,
-          BookingSeatCount: playSeq.BookingSeatCount,
-          ScreenID: playSeq.ScreenID,
-          ScreenNameKR: playSeq.ScreenNameKR,
-          ScreenNameUS: playSeq.ScreenNameUS,
-        };
-        division.times.push(newTime);
-      }
-    }
-  });
-
   return (
     <div className={classes['result-view']}>
-      {movieList.map((movie) => {
+      {playMovieList.map((movie) => {
         const viewGradeIconOptions = getViewGradeIconOptions(
           movie.ViewGradeCode
         );
@@ -128,7 +35,7 @@ const ResultView = ({ playSeqs }) => {
             </div>
             {movie.divisions.map((division) => (
               <div
-                key={division.ScreenDivisionCode}
+                key={`${division.FilmCode}|${division.ScreenDivisionCode}|${division.TranslationDivisionCode}`}
                 className={classes['division']}
               >
                 <div className={classes['division-title']}>

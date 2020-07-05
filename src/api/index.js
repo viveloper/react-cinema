@@ -215,7 +215,7 @@ export const getMovieCastInfo = async (movieCode) => {
   return res.data;
 };
 
-export const getTicketingData = async () => {
+export const getTicketingInfo = async () => {
   const requestBody = {
     paramList: JSON.stringify({
       MethodName: 'GetTicketingPageTOBE',

@@ -22,43 +22,45 @@ const Ticketing = ({
   cinemas,
   movies,
   playDates,
-  playSeqs,
+  playMovieList,
   step,
-  tab,
+  divisionTab,
   detailDivisionCode,
   cinemaId,
   movieListSortType,
   movieListViewType,
   selectedMovie,
   selectedDate,
-  handleStepClick,
-  handleTabClick,
-  handleDivisionClick,
-  handleCinemaClick,
-  handleMovieListSortTypeClick,
-  handleMovieListViewTypeClick,
-  handleMovieClick,
-  handleDateClick,
+  filteringTab,
+  onStepClick,
+  onDivisionTabClick,
+  onDivisionClick,
+  onCinemaClick,
+  onMovieListSortTypeClick,
+  onMovieListViewTypeClick,
+  onMovieClick,
+  onDateClick,
+  onFilteringTabClick,
 }) => {
   return (
     <>
       <TicketingBlock>
-        <AsideStepMenu step={step} onClick={handleStepClick} />
+        <AsideStepMenu step={step} onClick={onStepClick} />
         <Step01>
           <SectionCinema>
             <SectionTitle title="영화관" />
-            <DivisionTabs tab={tab} onClick={handleTabClick} />
+            <DivisionTabs tab={divisionTab} onClick={onDivisionTabClick} />
             <Divisions>
               <DivisionList
                 divisions={divisions}
-                tab={tab}
+                tab={divisionTab}
                 detailDivisionCode={detailDivisionCode}
-                onDivisionClick={handleDivisionClick}
+                onDivisionClick={onDivisionClick}
               />
               <CinemaList
                 cinemas={cinemas}
                 cinemaId={cinemaId}
-                onCinemaClick={handleCinemaClick}
+                onCinemaClick={onCinemaClick}
               />
             </Divisions>
           </SectionCinema>
@@ -67,22 +69,22 @@ const Ticketing = ({
             <TypeMenu
               sortType={movieListSortType}
               viewType={movieListViewType}
-              onSortTypeClick={handleMovieListSortTypeClick}
-              onViewTypeClick={handleMovieListViewTypeClick}
+              onSortTypeClick={onMovieListSortTypeClick}
+              onViewTypeClick={onMovieListViewTypeClick}
             />
             <MovieList
               movies={movies}
               sortType={movieListSortType}
               viewType={movieListViewType}
               selectedMovie={selectedMovie}
-              onMovieClick={handleMovieClick}
+              onMovieClick={onMovieClick}
             />
           </SectionMovie>
           <SectionTime>
             <SectionTitle title={selectedDate} />
-            <Calendar playDates={playDates} onDateClick={handleDateClick} />
-            <FilteringTabs />
-            <ResultView playSeqs={playSeqs} />
+            <Calendar playDates={playDates} onDateClick={onDateClick} />
+            <FilteringTabs tab={filteringTab} onClick={onFilteringTabClick} />
+            <ResultView playMovieList={playMovieList} />
           </SectionTime>
         </Step01>
 

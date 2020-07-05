@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import * as ticketingApi from '../api/ticketing';
+import * as api from '../api';
 
 // action type
 const GET_TICKETING_INFO = 'GET_TICKETING_INFO';
@@ -12,7 +12,7 @@ export const getTicketingInfo = () => ({ type: GET_TICKETING_INFO });
 // worker saga
 function* getTicketingInfoSaga() {
   try {
-    const ticketingInfo = yield call(ticketingApi.getTicketingInfo);
+    const ticketingInfo = yield call(api.getTicketingInfo);
     yield put({
       type: GET_TICKETING_INFO_SUCCESS,
       payload: ticketingInfo,

@@ -1,29 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classes from './FilteringTabs.module.css';
-const FilteringTabs = () => {
-  const [activeTab, setActiveTab] = useState('all');
-  const handleClick = (tabName) => {
-    setActiveTab(tabName);
-  };
+const FilteringTabs = ({ tab, onClick }) => {
   return (
     <div className={classes['filtering-tabs']}>
       <button
         className={
-          activeTab === 'all'
+          tab === 'all'
             ? `${classes['btn-tab']} ${classes['active']}`
             : classes['btn-tab']
         }
-        onClick={() => handleClick('all')}
+        onClick={() => onClick('all')}
       >
         전체
       </button>
       <button
         className={
-          activeTab === 'special'
+          tab === 'special'
             ? `${classes['btn-tab']} ${classes['active']}`
             : classes['btn-tab']
         }
-        onClick={() => handleClick('special')}
+        onClick={() => onClick('special')}
       >
         스페셜관
       </button>

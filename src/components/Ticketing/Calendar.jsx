@@ -18,7 +18,7 @@ const Calendar = ({ playDates, onDateClick }) => {
   const handleDateClick = (year, month, day, index) => {
     setCurrentDateIndex(index);
     onDateClick(
-      year + '-' + (month.length === 1 ? month : '0' + month) + '-' + day
+      `${year}-${month > 9 ? month : '0' + month}-${day > 9 ? day : '0' + day}`
     );
   };
   return (
