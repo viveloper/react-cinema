@@ -41,7 +41,7 @@ function App() {
           <Route path="/movies" exact component={MoviesPage} />
           <Route path="/movies/:listType" component={MovieListPage} />
           <Route path="/movieDetail/:movieCode" component={MovieDetailPage} />
-          <Route path="/ticketing" exact component={TicketingPage} />
+          <Route path="/ticketing" component={TicketingPage} />
           <Route path="*" component={ErrorPage} />
         </Switch>
       </Router>

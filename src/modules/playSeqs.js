@@ -7,18 +7,10 @@ const GET_PLAY_SEQS_SUCCESS = 'GET_PLAY_SEQS_SUCCESS';
 const GET_PLAY_SEQS_ERROR = 'GET_PLAY_SEQS_ERROR';
 
 // action creator
-export const getPlaySeqs = ({
-  playDate,
-  divisionCode,
-  detailDivisionCode,
-  cinemaId,
-  movieCode,
-}) => ({
+export const getPlaySeqs = ({ playDate, cinemaId, movieCode }) => ({
   type: GET_PLAY_SEQS,
   payload: {
     playDate,
-    divisionCode,
-    detailDivisionCode,
     cinemaId,
     movieCode,
   },
@@ -26,19 +18,11 @@ export const getPlaySeqs = ({
 
 // worker saga
 function* getPlaySeqsSaga(action) {
-  const {
-    playDate,
-    divisionCode,
-    detailDivisionCode,
-    cinemaId,
-    movieCode,
-  } = action.payload;
+  const { playDate, cinemaId, movieCode } = action.payload;
   try {
     const playSeqs = yield call(
       api.getPlaySequence,
       playDate,
-      divisionCode,
-      detailDivisionCode,
       cinemaId,
       movieCode
     );

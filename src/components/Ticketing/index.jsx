@@ -1,21 +1,10 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
 import TicketingBlock from './TicketingBlock';
 import AsideStepMenu from './AsideStepMenu';
 import Step01 from './Step01';
-import SectionCinema from './SectionCinema';
-import SectionTitle from './SectionTitle';
-import DivisionTabs from './DivisionTabs';
-import Divisions from './Divisions';
-import DivisionList from './DivisionList';
-import CinemaList from './CinemaList';
-import SectionMovie from './SectionMovie';
-import TypeMenu from './TypeMenu';
-import MovieList from './MovieList';
-import SectionTime from './SectionTime';
-import Calendar from './Calendar';
-import FilteringTabs from './FilteringTabs';
-import ResultView from './ResultView';
+import Step02 from './Step02';
 
 const Ticketing = ({
   divisions,
@@ -46,63 +35,37 @@ const Ticketing = ({
     <>
       <TicketingBlock>
         <AsideStepMenu step={step} onClick={onStepClick} />
-        <Step01>
-          <SectionCinema>
-            <SectionTitle title="영화관" />
-            <DivisionTabs tab={divisionTab} onClick={onDivisionTabClick} />
-            <Divisions>
-              <DivisionList
-                divisions={divisions}
-                tab={divisionTab}
-                detailDivisionCode={detailDivisionCode}
-                onDivisionClick={onDivisionClick}
-              />
-              <CinemaList
-                cinemas={cinemas}
-                cinemaId={cinemaId}
-                onCinemaClick={onCinemaClick}
-              />
-            </Divisions>
-          </SectionCinema>
-          <SectionMovie>
-            <SectionTitle title="영화 선택" />
-            <TypeMenu
-              sortType={movieListSortType}
-              viewType={movieListViewType}
-              onSortTypeClick={onMovieListSortTypeClick}
-              onViewTypeClick={onMovieListViewTypeClick}
-            />
-            <MovieList
+        <Route
+          path="/ticketing"
+          exact
+          render={() => (
+            <Step01
+              divisionTab={divisionTab}
+              divisions={divisions}
+              detailDivisionCode={detailDivisionCode}
+              cinemas={cinemas}
+              cinemaId={cinemaId}
+              movieListSortType={movieListSortType}
+              movieListViewType={movieListViewType}
               movies={movies}
-              sortType={movieListSortType}
-              viewType={movieListViewType}
               selectedMovie={selectedMovie}
+              selectedDate={selectedDate}
+              playDates={playDates}
+              filteringTab={filteringTab}
+              playMovieListState={playMovieListState}
+              onDivisionTabClick={onDivisionTabClick}
+              onDivisionClick={onDivisionClick}
+              onCinemaClick={onCinemaClick}
+              onMovieListSortTypeClick={onMovieListSortTypeClick}
+              onMovieListViewTypeClick={onMovieListViewTypeClick}
               onMovieClick={onMovieClick}
+              onDateClick={onDateClick}
+              onFilteringTabClick={onFilteringTabClick}
             />
-          </SectionMovie>
-          <SectionTime>
-            <SectionTitle title={selectedDate} />
-            <Calendar playDates={playDates} onDateClick={onDateClick} />
-            <FilteringTabs tab={filteringTab} onClick={onFilteringTabClick} />
-            {playMovieListState.loading ? (
-              <div>loading...</div>
-            ) : playMovieListState.error ? (
-              <div>error!</div>
-            ) : (
-              <ResultView playMovieList={playMovieListState.data} />
-            )}
-          </SectionTime>
-        </Step01>
+          )}
+        />
 
-        {/* <div
-        className={`${classes['step-content']} ${classes['step2']}`}
-      ></div>
-      <div
-        className={`${classes['step-content']} ${classes['step3']}`}
-      ></div>
-      <div
-        className={`${classes['step-content']} ${classes['step4']}`}
-      ></div> */}
+        <Route path="/ticketing/PersonSeat" render={() => <Step02 />} />
       </TicketingBlock>
     </>
   );

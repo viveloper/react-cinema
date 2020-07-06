@@ -1,8 +1,8 @@
 import React from 'react';
-import ViewGradeIcon from '../ViewGradeIcon';
+import ViewGradeIcon from '../../ViewGradeIcon';
 import classes from './MovieList.module.css';
 
-import { getViewGradeIconOptions } from '../../util';
+import { getViewGradeIconOptions } from '../../../util';
 
 const MovieList = ({
   movies,

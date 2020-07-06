@@ -240,13 +240,7 @@ export const getTicketingInfo = async () => {
   return res.data;
 };
 
-export const getPlaySequence = async (
-  playDate,
-  divisionCode,
-  detailDivisionCode,
-  cinemaId,
-  movieCode
-) => {
+export const getPlaySequence = async (playDate, cinemaId, movieCode) => {
   const requestBody = {
     paramList: JSON.stringify({
       MethodName: 'GetPlaySequence',
@@ -254,7 +248,7 @@ export const getPlaySequence = async (
       osType: 'W',
       osVersion,
       playDate: playDate,
-      cinemaID: `${divisionCode}|${detailDivisionCode}|${cinemaId}`,
+      cinemaID: cinemaId,
       representationMovieCode: movieCode,
     }),
   };

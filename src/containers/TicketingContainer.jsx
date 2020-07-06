@@ -212,13 +212,13 @@ const TicketingContainer = () => {
 
   const handleCinemaClick = useCallback(
     (id) => {
+      const divisionCode = divisionTab === 'all' ? 1 : 2;
+      const cinemaIdSeq = `${divisionCode}|${detailDivisionCode}|${id}`;
       setCinemaId(id);
       dispatch(
         getPlaySeqs({
           playDate: selectedDate,
-          divisionCode: divisionTab === 'all' ? 1 : 2,
-          detailDivisionCode: detailDivisionCode,
-          cinemaId: id,
+          cinemaId: cinemaIdSeq,
           movieCode: selectedMovie,
         })
       );
@@ -236,14 +236,15 @@ const TicketingContainer = () => {
 
   const handleMovieClick = useCallback(
     (code) => {
+      if (!cinemaId) return;
+      const divisionCode = divisionTab === 'all' ? 1 : 2;
+      const cinemaIdSeq = `${divisionCode}|${detailDivisionCode}|${cinemaId}`;
       const movieCode = code !== selectedMovie ? code : '';
       setSelectedMovie(movieCode);
       dispatch(
         getPlaySeqs({
           playDate: selectedDate,
-          divisionCode: divisionTab === 'all' ? 1 : 2,
-          detailDivisionCode: detailDivisionCode,
-          cinemaId: cinemaId,
+          cinemaId: cinemaIdSeq,
           movieCode,
         })
       );
@@ -260,13 +261,14 @@ const TicketingContainer = () => {
 
   const handleDateClick = useCallback(
     (date) => {
+      if (!cinemaId) return;
+      const divisionCode = divisionTab === 'all' ? 1 : 2;
+      const cinemaIdSeq = `${divisionCode}|${detailDivisionCode}|${cinemaId}`;
       setSelectedDate(date);
       dispatch(
         getPlaySeqs({
           playDate: date,
-          divisionCode: divisionTab === 'all' ? 1 : 2,
-          detailDivisionCode: detailDivisionCode,
-          cinemaId: cinemaId,
+          cinemaId: cinemaIdSeq,
           movieCode: selectedMovie,
         })
       );
