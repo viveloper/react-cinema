@@ -3,8 +3,6 @@ import styled, { css } from 'styled-components';
 
 import SectionTitle from '../SectionTitle';
 
-import { seats } from '../../../sampleData/seats.json';
-
 const StepBlock = styled.div`
   width: 1200px;
   background: #000;
@@ -63,16 +61,67 @@ const Seat = styled.div`
       `;
     }
   }}
+  ${({ size }) => {
+    if (size === 'small') {
+      return css`
+        width: 14px;
+        height: 10px;
+        border-radius: 4px 4px 0px 0px;
+      `;
+    }
+  }}
+  ${({ status }) => {
+    if (status === 0) {
+      return css`
+        background: #e8e8e8;
+      `;
+    } else if (status === 30) {
+      return css`
+        background: #714034;
+        opacity: 0.5;
+      `;
+    } else if (status === 50) {
+      return css`
+        background: #444;
+      `;
+    }
+  }}
+  ${({ sweetSpot }) =>
+    sweetSpot
+      ? css`
+          border: 1px solid #d41017;
+        `
+      : ''}
 `;
 
 const SeatsInfoBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 41px;
   margin: 35px 0;
   padding-left: 40px;
-  background: #333;
+  /* background: #333; */
+
+  .seat-info-group {
+    display: flex;
+
+    .seat-info {
+      display: flex;
+      align-items: center;
+      span {
+        font-size: 12px;
+        color: #fff;
+        margin-left: 4px;
+      }
+    }
+    .seat-info + .seat-info {
+      margin-left: 8px;
+    }
+  }
 `;
 
-const Step02 = () => {
+const Step02 = ({ seats }) => {
   return (
     <StepBlock>
       <SectionTitle title={'인원/좌석 선택'} />
@@ -86,15 +135,32 @@ const Step02 = () => {
         <SeatsBlock>
           {seats.map((seat) => (
             <Seat
+              key={seat.SeatNo}
               x={seat.SeatXCoordinate / 5 - 50}
               y={seat.SeatYCoordinate / 5 - 60}
+              status={seat.SeatStatusCode}
+              sweetSpot={seat.SweetSpotYN === 'Y' ? true : false}
             />
           ))}
-          <Seat x={50} y={500} />
         </SeatsBlock>
       </ScreenBlock>
       <SeatsInfoBlock>
-        <Seat />
+        <div className="seat-info-group">
+          <div className="seat-info">
+            <Seat size="small" status={0} /> <span>선택가능</span>
+          </div>
+          <div className="seat-info">
+            <Seat size="small" status={50} /> <span>예매완료</span>
+          </div>
+        </div>
+        <div className="seat-info-group">
+          <div className="seat-info">
+            <Seat size="small" status={30} /> <span>거리두기석</span>
+          </div>
+          <div className="seat-info">
+            <Seat size="small" sweetSpot /> <span>스위트스팟</span>
+          </div>
+        </div>
       </SeatsInfoBlock>
     </StepBlock>
   );

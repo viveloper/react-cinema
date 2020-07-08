@@ -4,7 +4,12 @@ import classes from './ResultView.module.css';
 
 import { getViewGradeIconOptions } from '../../../util';
 
-const ResultView = ({ playMovieList }) => {
+const ResultView = ({ playMovieList, onTimeClick }) => {
+  const handleTimeClick = (e, params) => {
+    e.preventDefault();
+    onTimeClick(params);
+  };
+
   if (!playMovieList || !playMovieList.length) {
     return (
       <div className={classes['no-result']}>
@@ -66,7 +71,17 @@ const ResultView = ({ playMovieList }) => {
                         key={`${time.ScreenID}|${time.PlaySequence}`}
                         className={classes['play-seq']}
                       >
-                        <a href="##">
+                        <a
+                          href="#PersonSeat"
+                          onClick={(e) =>
+                            handleTimeClick(e, {
+                              screenId: time.ScreenID,
+                              playDate: time.PlayDt,
+                              playSequence: time.PlaySequence,
+                              screenDivisionCode: division.ScreenDivisionCode,
+                            })
+                          }
+                        >
                           <strong className={classes['time']}>
                             {time.StartTime}
                           </strong>

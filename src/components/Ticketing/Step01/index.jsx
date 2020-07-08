@@ -42,6 +42,7 @@ const Step01 = ({
   onMovieClick,
   onDateClick,
   onFilteringTabClick,
+  onTimeClick,
 }) => {
   return (
     <StepBlock>
@@ -87,7 +88,10 @@ const Step01 = ({
         ) : playMovieListState.error ? (
           <div>error!</div>
         ) : (
-          <ResultView playMovieList={playMovieListState.data} />
+          <ResultView
+            playMovieList={playMovieListState.data}
+            onTimeClick={onTimeClick}
+          />
         )}
       </SectionTime>
     </StepBlock>

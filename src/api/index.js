@@ -299,3 +299,38 @@ export const getInvisibleMoviePlayInfo = async (
   );
   return res.data;
 };
+
+export const getSeats = async (
+  cinemaId,
+  screenId,
+  playDate,
+  playSequence,
+  screenDivisionCode
+) => {
+  const requestBody = {
+    paramList: JSON.stringify({
+      MethodName: 'GetSeats',
+      channelType: 'HO',
+      osType: 'W',
+      osVersion,
+      cinemaId,
+      screenId,
+      playDate,
+      playSequence,
+      screenDivisionCode,
+    }),
+  };
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+  };
+
+  const res = await axios.post(
+    '/LCWS/Ticketing/TicketingData.aspx',
+    qs.stringify(requestBody),
+    config
+  );
+  return res.data;
+};

@@ -21,6 +21,7 @@ const Ticketing = ({
   selectedMovie,
   selectedDate,
   filteringTab,
+  seatsState,
   onStepClick,
   onDivisionTabClick,
   onDivisionClick,
@@ -30,6 +31,7 @@ const Ticketing = ({
   onMovieClick,
   onDateClick,
   onFilteringTabClick,
+  onTimeClick,
 }) => {
   return (
     <>
@@ -61,11 +63,23 @@ const Ticketing = ({
               onMovieClick={onMovieClick}
               onDateClick={onDateClick}
               onFilteringTabClick={onFilteringTabClick}
+              onTimeClick={onTimeClick}
             />
           )}
         />
 
-        <Route path="/ticketing/PersonSeat" render={() => <Step02 />} />
+        <Route
+          path="/ticketing/PersonSeat"
+          render={() => {
+            const { loading, data, error } = seatsState;
+
+            if (loading) return <div>loading...</div>;
+            if (error) return <div>error!</div>;
+            if (!data) return null;
+
+            return <Step02 seats={data.Seats.Items} />;
+          }}
+        />
       </TicketingBlock>
     </>
   );

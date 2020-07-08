@@ -3,10 +3,10 @@ import React from 'react';
 import Layout from '../components/Layout';
 import TicketingContainer from '../containers/TicketingContainer';
 
-const TicketingPage = () => {
+const TicketingPage = ({ history }) => {
   return (
     <Layout theme="light">
-      <TicketingContainer />
+      <TicketingContainer history={history} />
     </Layout>
   );
 };

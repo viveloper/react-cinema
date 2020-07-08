@@ -4,6 +4,7 @@ import Ticketing from '../components/Ticketing';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTicketingInfo } from '../modules/ticketing';
 import { getPlaySeqs } from '../modules/playSeqs';
+import { getSeats } from '../modules/seats';
 
 const getToday = () => {
   const date = new Date();
@@ -123,12 +124,14 @@ const getPlayMovieList = (playSeqs, filteringTabName) => {
         .filter((playMovie) => playMovie.divisions.length !== 0);
 };
 
-const TicketingContainer = () => {
+const TicketingContainer = ({ history }) => {
   const { loading, data: ticketingInfo, error } = useSelector(
     (state) => state.ticketing
   );
 
   const playSeqsState = useSelector((state) => state.playSeqs);
+
+  const seatsState = useSelector((state) => state.seats);
 
   const [step, setStep] = useState(1);
   const [divisionTab, setDivisionTab] = useState('all');
@@ -280,6 +283,23 @@ const TicketingContainer = () => {
     setFilteringTab(tabName);
   }, []);
 
+  const handleTimeClick = useCallback(
+    (params) => {
+      const { screenId, playDate, playSequence, screenDivisionCode } = params;
+      dispatch(
+        getSeats({
+          cinemaId,
+          screenId,
+          playDate,
+          playSequence,
+          screenDivisionCode,
+        })
+      );
+      history.push('/ticketing/PersonSeat');
+    },
+    [history, dispatch, cinemaId]
+  );
+
   if (loading) return <div>loading...</div>;
   if (error) return <div>error!</div>;
   if (!ticketingInfo) return null;
@@ -300,6 +320,7 @@ const TicketingContainer = () => {
       selectedMovie={selectedMovie}
       selectedDate={selectedDate}
       filteringTab={filteringTab}
+      seatsState={seatsState}
       onDivisionClick={handleDivisionClick}
       onCinemaClick={handleCinemaClick}
       onMovieListSortTypeClick={handleMovieListSortTypeClick}
@@ -309,6 +330,7 @@ const TicketingContainer = () => {
       onDivisionTabClick={handleDivisionTabClick}
       onDateClick={handleDateClick}
       onFilteringTabClick={handleFilteringTabClick}
+      onTimeClick={handleTimeClick}
     />
   );
 };
