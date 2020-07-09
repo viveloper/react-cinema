@@ -8,7 +8,7 @@ const MovieList = ({
   movies,
   sortType,
   viewType,
-  selectedMovie,
+  selectedMovieCode,
   onMovieClick,
 }) => {
   const handleMovieClick = (e, code) => {
@@ -29,7 +29,7 @@ const MovieList = ({
             <li
               key={movie.RepresentationMovieCode}
               className={`${classes['movie-item']} ${classes['text-type']} ${
-                selectedMovie === movie.RepresentationMovieCode
+                selectedMovieCode === movie.RepresentationMovieCode
                   ? classes['active']
                   : ''
               }`}
@@ -62,7 +62,7 @@ const MovieList = ({
               className={`${classes['movie-item']} ${
                 classes['thumbnail-type']
               } ${
-                selectedMovie === movie.RepresentationMovieCode
+                selectedMovieCode === movie.RepresentationMovieCode
                   ? classes['active']
                   : ''
               }`}

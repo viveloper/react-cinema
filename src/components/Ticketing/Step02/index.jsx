@@ -2,6 +2,9 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import SectionTitle from '../SectionTitle';
+import ViewGradeIcon from '../../ViewGradeIcon';
+
+import { getViewGradeIconOptions } from '../../../util';
 
 const StepBlock = styled.div`
   width: 1200px;
@@ -21,6 +24,31 @@ const PersonSeatCount = styled.div`
   width: 100%;
   height: 117px;
   padding: 0 20px;
+  display: flex;
+
+  .movie-info {
+    display: flex;
+    align-items: center;
+    img {
+      display: block;
+      width: 46px;
+      border-radius: 4px;
+    }
+    .text-info {
+      margin-left: 8px;
+
+      .title {
+        display: flex;
+        span {
+          font-size: 17px;
+          font-weight: bold;
+        }
+      }
+      .detail-info {
+        font-size: 11px;
+      }
+    }
+  }
 `;
 
 const ScreenBlock = styled.div`
@@ -121,11 +149,40 @@ const SeatsInfoBlock = styled.div`
   }
 `;
 
-const Step02 = ({ seats }) => {
+const Step02 = ({ seats, playMovieInfo }) => {
+  const viewGradeIconOptions = getViewGradeIconOptions(
+    playMovieInfo.ViewGradeCode
+  );
   return (
     <StepBlock>
       <SectionTitle title={'인원/좌석 선택'} />
-      <PersonSeatCount />
+      <PersonSeatCount>
+        <div className="movie-info">
+          <img src={playMovieInfo.PosterURL} alt="poster" />
+          <div className="text-info">
+            <div className="title">
+              <ViewGradeIcon
+                size={22}
+                color={viewGradeIconOptions.color}
+                text={viewGradeIconOptions.text}
+              />
+              <span>{playMovieInfo.MovieNameKR}</span>
+            </div>
+            <div className="detail-info">
+              <div className="time">
+                {`${playMovieInfo.divisions[0].times[0].PlayDt}(${playMovieInfo.divisions[0].times[0].PlayDayKR}) | ${playMovieInfo.divisions[0].times[0].StartTime}~${playMovieInfo.divisions[0].times[0].EndTime}`}
+              </div>
+              <div className="screen">{`${playMovieInfo.divisions[0].CinemaNameKR} | ${playMovieInfo.divisions[0].times[0].ScreenNameKR} | ${playMovieInfo.divisions[0].ScreenDivisionNameKR}`}</div>
+            </div>
+          </div>
+        </div>
+        <div className="person-count">
+          <div className="adult"></div>
+          <div className="student"></div>
+          <div className="senior"></div>
+          <div className="disabled"></div>
+        </div>
+      </PersonSeatCount>
       <div className="text-info">
         <p>{'- 인원을 선택하세요'}</p>
         {/* <p>{'- 좌석 선택 후 결제하기 버튼을 클릭하세요'}</p> */}

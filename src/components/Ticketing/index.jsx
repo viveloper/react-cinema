@@ -18,9 +18,10 @@ const Ticketing = ({
   cinemaId,
   movieListSortType,
   movieListViewType,
-  selectedMovie,
+  selectedMovieCode,
   selectedDate,
   filteringTab,
+  playMovieInfo,
   seatsState,
   onStepClick,
   onDivisionTabClick,
@@ -50,7 +51,7 @@ const Ticketing = ({
               movieListSortType={movieListSortType}
               movieListViewType={movieListViewType}
               movies={movies}
-              selectedMovie={selectedMovie}
+              selectedMovieCode={selectedMovieCode}
               selectedDate={selectedDate}
               playDates={playDates}
               filteringTab={filteringTab}
@@ -77,7 +78,9 @@ const Ticketing = ({
             if (error) return <div>error!</div>;
             if (!data) return null;
 
-            return <Step02 seats={data.Seats.Items} />;
+            return (
+              <Step02 seats={data.Seats.Items} playMovieInfo={playMovieInfo} />
+            );
           }}
         />
       </TicketingBlock>

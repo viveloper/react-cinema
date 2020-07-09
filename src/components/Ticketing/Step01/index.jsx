@@ -29,7 +29,7 @@ const Step01 = ({
   movieListSortType,
   movieListViewType,
   movies,
-  selectedMovie,
+  selectedMovieCode,
   selectedDate,
   playDates,
   filteringTab,
@@ -75,7 +75,7 @@ const Step01 = ({
           movies={movies}
           sortType={movieListSortType}
           viewType={movieListViewType}
-          selectedMovie={selectedMovie}
+          selectedMovieCode={selectedMovieCode}
           onMovieClick={onMovieClick}
         />
       </SectionMovie>

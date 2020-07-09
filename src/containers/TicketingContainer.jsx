@@ -32,9 +32,13 @@ const getPlayMovieList = (playSeqs, filteringTabName) => {
         RepresentationMovieCode: playSeq.RepresentationMovieCode,
         MovieNameKR: playSeq.MovieNameKR,
         MovieNameUS: playSeq.MovieNameUS,
+        PosterURL: playSeq.PosterURL,
         ViewGradeCode: playSeq.ViewGradeCode,
         divisions: [
           {
+            CinemaID: playSeq.CinemaID,
+            CinemaNameKR: playSeq.CinemaNameKR,
+            CinemaNameUS: playSeq.CinemaNameUS,
             FilmCode: playSeq.FilmCode,
             FilmNameKR: playSeq.FilmNameKR,
             FilmNameUS: playSeq.FilmNameUS,
@@ -49,6 +53,8 @@ const getPlayMovieList = (playSeqs, filteringTabName) => {
               {
                 PlaySequence: playSeq.PlaySequence,
                 PlayDt: playSeq.PlayDt,
+                PlayDayKR: playSeq.PlayDayKR,
+                PlayDayUS: playSeq.PlayDayUS,
                 StartTime: playSeq.StartTime,
                 EndTime: playSeq.EndTime,
                 TotalSeatCount: playSeq.TotalSeatCount,
@@ -71,6 +77,9 @@ const getPlayMovieList = (playSeqs, filteringTabName) => {
       );
       if (!division) {
         const newDivision = {
+          CinemaID: playSeq.CinemaID,
+          CinemaNameKR: playSeq.CinemaNameKR,
+          CinemaNameUS: playSeq.CinemaNameUS,
           FilmCode: playSeq.FilmCode,
           FilmNameKR: playSeq.FilmNameKR,
           FilmNameUS: playSeq.FilmNameUS,
@@ -85,6 +94,8 @@ const getPlayMovieList = (playSeqs, filteringTabName) => {
             {
               PlaySequence: playSeq.PlaySequence,
               PlayDt: playSeq.PlayDt,
+              PlayDayKR: playSeq.PlayDayKR,
+              PlayDayUS: playSeq.PlayDayUS,
               StartTime: playSeq.StartTime,
               EndTime: playSeq.EndTime,
               TotalSeatCount: playSeq.TotalSeatCount,
@@ -100,6 +111,8 @@ const getPlayMovieList = (playSeqs, filteringTabName) => {
         const newTime = {
           PlaySequence: playSeq.PlaySequence,
           PlayDt: playSeq.PlayDt,
+          PlayDayKR: playSeq.PlayDayKR,
+          PlayDayUS: playSeq.PlayDayUS,
           StartTime: playSeq.StartTime,
           EndTime: playSeq.EndTime,
           TotalSeatCount: playSeq.TotalSeatCount,
@@ -139,9 +152,10 @@ const TicketingContainer = ({ history }) => {
   const [cinemaId, setCinemaId] = useState('');
   const [movieListSortType, setMovieSortType] = useState('A');
   const [movieListViewType, setMovieListViewType] = useState('text');
-  const [selectedMovie, setSelectedMovie] = useState('');
+  const [selectedMovieCode, setSelectedMovieCode] = useState('');
   const [selectedDate, setSelectedDate] = useState(getToday());
   const [filteringTab, setFilteringTab] = useState('all');
+  const [playMovieInfo, setPlayMovieInfo] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -222,11 +236,11 @@ const TicketingContainer = ({ history }) => {
         getPlaySeqs({
           playDate: selectedDate,
           cinemaId: cinemaIdSeq,
-          movieCode: selectedMovie,
+          movieCode: selectedMovieCode,
         })
       );
     },
-    [dispatch, selectedDate, selectedMovie, divisionTab, detailDivisionCode]
+    [dispatch, selectedDate, selectedMovieCode, divisionTab, detailDivisionCode]
   );
 
   const handleMovieListSortTypeClick = useCallback((type) => {
@@ -242,8 +256,8 @@ const TicketingContainer = ({ history }) => {
       if (!cinemaId) return;
       const divisionCode = divisionTab === 'all' ? 1 : 2;
       const cinemaIdSeq = `${divisionCode}|${detailDivisionCode}|${cinemaId}`;
-      const movieCode = code !== selectedMovie ? code : '';
-      setSelectedMovie(movieCode);
+      const movieCode = code !== selectedMovieCode ? code : '';
+      setSelectedMovieCode(movieCode);
       dispatch(
         getPlaySeqs({
           playDate: selectedDate,
@@ -256,7 +270,7 @@ const TicketingContainer = ({ history }) => {
       dispatch,
       selectedDate,
       cinemaId,
-      selectedMovie,
+      selectedMovieCode,
       divisionTab,
       detailDivisionCode,
     ]
@@ -272,11 +286,11 @@ const TicketingContainer = ({ history }) => {
         getPlaySeqs({
           playDate: date,
           cinemaId: cinemaIdSeq,
-          movieCode: selectedMovie,
+          movieCode: selectedMovieCode,
         })
       );
     },
-    [dispatch, cinemaId, selectedMovie, divisionTab, detailDivisionCode]
+    [dispatch, cinemaId, selectedMovieCode, divisionTab, detailDivisionCode]
   );
 
   const handleFilteringTabClick = useCallback((tabName) => {
@@ -285,7 +299,14 @@ const TicketingContainer = ({ history }) => {
 
   const handleTimeClick = useCallback(
     (params) => {
-      const { screenId, playDate, playSequence, screenDivisionCode } = params;
+      const {
+        playMovieInfo,
+        screenId,
+        playDate,
+        playSequence,
+        screenDivisionCode,
+      } = params;
+      setPlayMovieInfo(playMovieInfo);
       dispatch(
         getSeats({
           cinemaId,
@@ -317,9 +338,10 @@ const TicketingContainer = ({ history }) => {
       cinemaId={cinemaId}
       movieListSortType={movieListSortType}
       movieListViewType={movieListViewType}
-      selectedMovie={selectedMovie}
+      selectedMovieCode={selectedMovieCode}
       selectedDate={selectedDate}
       filteringTab={filteringTab}
+      playMovieInfo={playMovieInfo}
       seatsState={seatsState}
       onDivisionClick={handleDivisionClick}
       onCinemaClick={handleCinemaClick}

@@ -75,6 +75,15 @@ const ResultView = ({ playMovieList, onTimeClick }) => {
                           href="#PersonSeat"
                           onClick={(e) =>
                             handleTimeClick(e, {
+                              playMovieInfo: {
+                                ...movie,
+                                divisions: [
+                                  {
+                                    ...division,
+                                    times: [{ ...time }],
+                                  },
+                                ],
+                              },
                               screenId: time.ScreenID,
                               playDate: time.PlayDt,
                               playSequence: time.PlaySequence,
