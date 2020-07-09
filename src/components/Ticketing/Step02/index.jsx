@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import SectionTitle from '../SectionTitle';
 import ViewGradeIcon from '../../ViewGradeIcon';
+import CountUpDown from './CountUpDown';
 
 import { getViewGradeIconOptions } from '../../../util';
 
@@ -36,16 +37,33 @@ const PersonSeatCount = styled.div`
     }
     .text-info {
       margin-left: 8px;
-
+      width: 270px;
       .title {
         display: flex;
-        span {
+        align-items: center;
+        & > span {
           font-size: 17px;
           font-weight: bold;
+          margin-left: 4px;
         }
       }
       .detail-info {
+        margin-top: 5px;
         font-size: 11px;
+      }
+    }
+  }
+  .person-count-list {
+    width: 640px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .person-count-item {
+      display: flex;
+      align-items: center;
+      & > span {
+        font-size: 13px;
+        margin-right: 8px;
       }
     }
   }
@@ -56,6 +74,16 @@ const ScreenBlock = styled.div`
   height: 488px;
   margin: 0 auto;
   overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #888;
+  }
 
   .screen {
     background: #6e6e6e;
@@ -150,9 +178,63 @@ const SeatsInfoBlock = styled.div`
 `;
 
 const Step02 = ({ seats, playMovieInfo }) => {
+  const [adultCount, setAdultCount] = useState(0);
+  const [studentCount, setStudentCount] = useState(0);
+  const [seniorCount, setSeniorCount] = useState(0);
+  const [disabledCount, setDisabledCount] = useState(0);
+
   const viewGradeIconOptions = getViewGradeIconOptions(
     playMovieInfo.ViewGradeCode
   );
+
+  const handleAdultCountUpClick = () => {
+    const nextCount = adultCount + 1;
+    if (nextCount < 0 || nextCount > 8) return;
+    setAdultCount(nextCount);
+  };
+
+  const handleAdultCountDownClick = () => {
+    const nextCount = adultCount - 1;
+    if (nextCount < 0 || nextCount > 8) return;
+    setAdultCount(nextCount);
+  };
+
+  const handleStudentCountUpClick = () => {
+    const nextCount = studentCount + 1;
+    if (nextCount < 0 || nextCount > 8) return;
+    setStudentCount(nextCount);
+  };
+
+  const handleStudentCountDownClick = () => {
+    const nextCount = studentCount - 1;
+    if (nextCount < 0 || nextCount > 8) return;
+    setStudentCount(nextCount);
+  };
+
+  const handleSeniorCountUpClick = () => {
+    const nextCount = seniorCount + 1;
+    if (nextCount < 0 || nextCount > 8) return;
+    setSeniorCount(nextCount);
+  };
+
+  const handleSeniorCountDownClick = () => {
+    const nextCount = seniorCount - 1;
+    if (nextCount < 0 || nextCount > 8) return;
+    setSeniorCount(nextCount);
+  };
+
+  const handleDisabledCountUpClick = () => {
+    const nextCount = disabledCount + 1;
+    if (nextCount < 0 || nextCount > 8) return;
+    setDisabledCount(nextCount);
+  };
+
+  const handleDisabledCountDownClick = () => {
+    const nextCount = disabledCount - 1;
+    if (nextCount < 0 || nextCount > 8) return;
+    setDisabledCount(nextCount);
+  };
+
   return (
     <StepBlock>
       <SectionTitle title={'인원/좌석 선택'} />
@@ -176,11 +258,39 @@ const Step02 = ({ seats, playMovieInfo }) => {
             </div>
           </div>
         </div>
-        <div className="person-count">
-          <div className="adult"></div>
-          <div className="student"></div>
-          <div className="senior"></div>
-          <div className="disabled"></div>
+        <div className="person-count-list">
+          <div className="person-count-item">
+            <span>성인</span>
+            <CountUpDown
+              count={adultCount}
+              onUpClick={handleAdultCountUpClick}
+              onDownClick={handleAdultCountDownClick}
+            />
+          </div>
+          <div className="person-count-item">
+            <span>청소년</span>
+            <CountUpDown
+              count={studentCount}
+              onUpClick={handleStudentCountUpClick}
+              onDownClick={handleStudentCountDownClick}
+            />
+          </div>
+          <div className="person-count-item">
+            <span>시니어</span>
+            <CountUpDown
+              count={seniorCount}
+              onUpClick={handleSeniorCountUpClick}
+              onDownClick={handleSeniorCountDownClick}
+            />
+          </div>
+          <div className="person-count-item">
+            <span>장애인</span>
+            <CountUpDown
+              count={disabledCount}
+              onUpClick={handleDisabledCountUpClick}
+              onDownClick={handleDisabledCountDownClick}
+            />
+          </div>
         </div>
       </PersonSeatCount>
       <div className="text-info">
