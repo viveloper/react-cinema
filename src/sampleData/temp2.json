@@ -1044,7 +1044,7 @@
         "SweetSpotYN": "N",
         "SeatFloor": 1,
         "FeeBlockCode": 0,
-        "SeatStatusCode": 30,
+        "SeatStatusCode": 0,
         "SalesDisableTicketCode": "40,50,65,66,80"
       },
       {
@@ -5580,7 +5580,7 @@
         "SweetSpotYN": "Y",
         "SeatFloor": 1,
         "FeeBlockCode": 0,
-        "SeatStatusCode": 0,
+        "SeatStatusCode": 30,
         "SalesDisableTicketCode": "40,50,65,66,80"
       },
       {
@@ -9789,14 +9789,6 @@
         "ShowSeatColumn": 15
       },
       {
-        "SeatNo": "1B18",
-        "SeatRow": "B",
-        "SeatColumn": 18,
-        "SeatColumnGroupNo": "2",
-        "ShowSeatRow": "B",
-        "ShowSeatColumn": 18
-      },
-      {
         "SeatNo": "1B22",
         "SeatRow": "B",
         "SeatColumn": 22,
@@ -10181,6 +10173,14 @@
         "ShowSeatColumn": 14
       },
       {
+        "SeatNo": "1J18",
+        "SeatRow": "J",
+        "SeatColumn": 18,
+        "SeatColumnGroupNo": "6",
+        "ShowSeatRow": "J",
+        "ShowSeatColumn": 18
+      },
+      {
         "SeatNo": "1K04",
         "SeatRow": "K",
         "SeatColumn": 4,
@@ -10558,7 +10558,7 @@
         "CustomerDivisionCode": 10,
         "SeatBlockCode": 1,
         "ServiceFee": 0,
-        "MovieFee": 10000
+        "MovieFee": 11000
       },
       {
         "TicketCode": 11,

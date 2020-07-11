@@ -99,6 +99,27 @@ const ScreenBlock = styled.div`
 
 const SeatsBlock = styled.div`
   position: relative;
+  display: block;
+  margin: 0 auto;
+  ${({ width }) => css`
+    width: ${width}px;
+  `}
+`;
+
+const SeatRow = styled.div`
+  font-family: 'Roboto', 'Noto Sans KR';
+  font-size: 11px;
+  font-weight: bold;
+  color: #fff;
+  ${({ x, y }) => {
+    if (x || y) {
+      return css`
+        position: absolute;
+        left: ${x}px;
+        top: ${y}px;
+      `;
+    }
+  }}
 `;
 
 const Seat = styled.div`
@@ -108,6 +129,9 @@ const Seat = styled.div`
   background: #e8e8e8;
   border-radius: 7px 7px 0px 0px;
   font-family: 'Roboto', 'Noto Sans KR';
+  display: flex;
+  justify-content: center;
+  align-items: center;
   ${({ x, y }) => {
     if (x || y) {
       return css`
@@ -177,7 +201,7 @@ const SeatsInfoBlock = styled.div`
   }
 `;
 
-const Step02 = ({ seats, playMovieInfo }) => {
+const Step02 = ({ screenSeatInfo, seats, playMovieInfo }) => {
   const [adultCount, setAdultCount] = useState(0);
   const [studentCount, setStudentCount] = useState(0);
   const [seniorCount, setSeniorCount] = useState(0);
@@ -186,6 +210,22 @@ const Step02 = ({ seats, playMovieInfo }) => {
   const viewGradeIconOptions = getViewGradeIconOptions(
     playMovieInfo.ViewGradeCode
   );
+
+  // const xScaleRatio = Math.round(
+  //   (screenSeatInfo.EndXCoordinate - screenSeatInfo.StartXCoordinate) /
+  //     screenSeatInfo.MaxSeatColumn /
+  //     26
+  // );
+  // const yScaleRatio = Math.round(screenSeatInfo.StartYCoordinate / 90);
+  const xScaleRatio =
+    (screenSeatInfo.EndXCoordinate - screenSeatInfo.StartXCoordinate) /
+    screenSeatInfo.MaxSeatColumn /
+    27;
+
+  const yScaleRatio = screenSeatInfo.StartYCoordinate / 96;
+  const seatsBlockWidth = screenSeatInfo.EndXCoordinate / xScaleRatio + 100;
+
+  console.log(xScaleRatio, yScaleRatio, seatsBlockWidth);
 
   const handleAdultCountUpClick = () => {
     const nextCount = adultCount + 1;
@@ -299,16 +339,25 @@ const Step02 = ({ seats, playMovieInfo }) => {
       </div>
       <ScreenBlock>
         <div className="screen">SCREEN</div>
-        <SeatsBlock>
-          {seats.map((seat) => (
-            <Seat
-              key={seat.SeatNo}
-              x={seat.SeatXCoordinate / 5 - 50}
-              y={seat.SeatYCoordinate / 5 - 60}
-              status={seat.SeatStatusCode}
-              sweetSpot={seat.SweetSpotYN === 'Y' ? true : false}
-            />
-          ))}
+        <SeatsBlock width={seatsBlockWidth}>
+          {seats.map((seat) => {
+            return (
+              <>
+                <SeatRow x={0} y={seat.SeatYCoordinate / yScaleRatio - 60}>
+                  {seat.SeatRow}
+                </SeatRow>
+                <Seat
+                  key={seat.SeatNo}
+                  x={seat.SeatXCoordinate / xScaleRatio}
+                  y={seat.SeatYCoordinate / yScaleRatio - 60}
+                  status={seat.SeatStatusCode}
+                  sweetSpot={seat.SweetSpotYN === 'Y' ? true : false}
+                >
+                  {seat.SeatColumn}
+                </Seat>
+              </>
+            );
+          })}
         </SeatsBlock>
       </ScreenBlock>
       <SeatsInfoBlock>

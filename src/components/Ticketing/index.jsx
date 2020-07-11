@@ -79,7 +79,11 @@ const Ticketing = ({
             if (!data) return null;
 
             return (
-              <Step02 seats={data.Seats.Items} playMovieInfo={playMovieInfo} />
+              <Step02
+                screenSeatInfo={data.ScreenSeatInfo.Items[0]}
+                seats={data.Seats.Items}
+                playMovieInfo={playMovieInfo}
+              />
             );
           }}
         />
