@@ -71,7 +71,7 @@ const PersonSeatCount = styled.div`
 
 const ScreenBlock = styled.div`
   width: 1170px;
-  height: 488px;
+  height: 470px;
   margin: 0 auto;
   overflow: scroll;
   &::-webkit-scrollbar {
@@ -201,6 +201,40 @@ const SeatsInfoBlock = styled.div`
   }
 `;
 
+const PersonSeatSummary = styled.div`
+  display: flex;
+  height: 60px;
+  width: 100%;
+  .seat-result {
+    flex: 1;
+    background: #888;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    padding-left: 30px;
+    padding-top: 10px;
+    display: flex;
+    align-items: baseline;
+    .result {
+      font-family: 'Roboto';
+      font-size: 25px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+  }
+  .btn-pay {
+    flex: 0 0 180px;
+    background: #ff243e;
+    border: none;
+    outline: none;
+    font-family: 'Noto Sans KR', 'Roboto', 'dotum', 'sans-serif';
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+  }
+`;
+
 const Step02 = ({ screenSeatInfo, seats, playMovieInfo }) => {
   const [adultCount, setAdultCount] = useState(0);
   const [studentCount, setStudentCount] = useState(0);
@@ -211,12 +245,6 @@ const Step02 = ({ screenSeatInfo, seats, playMovieInfo }) => {
     playMovieInfo.ViewGradeCode
   );
 
-  // const xScaleRatio = Math.round(
-  //   (screenSeatInfo.EndXCoordinate - screenSeatInfo.StartXCoordinate) /
-  //     screenSeatInfo.MaxSeatColumn /
-  //     26
-  // );
-  // const yScaleRatio = Math.round(screenSeatInfo.StartYCoordinate / 90);
   const xScaleRatio =
     (screenSeatInfo.EndXCoordinate - screenSeatInfo.StartXCoordinate) /
     screenSeatInfo.MaxSeatColumn /
@@ -340,24 +368,21 @@ const Step02 = ({ screenSeatInfo, seats, playMovieInfo }) => {
       <ScreenBlock>
         <div className="screen">SCREEN</div>
         <SeatsBlock width={seatsBlockWidth}>
-          {seats.map((seat) => {
-            return (
-              <>
-                <SeatRow x={0} y={seat.SeatYCoordinate / yScaleRatio - 60}>
-                  {seat.SeatRow}
-                </SeatRow>
-                <Seat
-                  key={seat.SeatNo}
-                  x={seat.SeatXCoordinate / xScaleRatio}
-                  y={seat.SeatYCoordinate / yScaleRatio - 60}
-                  status={seat.SeatStatusCode}
-                  sweetSpot={seat.SweetSpotYN === 'Y' ? true : false}
-                >
-                  {seat.SeatColumn}
-                </Seat>
-              </>
-            );
-          })}
+          {seats.map((seat) => (
+            <React.Fragment key={seat.SeatNo}>
+              <SeatRow x={0} y={seat.SeatYCoordinate / yScaleRatio - 60}>
+                {seat.SeatRow}
+              </SeatRow>
+              <Seat
+                x={seat.SeatXCoordinate / xScaleRatio}
+                y={seat.SeatYCoordinate / yScaleRatio - 60}
+                status={seat.SeatStatusCode}
+                sweetSpot={seat.SweetSpotYN === 'Y' ? true : false}
+              >
+                {seat.SeatColumn}
+              </Seat>
+            </React.Fragment>
+          ))}
         </SeatsBlock>
       </ScreenBlock>
       <SeatsInfoBlock>
@@ -378,6 +403,12 @@ const Step02 = ({ screenSeatInfo, seats, playMovieInfo }) => {
           </div>
         </div>
       </SeatsInfoBlock>
+      <PersonSeatSummary>
+        <div className="seat-result">
+          총 합계 <span className="result">{0}</span>원
+        </div>
+        <button className="btn-pay">결제하기</button>
+      </PersonSeatSummary>
     </StepBlock>
   );
 };
