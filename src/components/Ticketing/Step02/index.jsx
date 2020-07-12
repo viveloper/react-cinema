@@ -5,7 +5,7 @@ import SectionTitle from '../SectionTitle';
 import ViewGradeIcon from '../../ViewGradeIcon';
 import CountUpDown from './CountUpDown';
 
-import { getViewGradeIconOptions } from '../../../util';
+import { getViewGradeIconOptions, numberWithCommas } from '../../../util';
 
 const StepBlock = styled.div`
   width: 1200px;
@@ -109,7 +109,6 @@ const SeatsBlock = styled.div`
 const SeatRow = styled.div`
   font-family: 'Roboto', 'Noto Sans KR';
   font-size: 11px;
-  font-weight: bold;
   color: #fff;
   ${({ x, y }) => {
     if (x || y) {
@@ -131,7 +130,7 @@ const Seat = styled.div`
   font-family: 'Roboto', 'Noto Sans KR';
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center;  
   ${({ x, y }) => {
     if (x || y) {
       return css`
@@ -154,13 +153,14 @@ const Seat = styled.div`
     if (status === 0) {
       return css`
         background: #e8e8e8;
+        cursor: pointer;
       `;
     } else if (status === 30) {
       return css`
         background: #714034;
         opacity: 0.5;
       `;
-    } else if (status === 50) {
+    } else if (status === 50 || status === 23) {
       return css`
         background: #444;
       `;
@@ -172,6 +172,13 @@ const Seat = styled.div`
           border: 1px solid #d41017;
         `
       : ''}
+  ${({ active }) =>
+    active
+      ? css`
+          background: #ff243e;
+          color: #fff;
+        `
+      : ''}  
 `;
 
 const SeatsInfoBlock = styled.div`
@@ -209,7 +216,6 @@ const PersonSeatSummary = styled.div`
     flex: 1;
     background: #888;
     font-size: 15px;
-    font-weight: bold;
     color: #fff;
     padding-left: 30px;
     padding-top: 10px;
@@ -218,7 +224,6 @@ const PersonSeatSummary = styled.div`
     .result {
       font-family: 'Roboto';
       font-size: 25px;
-      font-weight: bold;
       margin-left: 10px;
     }
   }
@@ -229,17 +234,25 @@ const PersonSeatSummary = styled.div`
     outline: none;
     font-family: 'Noto Sans KR', 'Roboto', 'dotum', 'sans-serif';
     font-size: 15px;
-    font-weight: bold;
     color: #fff;
     cursor: pointer;
   }
 `;
 
-const Step02 = ({ screenSeatInfo, seats, playMovieInfo }) => {
-  const [adultCount, setAdultCount] = useState(0);
-  const [studentCount, setStudentCount] = useState(0);
-  const [seniorCount, setSeniorCount] = useState(0);
-  const [disabledCount, setDisabledCount] = useState(0);
+const Step02 = ({
+  screenSeatInfo,
+  seats,
+  customerDivision,
+  fees,
+  playMovieInfo,
+}) => {
+  const [customerCount, setCustomerCount] = useState({
+    adult: 0,
+    youth: 0,
+    senior: 0,
+    disabled: 0,
+  });
+  const [activeSeats, setActiveSeats] = useState([]);
 
   const viewGradeIconOptions = getViewGradeIconOptions(
     playMovieInfo.ViewGradeCode
@@ -249,58 +262,52 @@ const Step02 = ({ screenSeatInfo, seats, playMovieInfo }) => {
     (screenSeatInfo.EndXCoordinate - screenSeatInfo.StartXCoordinate) /
     screenSeatInfo.MaxSeatColumn /
     27;
-
   const yScaleRatio = screenSeatInfo.StartYCoordinate / 96;
   const seatsBlockWidth = screenSeatInfo.EndXCoordinate / xScaleRatio + 100;
 
-  console.log(xScaleRatio, yScaleRatio, seatsBlockWidth);
+  const price = numberWithCommas(
+    fees.reduce((acc, item) => {
+      const key = customerDivision
+        .find(
+          (division) =>
+            division.CustomerDivisionCode === item.CustomerDivisionCode
+        )
+        .CustomerDivisionNameUS.toLowerCase();
+      return acc + customerCount[key] * item.MovieFee;
+    }, 0)
+  );
 
-  const handleAdultCountUpClick = () => {
-    const nextCount = adultCount + 1;
+  const handleCustomerCountUpClick = (key) => {
+    const nextCount = customerCount[key] + 1;
     if (nextCount < 0 || nextCount > 8) return;
-    setAdultCount(nextCount);
+    setCustomerCount({
+      ...customerCount,
+      [key]: nextCount,
+    });
+  };
+  const handleCustomerCountDownClick = (key) => {
+    const nextCount = customerCount[key] - 1;
+    if (nextCount < 0 || nextCount > 8) return;
+    setCustomerCount({
+      ...customerCount,
+      [key]: nextCount,
+    });
   };
 
-  const handleAdultCountDownClick = () => {
-    const nextCount = adultCount - 1;
-    if (nextCount < 0 || nextCount > 8) return;
-    setAdultCount(nextCount);
-  };
-
-  const handleStudentCountUpClick = () => {
-    const nextCount = studentCount + 1;
-    if (nextCount < 0 || nextCount > 8) return;
-    setStudentCount(nextCount);
-  };
-
-  const handleStudentCountDownClick = () => {
-    const nextCount = studentCount - 1;
-    if (nextCount < 0 || nextCount > 8) return;
-    setStudentCount(nextCount);
-  };
-
-  const handleSeniorCountUpClick = () => {
-    const nextCount = seniorCount + 1;
-    if (nextCount < 0 || nextCount > 8) return;
-    setSeniorCount(nextCount);
-  };
-
-  const handleSeniorCountDownClick = () => {
-    const nextCount = seniorCount - 1;
-    if (nextCount < 0 || nextCount > 8) return;
-    setSeniorCount(nextCount);
-  };
-
-  const handleDisabledCountUpClick = () => {
-    const nextCount = disabledCount + 1;
-    if (nextCount < 0 || nextCount > 8) return;
-    setDisabledCount(nextCount);
-  };
-
-  const handleDisabledCountDownClick = () => {
-    const nextCount = disabledCount - 1;
-    if (nextCount < 0 || nextCount > 8) return;
-    setDisabledCount(nextCount);
+  const handleSeatClick = (seatNo, status) => {
+    if (status !== 0) return;
+    const totalPersonCount =
+      customerCount.adult +
+      customerCount.youth +
+      customerCount.senior +
+      customerCount.disabled;
+    setActiveSeats(
+      activeSeats.includes(seatNo)
+        ? activeSeats.filter((activeSeat) => activeSeat !== seatNo)
+        : activeSeats.length < totalPersonCount
+        ? [...activeSeats, seatNo]
+        : activeSeats
+    );
   };
 
   return (
@@ -327,38 +334,29 @@ const Step02 = ({ screenSeatInfo, seats, playMovieInfo }) => {
           </div>
         </div>
         <div className="person-count-list">
-          <div className="person-count-item">
-            <span>성인</span>
-            <CountUpDown
-              count={adultCount}
-              onUpClick={handleAdultCountUpClick}
-              onDownClick={handleAdultCountDownClick}
-            />
-          </div>
-          <div className="person-count-item">
-            <span>청소년</span>
-            <CountUpDown
-              count={studentCount}
-              onUpClick={handleStudentCountUpClick}
-              onDownClick={handleStudentCountDownClick}
-            />
-          </div>
-          <div className="person-count-item">
-            <span>시니어</span>
-            <CountUpDown
-              count={seniorCount}
-              onUpClick={handleSeniorCountUpClick}
-              onDownClick={handleSeniorCountDownClick}
-            />
-          </div>
-          <div className="person-count-item">
-            <span>장애인</span>
-            <CountUpDown
-              count={disabledCount}
-              onUpClick={handleDisabledCountUpClick}
-              onDownClick={handleDisabledCountDownClick}
-            />
-          </div>
+          {customerDivision.map((division) => (
+            <div
+              key={division.CustomerDivisionCode}
+              className="person-count-item"
+            >
+              <span>{division.CustomerDivisionNameKR}</span>
+              <CountUpDown
+                count={
+                  customerCount[division.CustomerDivisionNameUS.toLowerCase()]
+                }
+                onUpClick={() =>
+                  handleCustomerCountUpClick(
+                    division.CustomerDivisionNameUS.toLowerCase()
+                  )
+                }
+                onDownClick={() =>
+                  handleCustomerCountDownClick(
+                    division.CustomerDivisionNameUS.toLowerCase()
+                  )
+                }
+              />
+            </div>
+          ))}
         </div>
       </PersonSeatCount>
       <div className="text-info">
@@ -378,6 +376,10 @@ const Step02 = ({ screenSeatInfo, seats, playMovieInfo }) => {
                 y={seat.SeatYCoordinate / yScaleRatio - 60}
                 status={seat.SeatStatusCode}
                 sweetSpot={seat.SweetSpotYN === 'Y' ? true : false}
+                active={activeSeats.includes(seat.SeatNo)}
+                onClick={() =>
+                  handleSeatClick(seat.SeatNo, seat.SeatStatusCode)
+                }
               >
                 {seat.SeatColumn}
               </Seat>
@@ -405,7 +407,7 @@ const Step02 = ({ screenSeatInfo, seats, playMovieInfo }) => {
       </SeatsInfoBlock>
       <PersonSeatSummary>
         <div className="seat-result">
-          총 합계 <span className="result">{0}</span>원
+          총 합계 <span className="result">{price}</span>원
         </div>
         <button className="btn-pay">결제하기</button>
       </PersonSeatSummary>

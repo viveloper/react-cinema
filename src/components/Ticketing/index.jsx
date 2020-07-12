@@ -82,6 +82,8 @@ const Ticketing = ({
               <Step02
                 screenSeatInfo={data.ScreenSeatInfo.Items[0]}
                 seats={data.Seats.Items}
+                customerDivision={data.CustomerDivision.Items}
+                fees={data.Fees.Items}
                 playMovieInfo={playMovieInfo}
               />
             );
