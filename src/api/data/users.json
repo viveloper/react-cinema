@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "email": "hong@email.com",
+      "name": "홍길동",
+      "password": "123456",
+      "ticketing": {}
+    },
+    {
+      "email": "kim@google.com",
+      "name": "김길동",
+      "password": "123456",
+      "ticketing": {}
+    }
+  ]
+}

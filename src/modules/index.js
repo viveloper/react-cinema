@@ -7,6 +7,7 @@ import ticketingReducer, { ticketingSaga } from './ticketing';
 import playSeqsReducer, { playSeqsSaga } from './playSeqs';
 import seatsReducer, { seatsSaga } from './seats';
 import { browserHistorySaga } from './browserHistory';
+import loginReducer, { loginSaga } from './login';
 
 export function* rootSaga() {
   yield all([
@@ -17,6 +18,7 @@ export function* rootSaga() {
     playSeqsSaga(),
     seatsSaga(),
     browserHistorySaga(),
+    loginSaga(),
   ]);
 }
 
@@ -27,6 +29,7 @@ const rootReducer = combineReducers({
   ticketing: ticketingReducer,
   playSeqs: playSeqsReducer,
   seats: seatsReducer,
+  login: loginReducer,
 });
 
 export default rootReducer;

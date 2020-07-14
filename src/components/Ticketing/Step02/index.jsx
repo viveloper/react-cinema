@@ -57,10 +57,10 @@ const PersonSeatCount = styled.div`
     width: 640px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     .person-count-item {
       display: flex;
       align-items: center;
+      margin-left: 20px;
       & > span {
         font-size: 13px;
         margin-right: 8px;
@@ -284,6 +284,7 @@ const Step02 = ({
       ...customerCount,
       [key]: nextCount,
     });
+    setActiveSeats([]);
   };
   const handleCustomerCountDownClick = (key) => {
     const nextCount = customerCount[key] - 1;
@@ -292,15 +293,20 @@ const Step02 = ({
       ...customerCount,
       [key]: nextCount,
     });
+    setActiveSeats([]);
   };
 
   const handleSeatClick = (seatNo, status) => {
-    if (status !== 0) return;
     const totalPersonCount =
       customerCount.adult +
       customerCount.youth +
       customerCount.senior +
       customerCount.disabled;
+    if (totalPersonCount === 0) {
+      alert('인원을 선택하세요.');
+      return;
+    }
+    if (status !== 0) return;
     setActiveSeats(
       activeSeats.includes(seatNo)
         ? activeSeats.filter((activeSeat) => activeSeat !== seatNo)

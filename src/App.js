@@ -6,7 +6,7 @@ import MoviesPage from './pages/MoviesPage';
 import MovieListPage from './pages/MovieListPage';
 import MovieDetailPage from './pages/MovieDetailPage';
 import TicketingPage from './pages/TicketingPage';
-import LoginPage from './pages/Login';
+import LoginPage from './pages/LoginPage';
 import ErrorPage from './pages/Error';
 
 import rootReducer, { rootSaga } from './modules';
