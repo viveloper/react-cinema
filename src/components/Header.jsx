@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classes from './Header.module.css';
 
-const Header = ({ theme }) => {
+const Header = ({ theme, isLogin, onLogout }) => {
   return (
     <header
       className={`${classes.header} ${
@@ -40,7 +40,13 @@ const Header = ({ theme }) => {
               <a href="##">고객센터</a>
             </li>
             <li>
-              <Link to="/login">로그인</Link>
+              {!isLogin ? (
+                <Link to="/login">로그인</Link>
+              ) : (
+                <Link to="/" onClick={onLogout}>
+                  로그아웃
+                </Link>
+              )}
             </li>
           </ul>
         </div>
@@ -67,12 +73,21 @@ const Header = ({ theme }) => {
           </ul>
           <ul className={`${classes.menu} ${classes.menu3}`}>
             <li>
-              <a href="##">
-                <span>
-                  <i className="fas fa-user"></i>
-                </span>{' '}
-                회원가입
-              </a>
+              {!isLogin ? (
+                <a href="##">
+                  <span>
+                    <i className="fas fa-user"></i>
+                  </span>{' '}
+                  회원가입
+                </a>
+              ) : (
+                <a href="##">
+                  <span>
+                    <i className="fas fa-user"></i>
+                  </span>{' '}
+                  마이페이지
+                </a>
+              )}
             </li>
             <li>
               <a href="##">

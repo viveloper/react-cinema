@@ -8,11 +8,31 @@ export const login = (email, password) => {
       );
       if (loginUser) {
         resolve({
-          user: loginUser,
+          user: {
+            email: loginUser.email,
+            name: loginUser.name,
+            ticketing: loginUser.ticketing,
+          },
           token: 'accessToken',
         });
       } else {
-        reject(new Error('Login Failed'));
+        reject('이메일, 비밀번호가 일치하지 않습니다');
+      }
+    }, 300);
+  });
+};
+
+export const logout = (email) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (true) {
+        resolve({
+          success: true,
+        });
+      } else {
+        reject({
+          success: false,
+        });
       }
     }, 300);
   });

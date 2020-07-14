@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
 const LoginBlock = styled.div`
@@ -13,7 +14,8 @@ const LoginFormBlock = styled.div`
   .center {
     height: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
   }
   form {
     display: flex;
@@ -52,13 +54,20 @@ const LoginFormBlock = styled.div`
       }
     }
   }
+  .error-message {
+    font-family: 'Noto Sans KR', 'Roboto', 'dotum', 'sans-serif';
+    color: red;
+    margin-top: 20px;
+  }
 `;
 
-const Login = ({ onSubmit }) => {
+const Login = ({ loginState, onSubmit }) => {
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
   });
+
+  const { loading, data, error } = loginState;
 
   const handleChange = (e) => {
     setInputs({
@@ -71,6 +80,9 @@ const Login = ({ onSubmit }) => {
     e.preventDefault();
     onSubmit(inputs);
   };
+
+  if (loading) return <div>loading...</div>;
+  if (data) return <Redirect to="/" />;
 
   return (
     <LoginBlock>
@@ -96,6 +108,7 @@ const Login = ({ onSubmit }) => {
             </div>
             <button type="submit">로그인</button>
           </form>
+          {error && <p className="error-message">{error}</p>}
         </div>
       </LoginFormBlock>
     </LoginBlock>
