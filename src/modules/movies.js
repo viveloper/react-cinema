@@ -28,9 +28,7 @@ function* getMoviesSaga() {
     const data = yield call(api.getMovies);
     yield put({
       type: GET_MOVIES_SUCCESS,
-      payload: data.Movies.Items[0].Items.filter(
-        (item) => item.RepresentationMovieCode !== 'AD'
-      ),
+      payload: data.filter((item) => item.RepresentationMovieCode !== 'AD'),
     });
   } catch (e) {
     yield put({
@@ -43,12 +41,9 @@ function* getMoviesSaga() {
 function* getCurrentMovieListSaga() {
   try {
     const data = yield call(api.getMovieList, 'current');
-    console.log(data.Movies.Items);
     yield put({
       type: GET_CURRENT_MOVIE_LIST_SUCCESS,
-      payload: data.Movies.Items.filter(
-        (item) => item.RepresentationMovieCode !== 'AD'
-      ),
+      payload: data.filter((item) => item.RepresentationMovieCode !== 'AD'),
     });
   } catch (e) {
     yield put({
@@ -63,9 +58,7 @@ function* getPreMovieListSaga() {
     const data = yield call(api.getMovieList, 'pre');
     yield put({
       type: GET_PRE_MOVIE_LIST_SUCCESS,
-      payload: data.Movies.Items.filter(
-        (item) => item.RepresentationMovieCode !== 'AD'
-      ),
+      payload: data.filter((item) => item.RepresentationMovieCode !== 'AD'),
     });
   } catch (e) {
     yield put({
@@ -80,9 +73,7 @@ function* getArteMovieListSaga() {
     const data = yield call(api.getMovieList, 'arte');
     yield put({
       type: GET_ARTE_MOVIE_LIST_SUCCESS,
-      payload: data.Movies.Items.filter(
-        (item) => item.RepresentationMovieCode !== 'AD'
-      ),
+      payload: data.filter((item) => item.RepresentationMovieCode !== 'AD'),
     });
   } catch (e) {
     yield put({
@@ -97,9 +88,7 @@ function* getOperaMovieListSaga() {
     const data = yield call(api.getMovieList, 'opera');
     yield put({
       type: GET_OPERA_MOVIE_LIST_SUCCESS,
-      payload: data.Movies.Items.filter(
-        (item) => item.RepresentationMovieCode !== 'AD'
-      ),
+      payload: data.filter((item) => item.RepresentationMovieCode !== 'AD'),
     });
   } catch (e) {
     yield put({

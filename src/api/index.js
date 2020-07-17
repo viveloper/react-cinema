@@ -1,142 +1,24 @@
 import axios from 'axios';
 import qs from 'querystring';
-import carouselItems from './data/carouselItems.json';
+// import carouselItems from './data/carouselItems.json';
 
 const osVersion =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36';
 // const osVersion =
 //   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36';
 
-export const getCarouselItems = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(carouselItems);
-    }, 200);
-  });
-};
-
-export const getCinemaData = async () => {
-  const requestBody = {
-    paramList: JSON.stringify({
-      MethodName: 'GetSepcialBannerInMain',
-      channelType: 'HO',
-      osType: 'W',
-      osVersion,
-      multiLanguageId: 'KR',
-    }),
-  };
-
-  const config = {
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-  };
-
-  const res = await axios.post(
-    '/LCWS/Cinema/CinemaData.aspx',
-    qs.stringify(requestBody),
-    config
-  );
+export const getCarouselItems = async () => {
+  const res = await axios.get('/api/carousel');
   return res.data;
 };
 
 export const getMovies = async () => {
-  const data = {
-    channelType: 'HO',
-    osType: 'W',
-    osVersion,
-    multiLanguageId: 'KR',
-    data: { memberNoOn: '0' },
-  };
-  const res = await axios.post('/LCAPI/Home/getMovie', data);
+  const res = await axios.get('/api/movies');
   return res.data;
 };
 
 export const getMovieList = async (type) => {
-  let requestBody;
-  if (type === 'current') {
-    requestBody = {
-      paramList: JSON.stringify({
-        MethodName: 'GetMoviesToBe',
-        channelType: 'HO',
-        osType: 'Chrome',
-        osVersion,
-        multiLanguageID: 'KR',
-        division: 1,
-        moviePlayYN: 'Y',
-        orderType: 1,
-        blockSize: 100,
-        pageNo: 1,
-      }),
-    };
-  } else if (type === 'pre') {
-    requestBody = {
-      paramList: JSON.stringify({
-        MethodName: 'GetMoviesToBe',
-        channelType: 'HO',
-        osType: 'Chrome',
-        osVersion,
-        multiLanguageID: 'KR',
-        division: 1,
-        moviePlayYN: 'N',
-        orderType: 5,
-        blockSize: 100,
-        pageNo: 1,
-      }),
-    };
-  } else if (type === 'arte') {
-    requestBody = {
-      paramList: JSON.stringify({
-        MethodName: 'GetMoviesToBe',
-        channelType: 'HO',
-        osType: 'Chrome',
-        osVersion,
-        multiLanguageID: 'KR',
-        division: 2,
-        moviePlayYN: '',
-        orderType: 1,
-        blockSize: 100,
-        pageNo: 1,
-        memberOnNo: '',
-      }),
-    };
-  } else if (type === 'opera') {
-    requestBody = {
-      paramList: JSON.stringify({
-        MethodName: 'GetMoviesByOpera',
-        channelType: 'HO',
-        osType: 'Chrome',
-        osVersion,
-        multiLanguageID: 'KR',
-        blockSize: 100,
-        pageNo: 1,
-        memberOnNo: '',
-      }),
-    };
-  } else if (type === 'festivals') {
-    requestBody = {
-      paramList: JSON.stringify({
-        MethodName: 'GetFestivals',
-        channelType: 'HO',
-        osType: 'Chrome',
-        osVersion,
-        multiLanguageID: 'KR',
-        memberOnNo: '',
-      }),
-    };
-  }
-
-  const config = {
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-  };
-
-  const res = await axios.post(
-    '/LCWS/Movie/MovieData.aspx',
-    qs.stringify(requestBody),
-    config
-  );
+  const res = await axios.get(`/api/movies?type=${type}`);
   return res.data;
 };
 
