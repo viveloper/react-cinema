@@ -7,15 +7,17 @@ import { getPlaySeqs } from '../modules/playSeqs';
 import { getSeats } from '../modules/seats';
 
 const getToday = () => {
-  const date = new Date();
+  // const date = new Date();
 
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
+  // const year = date.getFullYear();
+  // const month = date.getMonth() + 1;
+  // const day = date.getDate();
 
-  return `${year}-${month > 9 ? month : '0' + month}-${
-    day > 9 ? day : '0' + day
-  }`;
+  // return `${year}-${month > 9 ? month : '0' + month}-${
+  //   day > 9 ? day : '0' + day
+  // }`;
+
+  return '2020-07-16';
 };
 
 const getPlayMovieList = (playSeqs, filteringTabName) => {
@@ -230,12 +232,13 @@ const TicketingContainer = ({ history }) => {
   const handleCinemaClick = useCallback(
     (id) => {
       const divisionCode = divisionTab === 'all' ? 1 : 2;
-      const cinemaIdSeq = `${divisionCode}|${detailDivisionCode}|${id}`;
       setCinemaId(id);
       dispatch(
         getPlaySeqs({
           playDate: selectedDate,
-          cinemaId: cinemaIdSeq,
+          divisionCode,
+          detailDivisionCode,
+          cinemaId: id,
           movieCode: selectedMovieCode,
         })
       );
@@ -255,13 +258,14 @@ const TicketingContainer = ({ history }) => {
     (code) => {
       if (!cinemaId) return;
       const divisionCode = divisionTab === 'all' ? 1 : 2;
-      const cinemaIdSeq = `${divisionCode}|${detailDivisionCode}|${cinemaId}`;
       const movieCode = code !== selectedMovieCode ? code : '';
       setSelectedMovieCode(movieCode);
       dispatch(
         getPlaySeqs({
           playDate: selectedDate,
-          cinemaId: cinemaIdSeq,
+          divisionCode,
+          detailDivisionCode,
+          cinemaId,
           movieCode,
         })
       );
@@ -280,12 +284,13 @@ const TicketingContainer = ({ history }) => {
     (date) => {
       if (!cinemaId) return;
       const divisionCode = divisionTab === 'all' ? 1 : 2;
-      const cinemaIdSeq = `${divisionCode}|${detailDivisionCode}|${cinemaId}`;
       setSelectedDate(date);
       dispatch(
         getPlaySeqs({
           playDate: date,
-          cinemaId: cinemaIdSeq,
+          divisionCode,
+          detailDivisionCode,
+          cinemaId,
           movieCode: selectedMovieCode,
         })
       );
