@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import MovieDetail from '../components/MovieDetail';
 import { useSelector, useDispatch } from 'react-redux';
 import { getMovieDetail, getMovieReview } from '../modules/movie';
+import { useHistory } from 'react-router-dom';
 
 const ONE_PAGE_REVIEW_NUM = 10;
 
@@ -22,7 +23,10 @@ const MovieDetailContainer = ({ movieCode }) => {
     error: movieReviewError,
   } = useSelector((state) => state.movie.movieReview);
 
+  const loginData = useSelector((state) => state.login.data);
+
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(getMovieDetail(movieCode));
@@ -87,9 +91,13 @@ const MovieDetailContainer = ({ movieCode }) => {
 
   const handleReviewSubmit = useCallback(
     ({ reviewText, evaluation }) => {
+      if (!loginData) {
+        history.push('/login');
+        return;
+      }
       console.log({ movieCode, reviewText, evaluation });
     },
-    [movieCode]
+    [movieCode, history, loginData]
   );
 
   if (movieDetailLoading || (movieReviewLoading && !movieReview))

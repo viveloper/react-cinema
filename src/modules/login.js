@@ -1,5 +1,6 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import * as loginApi from '../api/login';
+import * as api from '../api';
 
 const LOGIN = 'users/LOGIN';
 const LOGIN_SUCCESS = 'users/LOGIN_SUCCESS';
@@ -25,7 +26,7 @@ export const logout = (email) => ({
 function* loginWorkerSaga(action) {
   const { email, password } = action.payload;
   try {
-    const { token, user } = yield call(loginApi.login, email, password);
+    const { token, user } = yield call(api.login, email, password);
     yield put({
       type: LOGIN_SUCCESS,
       payload: {
