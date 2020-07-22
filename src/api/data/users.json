@@ -1,16 +1,21 @@
 {
   "users": [
     {
-      "email": "hong@email.com",
+      "id": "104800109",
       "name": "홍길동",
+      "email": "hong@email.com",
       "password": "123456",
-      "ticketing": {}
-    },
-    {
-      "email": "kim@google.com",
-      "name": "김길동",
-      "password": "123456",
-      "ticketing": {}
+      "reviewList": [668524519, 521093014],
+      "ticketingList": [
+        {
+          "playDate": "2020-07-16",
+          "cinemaId": "1001",
+          "screenDivisionCode": "100",
+          "screenId": "100101",
+          "playSequence": "1",
+          "seatNoList": ["1A05", "1A06"]
+        }
+      ]
     }
   ]
 }

@@ -85,6 +85,13 @@ const MovieDetailContainer = ({ movieCode }) => {
     setReviewPageOffset(reviewPageOffset + 1);
   }, [dispatch, movieCode, reviewPageOffset, sortType]);
 
+  const handleReviewSubmit = useCallback(
+    ({ reviewText, evaluation }) => {
+      console.log({ movieCode, reviewText, evaluation });
+    },
+    [movieCode]
+  );
+
   if (movieDetailLoading || (movieReviewLoading && !movieReview))
     return <div>loading...</div>;
   if (movieDetailError || movieReviewError) return <div>error!</div>;
@@ -102,6 +109,7 @@ const MovieDetailContainer = ({ movieCode }) => {
       onTabClick={handleTabClick}
       onReviewSortClick={handleReviewSortClick}
       onReviewMoreClick={handleReivewMoreClick}
+      onReviewSubmit={handleReviewSubmit}
     />
   );
 };

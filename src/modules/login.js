@@ -25,10 +25,13 @@ export const logout = (email) => ({
 function* loginWorkerSaga(action) {
   const { email, password } = action.payload;
   try {
-    const data = yield call(loginApi.login, email, password);
+    const { token, user } = yield call(loginApi.login, email, password);
     yield put({
       type: LOGIN_SUCCESS,
-      payload: data,
+      payload: {
+        token,
+        user,
+      },
     });
   } catch (e) {
     yield put({

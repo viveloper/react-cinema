@@ -35,6 +35,7 @@ const MovieDetail = ({
   onTabClick,
   onReviewSortClick,
   onReviewMoreClick,
+  onReviewSubmit,
 }) => {
   return (
     <>
@@ -93,7 +94,7 @@ const MovieDetail = ({
         ) : (
           <ScoreAndReview>
             <ScoreBox score={reviewScore} />
-            <ReviewBox />
+            <ReviewBox onReviewSubmit={onReviewSubmit} />
             <ReviewList
               reviewList={reviewList}
               totalCount={totalReviewCount}

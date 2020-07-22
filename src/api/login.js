@@ -11,7 +11,8 @@ export const login = (email, password) => {
           user: {
             email: loginUser.email,
             name: loginUser.name,
-            ticketing: loginUser.ticketing,
+            reviewList: loginUser.reviewList,
+            ticketingList: loginUser.ticketingList,
           },
           token: 'accessToken',
         });

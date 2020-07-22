@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classes from './ReviewBox.module.css';
 
-const ReviewBox = () => {
+const ReviewBox = ({ onReviewSubmit }) => {
   const [score, setScore] = useState(10);
   const [text, setText] = useState('');
 
@@ -13,6 +13,13 @@ const ReviewBox = () => {
 
   const handleTextChange = (e) => {
     setText(e.target.value);
+  };
+
+  const handleReviewSubmit = () => {
+    onReviewSubmit({
+      reviewText: text,
+      evaluation: score,
+    });
   };
 
   return (
@@ -43,13 +50,16 @@ const ReviewBox = () => {
           value={text}
           onChange={handleTextChange}
           maxLength={MAX_TEXT_LEN}
+          placeholder="평점 및 영화 관람평을 작성해주세요."
         ></textarea>
         <span className={classes['text-count-container']}>
           <span className={classes['count']}>{text.length}</span>
           {` / ${MAX_TEXT_LEN}`}
         </span>
       </div>
-      <button className={classes['btn-write']}>관람평 작성</button>
+      <button className={classes['btn-write']} onClick={handleReviewSubmit}>
+        관람평 작성
+      </button>
     </div>
   );
 };
