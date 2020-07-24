@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
 const LoginBlock = styled.div`
@@ -61,13 +60,11 @@ const LoginFormBlock = styled.div`
   }
 `;
 
-const Login = ({ loginState, onSubmit }) => {
+const Login = ({ error, onSubmit }) => {
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
   });
-
-  const { loading, data, error } = loginState;
 
   const handleChange = (e) => {
     setInputs({
@@ -80,9 +77,6 @@ const Login = ({ loginState, onSubmit }) => {
     e.preventDefault();
     onSubmit(inputs);
   };
-
-  if (loading) return <div>loading...</div>;
-  if (data) return <Redirect to="/" />;
 
   return (
     <LoginBlock>

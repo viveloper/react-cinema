@@ -1,5 +1,6 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest, select } from 'redux-saga/effects';
 import * as api from '../api';
+import { setUser } from './login';
 
 // action type
 const GET_MOVIE_DETAIL = 'GET_MOVIE_DETAIL';
@@ -8,9 +9,9 @@ const GET_MOVIE_DETAIL_ERROR = 'GET_MOVIE_DETAIL_ERROR';
 const GET_MOVIE_REVIEW = 'GET_MOVIE_REVIEW';
 const GET_MOVIE_REVIEW_SUCCESS = 'GET_MOVIE_REVIEW_SUCCESS';
 const GET_MOVIE_REVIEW_ERROR = 'GET_MOVIE_REVIEW_ERROR';
-// const ADD_MOVIE_REVIEW = 'ADD_MOVIE_REVIEW';
-// const ADD_MOVIE_REVIEW_SUCCESS = 'ADD_MOVIE_REVIEW_SUCCESS';
-// const ADD_MOVIE_REVIEW_ERROR = 'ADD_MOVIE_REVIEW_ERROR';
+const ADD_MOVIE_REVIEW = 'ADD_MOVIE_REVIEW';
+const ADD_MOVIE_REVIEW_SUCCESS = 'ADD_MOVIE_REVIEW_SUCCESS';
+const ADD_MOVIE_REVIEW_ERROR = 'ADD_MOVIE_REVIEW_ERROR';
 
 // action creator
 export const getMovieDetail = (movieCode) => ({
@@ -23,10 +24,10 @@ export const getMovieReview = ({ movieCode, page, count, sortType }) => ({
   payload: { movieCode, page, count, sortType },
 });
 
-// export const addMovieReview = ({ movieCode, page, count, sortType }) => ({
-//   type: ADD_MOVIE_REVIEW,
-//   payload: { movieCode, page, count, sortType },
-// });
+export const addMovieReview = ({ movieCode, reviewText, evaluation }) => ({
+  type: ADD_MOVIE_REVIEW,
+  payload: { movieCode, reviewText, evaluation },
+});
 
 // worker saga
 function* getMovieDetailSaga(action) {
@@ -67,10 +68,40 @@ function* getMovieReviewSaga(action) {
   }
 }
 
+function* addMovieReviewSaga(action) {
+  const { movieCode, reviewText, evaluation } = action.payload;
+  const { token, user } = yield select((state) => state.login.data);
+  try {
+    const data = yield call(
+      api.addReivew,
+      token,
+      movieCode,
+      reviewText,
+      evaluation
+    );
+    yield put({ type: ADD_MOVIE_REVIEW_SUCCESS });
+    yield put(
+      setUser({
+        ...user,
+        reviewList: [...user.reviewList, data.review.ReviewID],
+      })
+    );
+    yield put(
+      getMovieReview({ movieCode, page: 1, count: 10, sortType: 'recent' })
+    );
+  } catch (e) {
+    yield put({
+      type: ADD_MOVIE_REVIEW_ERROR,
+      payload: e,
+    });
+  }
+}
+
 // watcher saga
 export function* movieSaga() {
   yield takeLatest(GET_MOVIE_DETAIL, getMovieDetailSaga);
   yield takeLatest(GET_MOVIE_REVIEW, getMovieReviewSaga);
+  yield takeLatest(ADD_MOVIE_REVIEW, addMovieReviewSaga);
 }
 
 // initial state
@@ -135,6 +166,33 @@ export default function movieReducer(state = initialState, action) {
         },
       };
     case GET_MOVIE_REVIEW_ERROR:
+      return {
+        ...state,
+        movieReview: {
+          loading: false,
+          data: null,
+          error: action.payload,
+        },
+      };
+    case ADD_MOVIE_REVIEW:
+      return {
+        ...state,
+        movieReview: {
+          loading: true,
+          data: state.movieReview.data,
+          error: null,
+        },
+      };
+    case ADD_MOVIE_REVIEW_SUCCESS:
+      return {
+        ...state,
+        movieReview: {
+          loading: false,
+          data: state.movieReview.data,
+          error: null,
+        },
+      };
+    case ADD_MOVIE_REVIEW_ERROR:
       return {
         ...state,
         movieReview: {

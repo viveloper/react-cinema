@@ -5,7 +5,7 @@ import specialScreens from '../../data/special.json';
 
 const SummarySpecialScreen = ({ specialScreenDivisionCode }) => {
   return (
-    <div>
+    <div className={classes['special-icons-container']}>
       {specialScreenDivisionCode.map((code) => {
         const special = specialScreens.Items.find(
           (specialScreen) => specialScreen.SpecialScreenDivisionCode === code

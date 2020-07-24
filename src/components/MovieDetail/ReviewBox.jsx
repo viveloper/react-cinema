@@ -20,6 +20,8 @@ const ReviewBox = ({ onReviewSubmit }) => {
       reviewText: text,
       evaluation: score,
     });
+    setScore(10);
+    setText('');
   };
 
   return (

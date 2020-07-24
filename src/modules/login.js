@@ -8,6 +8,7 @@ const LOGIN_ERROR = 'users/LOGIN_ERROR';
 const LOGOUT = 'users/LOGOUT';
 const LOGOUT_SUCCESS = 'users/LOGOUT_SUCCESS';
 const LOGOUT_ERROR = 'users/LOGOUT_ERROR';
+const SET_USER = 'users/SET_USER';
 
 export const login = (email, password) => ({
   type: LOGIN,
@@ -20,6 +21,11 @@ export const login = (email, password) => ({
 export const logout = (email) => ({
   type: LOGOUT,
   payload: email,
+});
+
+export const setUser = (user) => ({
+  type: SET_USER,
+  payload: user,
 });
 
 // worker saga
@@ -105,6 +111,12 @@ export default function loginReducer(state = initialState, action) {
         loading: false,
         data: null,
         error: action.payload,
+      };
+    case SET_USER:
+      return {
+        loading: false,
+        data: action.payload,
+        error: null,
       };
     default:
       return state;

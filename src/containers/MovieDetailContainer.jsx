@@ -1,7 +1,11 @@
 import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import MovieDetail from '../components/MovieDetail';
 import { useSelector, useDispatch } from 'react-redux';
-import { getMovieDetail, getMovieReview } from '../modules/movie';
+import {
+  getMovieDetail,
+  getMovieReview,
+  addMovieReview,
+} from '../modules/movie';
 import { useHistory } from 'react-router-dom';
 
 const ONE_PAGE_REVIEW_NUM = 10;
@@ -95,9 +99,11 @@ const MovieDetailContainer = ({ movieCode }) => {
         history.push('/login');
         return;
       }
-      console.log({ movieCode, reviewText, evaluation });
+      if (!reviewText) return;
+
+      dispatch(addMovieReview({ movieCode, reviewText, evaluation }));
     },
-    [movieCode, history, loginData]
+    [movieCode, history, loginData, dispatch]
   );
 
   if (movieDetailLoading || (movieReviewLoading && !movieReview))

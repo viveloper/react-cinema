@@ -78,3 +78,18 @@ export const login = async (email, password) => {
       : error.message;
   }
 };
+
+export const addReivew = async (token, movieCode, reviewText, evaluation) => {
+  const res = await axios.post(
+    `/api/review`,
+    {
+      movieCode,
+      reviewText,
+      evaluation,
+    },
+    {
+      headers: { Authorization: 'Bearer ' + token },
+    }
+  );
+  return res.data;
+};
