@@ -5,6 +5,7 @@ import {
   getMovieDetail,
   getMovieReview,
   addMovieReview,
+  deleteMovieReview,
 } from '../modules/movie';
 import { useHistory } from 'react-router-dom';
 
@@ -106,6 +107,13 @@ const MovieDetailContainer = ({ movieCode }) => {
     [movieCode, history, loginData, dispatch]
   );
 
+  const handleReveiwDelete = useCallback(
+    (reviewId) => {
+      dispatch(deleteMovieReview({ movieCode, reviewId }));
+    },
+    [movieCode, dispatch]
+  );
+
   if (movieDetailLoading || (movieReviewLoading && !movieReview))
     return <div>loading...</div>;
   if (movieDetailError || movieReviewError) return <div>error!</div>;
@@ -124,6 +132,7 @@ const MovieDetailContainer = ({ movieCode }) => {
       onReviewSortClick={handleReviewSortClick}
       onReviewMoreClick={handleReivewMoreClick}
       onReviewSubmit={handleReviewSubmit}
+      onReviewDelete={handleReveiwDelete}
     />
   );
 };

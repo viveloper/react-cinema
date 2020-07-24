@@ -12,6 +12,9 @@ const GET_MOVIE_REVIEW_ERROR = 'GET_MOVIE_REVIEW_ERROR';
 const ADD_MOVIE_REVIEW = 'ADD_MOVIE_REVIEW';
 const ADD_MOVIE_REVIEW_SUCCESS = 'ADD_MOVIE_REVIEW_SUCCESS';
 const ADD_MOVIE_REVIEW_ERROR = 'ADD_MOVIE_REVIEW_ERROR';
+const DELETE_MOVIE_REVIEW = 'DELETE_MOVIE_REVIEW';
+const DELETE_MOVIE_REVIEW_SUCCESS = 'DELETE_MOVIE_REVIEW_SUCCESS';
+const DELETE_MOVIE_REVIEW_ERROR = 'DELETE_MOVIE_REVIEW_ERROR';
 
 // action creator
 export const getMovieDetail = (movieCode) => ({
@@ -27,6 +30,11 @@ export const getMovieReview = ({ movieCode, page, count, sortType }) => ({
 export const addMovieReview = ({ movieCode, reviewText, evaluation }) => ({
   type: ADD_MOVIE_REVIEW,
   payload: { movieCode, reviewText, evaluation },
+});
+
+export const deleteMovieReview = ({ movieCode, reviewId }) => ({
+  type: DELETE_MOVIE_REVIEW,
+  payload: { movieCode, reviewId },
 });
 
 // worker saga
@@ -97,11 +105,35 @@ function* addMovieReviewSaga(action) {
   }
 }
 
+function* deleteMovieReviewSaga(action) {
+  const { movieCode, reviewId } = action.payload;
+  const { token, user } = yield select((state) => state.login.data);
+  try {
+    yield call(api.deleteReview, token, movieCode, reviewId);
+    yield put({ type: DELETE_MOVIE_REVIEW_SUCCESS });
+    yield put(
+      setUser({
+        ...user,
+        reviewList: user.reviewList.filter((item) => item !== reviewId),
+      })
+    );
+    yield put(
+      getMovieReview({ movieCode, page: 1, count: 10, sortType: 'recent' })
+    );
+  } catch (e) {
+    yield put({
+      type: DELETE_MOVIE_REVIEW_ERROR,
+      payload: e,
+    });
+  }
+}
+
 // watcher saga
 export function* movieSaga() {
   yield takeLatest(GET_MOVIE_DETAIL, getMovieDetailSaga);
   yield takeLatest(GET_MOVIE_REVIEW, getMovieReviewSaga);
   yield takeLatest(ADD_MOVIE_REVIEW, addMovieReviewSaga);
+  yield takeLatest(DELETE_MOVIE_REVIEW, deleteMovieReviewSaga);
 }
 
 // initial state
@@ -193,6 +225,33 @@ export default function movieReducer(state = initialState, action) {
         },
       };
     case ADD_MOVIE_REVIEW_ERROR:
+      return {
+        ...state,
+        movieReview: {
+          loading: false,
+          data: null,
+          error: action.payload,
+        },
+      };
+    case DELETE_MOVIE_REVIEW:
+      return {
+        ...state,
+        movieReview: {
+          loading: true,
+          data: state.movieReview.data,
+          error: null,
+        },
+      };
+    case DELETE_MOVIE_REVIEW_SUCCESS:
+      return {
+        ...state,
+        movieReview: {
+          loading: false,
+          data: state.movieReview.data,
+          error: null,
+        },
+      };
+    case DELETE_MOVIE_REVIEW_ERROR:
       return {
         ...state,
         movieReview: {

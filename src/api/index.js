@@ -93,3 +93,14 @@ export const addReivew = async (token, movieCode, reviewText, evaluation) => {
   );
   return res.data;
 };
+
+export const deleteReview = async (token, movieCode, reviewId) => {
+  const res = await axios.delete(`/api/review`, {
+    headers: { Authorization: 'Bearer ' + token },
+    data: {
+      movieCode,
+      reviewId,
+    },
+  });
+  return res.data;
+};

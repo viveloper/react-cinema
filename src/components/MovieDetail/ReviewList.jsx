@@ -2,6 +2,7 @@ import React from 'react';
 import MoreButton from '../MoreButton';
 import classes from './ReviewList.module.css';
 import { numberWithCommas } from '../../util';
+import { useSelector } from 'react-redux';
 
 const ReviewList = ({
   reviewList,
@@ -9,7 +10,11 @@ const ReviewList = ({
   sortType,
   onMoreClick,
   onSortClick,
+  onDelete,
 }) => {
+  const userReviewIds = useSelector((state) =>
+    state.login.data ? state.login.data.user.reviewList : []
+  );
   return (
     <div className={classes['review-list']}>
       <div className={classes['header']}>
@@ -52,8 +57,14 @@ const ReviewList = ({
                 : name + '*',
             ''
           );
+          const isOwn = userReviewIds.includes(item.ReviewID);
           return (
-            <li key={item.ReviewID} className={classes['item']}>
+            <li
+              key={item.ReviewID}
+              className={
+                isOwn ? `${classes['item']} ${classes['own']}` : classes['item']
+              }
+            >
               <img src={iconUrl} alt="icon" width="42" height="42" />
               <div className={classes['top-info']}>
                 <span className={classes['name']}>{anonymizedName}</span>
@@ -74,6 +85,17 @@ const ReviewList = ({
                   {item.RecommandCount}
                 </span>
               </div>
+              {isOwn ? (
+                <div className={classes['user-control']}>
+                  <button className={classes['edit']}>수정</button>
+                  <button
+                    className={classes['delete']}
+                    onClick={() => onDelete(item.ReviewID)}
+                  >
+                    삭제
+                  </button>
+                </div>
+              ) : null}
             </li>
           );
         })}

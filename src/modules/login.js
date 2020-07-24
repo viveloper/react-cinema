@@ -115,7 +115,10 @@ export default function loginReducer(state = initialState, action) {
     case SET_USER:
       return {
         loading: false,
-        data: action.payload,
+        data: {
+          ...state.data,
+          user: action.payload,
+        },
         error: null,
       };
     default:

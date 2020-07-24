@@ -42,6 +42,9 @@
   padding: 20px 0 15px 68px;
   border-top: 1px solid #eee;
 }
+.items .item.own {
+  background-color: #f8f8f8;
+}
 .items .item img {
   position: absolute;
   left: 0;
@@ -93,4 +96,22 @@
   font-size: 14px;
   margin-left: 10px;
   margin-right: 5px;
+}
+.items .item .user-control {
+  position: absolute;
+  top: 20px;
+  right: 0;
+}
+.items .item .user-control button {
+  display: inline-block;
+  background: #fff;
+  height: 25px;
+  padding: 0 14px;
+  font-family: 'Noto Sans KR', 'Roboto', 'dotum', 'sans-serif';
+  font-size: 11px;
+  outline: none;
+  border: 1px solid #ddd;
+  border-radius: 52px;
+  margin-left: 4px;
+  cursor: pointer;
 }
