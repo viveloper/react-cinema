@@ -57,13 +57,35 @@ export const addMovieReivew = async (
 };
 
 export const deleteMovieReview = async (token, movieCode, reviewId) => {
-  const res = await axios.delete(`/api/review`, {
+  const res = await axios.delete(`/api/review/${reviewId}`, {
     headers: { Authorization: 'Bearer ' + token },
     data: {
       movieCode,
-      reviewId,
     },
   });
+  return res.data;
+};
+
+export const editMovieReivew = async (
+  token,
+  movieCode,
+  reviewId,
+  reviewText,
+  evaluation,
+  recommend
+) => {
+  const res = await axios.put(
+    `/api/review/${reviewId}`,
+    {
+      movieCode,
+      reviewText,
+      evaluation,
+      recommend,
+    },
+    {
+      headers: { Authorization: 'Bearer ' + token },
+    }
+  );
   return res.data;
 };
 

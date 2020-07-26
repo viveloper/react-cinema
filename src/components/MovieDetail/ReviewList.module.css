@@ -1,6 +1,3 @@
-.review-list {
-}
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -96,6 +93,9 @@
   font-size: 14px;
   margin-left: 10px;
   margin-right: 5px;
+}
+.items .item .bottom-info .recommend .icon-thumbs-up.liked {
+  color: red;
 }
 .items .item .user-control {
   position: absolute;

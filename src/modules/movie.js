@@ -15,6 +15,9 @@ const ADD_MOVIE_REVIEW_ERROR = 'ADD_MOVIE_REVIEW_ERROR';
 const DELETE_MOVIE_REVIEW = 'DELETE_MOVIE_REVIEW';
 const DELETE_MOVIE_REVIEW_SUCCESS = 'DELETE_MOVIE_REVIEW_SUCCESS';
 const DELETE_MOVIE_REVIEW_ERROR = 'DELETE_MOVIE_REVIEW_ERROR';
+const EDIT_MOVIE_REVIEW = 'EDIT_MOVIE_REVIEW';
+const EDIT_MOVIE_REVIEW_SUCCESS = 'EDIT_MOVIE_REVIEW_SUCCESS';
+const EDIT_MOVIE_REVIEW_ERROR = 'EDIT_MOVIE_REVIEW_ERROR';
 
 // action creator
 export const getMovieDetail = (movieCode) => ({
@@ -35,6 +38,17 @@ export const addMovieReview = ({ movieCode, reviewText, evaluation }) => ({
 export const deleteMovieReview = ({ movieCode, reviewId }) => ({
   type: DELETE_MOVIE_REVIEW,
   payload: { movieCode, reviewId },
+});
+
+export const editMovieReview = ({
+  movieCode,
+  reviewId,
+  reviewText,
+  evaluation,
+  recommend,
+}) => ({
+  type: EDIT_MOVIE_REVIEW,
+  payload: { movieCode, reviewId, reviewText, evaluation, recommend },
 });
 
 // worker saga
@@ -139,12 +153,62 @@ function* deleteMovieReviewSaga(action) {
   }
 }
 
+function* editMovieReviewSaga(action) {
+  const {
+    movieCode,
+    reviewId,
+    reviewText,
+    evaluation,
+    recommend,
+  } = action.payload;
+  const { token, user } = yield select((state) => state.login.data);
+  try {
+    yield call(
+      api.editMovieReivew,
+      token,
+      movieCode,
+      reviewId,
+      reviewText,
+      evaluation,
+      recommend
+    );
+    yield put({ type: EDIT_MOVIE_REVIEW_SUCCESS });
+    if (recommend) {
+      const updatedReviewLikeList = user.reviewLikeList.includes(reviewId)
+        ? user.reviewLikeList.filter((item) => item !== reviewId)
+        : user.reviewLikeList.concat(reviewId);
+      yield put(
+        setUser({
+          ...user,
+          reviewLikeList: updatedReviewLikeList,
+        })
+      );
+    }
+    yield put(
+      getMovieReview({ movieCode, page: 1, count: 10, sortType: 'recent' })
+    );
+  } catch (e) {
+    if (e.response && e.response.data) {
+      yield put({
+        type: EDIT_MOVIE_REVIEW_ERROR,
+        payload: e.response.data.message,
+      });
+    } else {
+      yield put({
+        type: EDIT_MOVIE_REVIEW_ERROR,
+        payload: e.message,
+      });
+    }
+  }
+}
+
 // watcher saga
 export function* movieSaga() {
   yield takeLatest(GET_MOVIE_DETAIL, getMovieDetailSaga);
   yield takeLatest(GET_MOVIE_REVIEW, getMovieReviewSaga);
   yield takeLatest(ADD_MOVIE_REVIEW, addMovieReviewSaga);
   yield takeLatest(DELETE_MOVIE_REVIEW, deleteMovieReviewSaga);
+  yield takeLatest(EDIT_MOVIE_REVIEW, editMovieReviewSaga);
 }
 
 // initial state
@@ -268,6 +332,33 @@ export default function movieReducer(state = initialState, action) {
         movieReview: {
           loading: false,
           data: null,
+          error: action.payload,
+        },
+      };
+    case EDIT_MOVIE_REVIEW:
+      return {
+        ...state,
+        movieReview: {
+          loading: true,
+          data: state.movieReview.data,
+          error: null,
+        },
+      };
+    case EDIT_MOVIE_REVIEW_SUCCESS:
+      return {
+        ...state,
+        movieReview: {
+          loading: false,
+          data: state.movieReview.data,
+          error: null,
+        },
+      };
+    case EDIT_MOVIE_REVIEW_ERROR:
+      return {
+        ...state,
+        movieReview: {
+          loading: false,
+          data: state.movieReview.data,
           error: action.payload,
         },
       };

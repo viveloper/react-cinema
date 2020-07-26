@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 const ReviewList = ({
   reviewList,
+  likedReviewList,
   totalCount,
   sortType,
   movieReviewError,
@@ -88,9 +89,15 @@ const ReviewList = ({
                 <span className={classes['date']}>{item.RegistDate}</span>
                 <span
                   className={classes['recommend']}
-                  onClick={onReviewRecommendClick}
+                  onClick={() => onReviewRecommendClick(item.ReviewID)}
                 >
-                  <span className={classes['icon-thumbs-up']}>
+                  <span
+                    className={
+                      likedReviewList.includes(item.ReviewID)
+                        ? `${classes['icon-thumbs-up']} ${classes['liked']}`
+                        : classes['icon-thumbs-up']
+                    }
+                  >
                     <i className="far fa-thumbs-up"></i>
                   </span>
                   {item.RecommandCount}

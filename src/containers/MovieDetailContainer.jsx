@@ -6,6 +6,7 @@ import {
   getMovieReview,
   addMovieReview,
   deleteMovieReview,
+  editMovieReview,
 } from '../modules/movie';
 import { useHistory } from 'react-router-dom';
 
@@ -15,6 +16,8 @@ const MovieDetailContainer = ({ movieCode }) => {
   const [activeTab, setActiveTab] = useState('info');
   const [reviewPageOffset, setReviewPageOffset] = useState(1);
   const [sortType, setSortType] = useState('recent');
+  const [reviewMode, setReviewMode] = useState('add');
+  const [targetReview, setTargetReview] = useState(null);
 
   const {
     loading: movieDetailLoading,
@@ -73,6 +76,12 @@ const MovieDetailContainer = ({ movieCode }) => {
     [movieReview]
   );
 
+  const likedReviewList = loginData
+    ? loginData.user
+      ? loginData.user.reviewLikeList
+      : []
+    : [];
+
   const handleTabClick = useCallback((tabName) => {
     setActiveTab(tabName);
   }, []);
@@ -95,16 +104,29 @@ const MovieDetailContainer = ({ movieCode }) => {
   }, [dispatch, movieCode, reviewPageOffset, sortType]);
 
   const handleReviewSubmit = useCallback(
-    ({ reviewText, evaluation }) => {
+    async ({ reviewText, evaluation }) => {
       if (!loginData) {
         history.push('/login');
         return;
       }
       if (!reviewText) return;
 
-      dispatch(addMovieReview({ movieCode, reviewText, evaluation }));
+      if (reviewMode === 'add') {
+        dispatch(addMovieReview({ movieCode, reviewText, evaluation }));
+      } else {
+        await dispatch(
+          editMovieReview({
+            movieCode,
+            reviewId: targetReview.ReviewID,
+            reviewText,
+            evaluation,
+          })
+        );
+        setReviewMode('add');
+        setTargetReview(null);
+      }
     },
-    [movieCode, history, loginData, dispatch]
+    [movieCode, history, loginData, reviewMode, targetReview, dispatch]
   );
 
   const handleReveiwDelete = useCallback(
@@ -116,7 +138,30 @@ const MovieDetailContainer = ({ movieCode }) => {
     [movieCode, dispatch]
   );
 
-  const handleReviewEdit = useCallback((reviewId) => {}, []);
+  const handleReviewEdit = useCallback(
+    (reviewId) => {
+      setReviewMode('edit');
+      setTargetReview(reviewList.find((item) => item.ReviewID === reviewId));
+    },
+    [reviewList]
+  );
+
+  const handleReviewRecommendClick = useCallback(
+    (reviewId) => {
+      if (!loginData) {
+        history.push('/login');
+        return;
+      }
+      dispatch(
+        editMovieReview({
+          movieCode,
+          reviewId,
+          recommend: true,
+        })
+      );
+    },
+    [dispatch, history, loginData, movieCode]
+  );
 
   if (movieDetailLoading || (movieReviewLoading && !movieReview))
     return <div>loading...</div>;
@@ -129,16 +174,20 @@ const MovieDetailContainer = ({ movieCode }) => {
       movieDetail={movieDetail}
       activeTab={activeTab}
       reviewList={reviewList}
+      likedReviewList={likedReviewList}
       totalReviewCount={totalReviewCount}
       reviewScore={reviewScore}
       reviewSortType={sortType}
       movieReviewError={movieReviewError}
+      reviewMode={reviewMode}
+      targetReview={targetReview}
       onTabClick={handleTabClick}
       onReviewSortClick={handleReviewSortClick}
       onReviewMoreClick={handleReivewMoreClick}
       onReviewSubmit={handleReviewSubmit}
       onReviewDelete={handleReveiwDelete}
       onReviewEdit={handleReviewEdit}
+      onReviewRecommendClick={handleReviewRecommendClick}
     />
   );
 };

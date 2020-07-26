@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classes from './ReviewBox.module.css';
 
-const ReviewBox = ({ onReviewSubmit }) => {
+const ReviewBox = ({ reviewMode, targetReview, onReviewSubmit }) => {
   const [score, setScore] = useState(10);
   const [text, setText] = useState('');
 
   const MAX_TEXT_LEN = 220;
+
+  useEffect(() => {
+    if (reviewMode === 'edit') {
+      setScore(targetReview.Evaluation);
+      setText(targetReview.ReviewText);
+    }
+  }, [reviewMode, targetReview]);
 
   const handleStarOver = (score) => {
     setScore(score);
@@ -60,7 +67,7 @@ const ReviewBox = ({ onReviewSubmit }) => {
         </span>
       </div>
       <button className={classes['btn-write']} onClick={handleReviewSubmit}>
-        관람평 작성
+        {reviewMode === 'add' ? '관람평 작성' : '관람평 수정'}
       </button>
     </div>
   );

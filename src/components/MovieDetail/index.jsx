@@ -31,14 +31,18 @@ const MovieDetail = ({
   totalReviewCount,
   reviewScore,
   reviewList,
+  likedReviewList,
   reviewSortType,
   movieReviewError,
+  reviewMode,
+  targetReview,
   onTabClick,
   onReviewSortClick,
   onReviewMoreClick,
   onReviewSubmit,
   onReviewDelete,
   onReviewEdit,
+  onReviewRecommendClick,
 }) => {
   return (
     <>
@@ -97,9 +101,14 @@ const MovieDetail = ({
         ) : (
           <ScoreAndReview>
             <ScoreBox score={reviewScore} />
-            <ReviewBox onReviewSubmit={onReviewSubmit} />
+            <ReviewBox
+              reviewMode={reviewMode}
+              targetReview={targetReview}
+              onReviewSubmit={onReviewSubmit}
+            />
             <ReviewList
               reviewList={reviewList}
+              likedReviewList={likedReviewList}
               totalCount={totalReviewCount}
               sortType={reviewSortType}
               movieReviewError={movieReviewError}
@@ -107,6 +116,7 @@ const MovieDetail = ({
               onMoreClick={onReviewMoreClick}
               onDelete={onReviewDelete}
               onEdit={onReviewEdit}
+              onReviewRecommendClick={onReviewRecommendClick}
             />
           </ScoreAndReview>
         )}
