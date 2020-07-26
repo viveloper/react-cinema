@@ -56,9 +56,13 @@ function* getMovieDetailSaga(action) {
 
 function* getMovieReviewSaga(action) {
   const { movieCode, page, count, sortType } = action.payload;
+  const token = yield select((state) =>
+    state.login.data ? state.login.data.token : null
+  );
   try {
     const movieReview = yield call(
       api.getMovieReview,
+      token,
       movieCode,
       page,
       count,
@@ -81,7 +85,7 @@ function* addMovieReviewSaga(action) {
   const { token, user } = yield select((state) => state.login.data);
   try {
     const data = yield call(
-      api.addReivew,
+      api.addMovieReivew,
       token,
       movieCode,
       reviewText,
@@ -98,10 +102,17 @@ function* addMovieReviewSaga(action) {
       getMovieReview({ movieCode, page: 1, count: 10, sortType: 'recent' })
     );
   } catch (e) {
-    yield put({
-      type: ADD_MOVIE_REVIEW_ERROR,
-      payload: e,
-    });
+    if (e.response && e.response.data) {
+      yield put({
+        type: ADD_MOVIE_REVIEW_ERROR,
+        payload: e.response.data.message,
+      });
+    } else {
+      yield put({
+        type: ADD_MOVIE_REVIEW_ERROR,
+        payload: e.message,
+      });
+    }
   }
 }
 
@@ -109,7 +120,7 @@ function* deleteMovieReviewSaga(action) {
   const { movieCode, reviewId } = action.payload;
   const { token, user } = yield select((state) => state.login.data);
   try {
-    yield call(api.deleteReview, token, movieCode, reviewId);
+    yield call(api.deleteMovieReview, token, movieCode, reviewId);
     yield put({ type: DELETE_MOVIE_REVIEW_SUCCESS });
     yield put(
       setUser({
@@ -229,7 +240,7 @@ export default function movieReducer(state = initialState, action) {
         ...state,
         movieReview: {
           loading: false,
-          data: null,
+          data: state.movieReview.data,
           error: action.payload,
         },
       };

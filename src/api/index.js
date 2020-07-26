@@ -21,14 +21,49 @@ export const getMovieDetail = async (movieCode) => {
 };
 
 export const getMovieReview = async (
+  token,
   movieCode,
   page = 1,
   count = 10,
   sortType = 'recent'
 ) => {
   const res = await axios.get(
-    `/api/review?movieCode=${movieCode}&page=${page}&count=${count}&sortType=${sortType}`
+    `/api/review?movieCode=${movieCode}&page=${page}&count=${count}&sortType=${sortType}`,
+    {
+      headers: { Authorization: token ? 'Bearer ' + token : undefined },
+    }
   );
+  return res.data;
+};
+
+export const addMovieReivew = async (
+  token,
+  movieCode,
+  reviewText,
+  evaluation
+) => {
+  const res = await axios.post(
+    `/api/review`,
+    {
+      movieCode,
+      reviewText,
+      evaluation,
+    },
+    {
+      headers: { Authorization: 'Bearer ' + token },
+    }
+  );
+  return res.data;
+};
+
+export const deleteMovieReview = async (token, movieCode, reviewId) => {
+  const res = await axios.delete(`/api/review`, {
+    headers: { Authorization: 'Bearer ' + token },
+    data: {
+      movieCode,
+      reviewId,
+    },
+  });
   return res.data;
 };
 
@@ -77,30 +112,4 @@ export const login = async (email, password) => {
       ? error.response.data.message
       : error.message;
   }
-};
-
-export const addReivew = async (token, movieCode, reviewText, evaluation) => {
-  const res = await axios.post(
-    `/api/review`,
-    {
-      movieCode,
-      reviewText,
-      evaluation,
-    },
-    {
-      headers: { Authorization: 'Bearer ' + token },
-    }
-  );
-  return res.data;
-};
-
-export const deleteReview = async (token, movieCode, reviewId) => {
-  const res = await axios.delete(`/api/review`, {
-    headers: { Authorization: 'Bearer ' + token },
-    data: {
-      movieCode,
-      reviewId,
-    },
-  });
-  return res.data;
 };

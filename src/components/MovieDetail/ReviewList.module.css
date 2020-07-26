@@ -87,12 +87,12 @@
   font-size: 11px;
   color: #666;
 }
-.items .item .bottom-info .recommand {
+.items .item .bottom-info .recommend {
   font-size: 12px;
   font-family: 'Roboto', 'Noto Sans KR', 'dotum', 'sans-serif';
   cursor: pointer;
 }
-.items .item .bottom-info .recommand .icon-thumbs-up {
+.items .item .bottom-info .recommend .icon-thumbs-up {
   font-size: 14px;
   margin-left: 10px;
   margin-right: 5px;

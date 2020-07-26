@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MoreButton from '../MoreButton';
 import classes from './ReviewList.module.css';
 import { numberWithCommas } from '../../util';
@@ -8,13 +8,21 @@ const ReviewList = ({
   reviewList,
   totalCount,
   sortType,
+  movieReviewError,
   onMoreClick,
   onSortClick,
   onDelete,
+  onEdit,
+  onReviewRecommendClick,
 }) => {
   const userReviewIds = useSelector((state) =>
     state.login.data ? state.login.data.user.reviewList : []
   );
+
+  useEffect(() => {
+    if (movieReviewError) alert(movieReviewError);
+  }, [movieReviewError]);
+
   return (
     <div className={classes['review-list']}>
       <div className={classes['header']}>
@@ -78,7 +86,10 @@ const ReviewList = ({
               <p className={classes['review-info']}>{item.ReviewText}</p>
               <div className={classes['bottom-info']}>
                 <span className={classes['date']}>{item.RegistDate}</span>
-                <span className={classes['recommand']}>
+                <span
+                  className={classes['recommend']}
+                  onClick={onReviewRecommendClick}
+                >
                   <span className={classes['icon-thumbs-up']}>
                     <i className="far fa-thumbs-up"></i>
                   </span>
@@ -87,7 +98,12 @@ const ReviewList = ({
               </div>
               {isOwn ? (
                 <div className={classes['user-control']}>
-                  <button className={classes['edit']}>수정</button>
+                  <button
+                    className={classes['edit']}
+                    onClick={() => onEdit(item.ReviewID)}
+                  >
+                    수정
+                  </button>
                   <button
                     className={classes['delete']}
                     onClick={() => onDelete(item.ReviewID)}

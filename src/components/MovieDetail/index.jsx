@@ -32,11 +32,13 @@ const MovieDetail = ({
   reviewScore,
   reviewList,
   reviewSortType,
+  movieReviewError,
   onTabClick,
   onReviewSortClick,
   onReviewMoreClick,
   onReviewSubmit,
   onReviewDelete,
+  onReviewEdit,
 }) => {
   return (
     <>
@@ -100,9 +102,11 @@ const MovieDetail = ({
               reviewList={reviewList}
               totalCount={totalReviewCount}
               sortType={reviewSortType}
+              movieReviewError={movieReviewError}
               onSortClick={onReviewSortClick}
               onMoreClick={onReviewMoreClick}
               onDelete={onReviewDelete}
+              onEdit={onReviewEdit}
             />
           </ScoreAndReview>
         )}

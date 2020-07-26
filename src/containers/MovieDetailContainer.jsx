@@ -109,14 +109,18 @@ const MovieDetailContainer = ({ movieCode }) => {
 
   const handleReveiwDelete = useCallback(
     (reviewId) => {
-      dispatch(deleteMovieReview({ movieCode, reviewId }));
+      if (window.confirm('정말 삭제하시겠습니까?')) {
+        dispatch(deleteMovieReview({ movieCode, reviewId }));
+      }
     },
     [movieCode, dispatch]
   );
 
+  const handleReviewEdit = useCallback((reviewId) => {}, []);
+
   if (movieDetailLoading || (movieReviewLoading && !movieReview))
     return <div>loading...</div>;
-  if (movieDetailError || movieReviewError) return <div>error!</div>;
+  if (movieDetailError) return <div>error!</div>;
   if (!movieDetail || !movieReview) return null;
 
   return (
@@ -128,11 +132,13 @@ const MovieDetailContainer = ({ movieCode }) => {
       totalReviewCount={totalReviewCount}
       reviewScore={reviewScore}
       reviewSortType={sortType}
+      movieReviewError={movieReviewError}
       onTabClick={handleTabClick}
       onReviewSortClick={handleReviewSortClick}
       onReviewMoreClick={handleReivewMoreClick}
       onReviewSubmit={handleReviewSubmit}
       onReviewDelete={handleReveiwDelete}
+      onReviewEdit={handleReviewEdit}
     />
   );
 };
