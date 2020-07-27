@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import Ticketing from '../components/Ticketing';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getTicketingInfo } from '../modules/ticketing';
+import { getTicketingInfo, setSelectedCinema } from '../modules/ticketing';
 import { getPlaySeqs } from '../modules/playSeqs';
 import { getSeats } from '../modules/seats';
 
@@ -148,10 +148,15 @@ const TicketingContainer = ({ history }) => {
 
   const seatsState = useSelector((state) => state.seats);
 
+  const loginData = useSelector((state) => state.login.data);
+
+  const cinemaId = useSelector((state) =>
+    state.ticketing.data ? state.ticketing.data.Cinemas.SelectedCinema : ''
+  );
+
   const [step, setStep] = useState(1);
   const [divisionTab, setDivisionTab] = useState('all');
   const [detailDivisionCode, setDetailDivisionCode] = useState('0001');
-  const [cinemaId, setCinemaId] = useState('');
   const [movieListSortType, setMovieSortType] = useState('A');
   const [movieListViewType, setMovieListViewType] = useState('text');
   const [selectedMovieCode, setSelectedMovieCode] = useState('');
@@ -232,7 +237,7 @@ const TicketingContainer = ({ history }) => {
   const handleCinemaClick = useCallback(
     (id) => {
       const divisionCode = divisionTab === 'all' ? 1 : 2;
-      setCinemaId(id);
+      dispatch(setSelectedCinema(id));
       dispatch(
         getPlaySeqs({
           playDate: selectedDate,
@@ -304,6 +309,11 @@ const TicketingContainer = ({ history }) => {
 
   const handleTimeClick = useCallback(
     (params) => {
+      if (!loginData) {
+        alert('로그인이 필요한 서비스입니다.');
+        history.push('/login');
+        return;
+      }
       const {
         playMovieInfo,
         screenId,
@@ -323,7 +333,7 @@ const TicketingContainer = ({ history }) => {
       );
       history.push('/ticketing/PersonSeat');
     },
-    [history, dispatch, cinemaId]
+    [history, dispatch, cinemaId, loginData]
   );
 
   if (loading) return <div>loading...</div>;

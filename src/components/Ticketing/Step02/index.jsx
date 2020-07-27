@@ -160,7 +160,7 @@ const Seat = styled.div`
         background: #714034;
         opacity: 0.5;
       `;
-    } else if (status === 50 || status === 23) {
+    } else if (status === 50 || status === 23 || status === 28) {
       return css`
         background: #444;
       `;
@@ -278,20 +278,32 @@ const Step02 = ({
   );
 
   const handleCustomerCountUpClick = (key) => {
+    const totalNextCount =
+      customerDivision.reduce(
+        (acc, division) =>
+          acc + customerCount[division.CustomerDivisionNameUS.toLowerCase()],
+        0
+      ) + 1;
     const nextCount = customerCount[key] + 1;
-    if (nextCount < 0 || nextCount > 8) return;
+    if (totalNextCount > 8 || nextCount < 0) return;
     setCustomerCount({
       ...customerCount,
-      [key]: nextCount,
+      [key]: customerCount[key] + 1,
     });
     setActiveSeats([]);
   };
   const handleCustomerCountDownClick = (key) => {
+    const totalNextCount =
+      customerDivision.reduce(
+        (acc, division) =>
+          acc + customerCount[division.CustomerDivisionNameUS.toLowerCase()],
+        0
+      ) - 1;
     const nextCount = customerCount[key] - 1;
-    if (nextCount < 0 || nextCount > 8) return;
+    if (totalNextCount > 8 || nextCount < 0) return;
     setCustomerCount({
       ...customerCount,
-      [key]: nextCount,
+      [key]: customerCount[key] - 1,
     });
     setActiveSeats([]);
   };

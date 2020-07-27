@@ -5,9 +5,14 @@ import * as api from '../api';
 const GET_TICKETING_INFO = 'GET_TICKETING_INFO';
 const GET_TICKETING_INFO_SUCCESS = 'GET_TICKETING_INFO_SUCCESS';
 const GET_TICKETING_INFO_ERROR = 'GET_TICKETING_INFO_ERROR';
+const SET_SELECTED_CINEMA = 'SET_SELECTED_CINEMA';
 
 // action creator
 export const getTicketingInfo = () => ({ type: GET_TICKETING_INFO });
+export const setSelectedCinema = (cinemaId) => ({
+  type: SET_SELECTED_CINEMA,
+  payload: cinemaId,
+});
 
 // worker saga
 function* getTicketingInfoSaga() {
@@ -57,6 +62,18 @@ export default function ticketingReducer(state = initialState, action) {
         loading: false,
         data: null,
         error: action.payload,
+      };
+    case SET_SELECTED_CINEMA:
+      return {
+        loading: false,
+        data: {
+          ...state.data,
+          Cinemas: {
+            ...state.data.Cinemas,
+            SelectedCinema: action.payload,
+          },
+        },
+        error: null,
       };
     default:
       return state;
