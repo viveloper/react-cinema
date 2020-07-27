@@ -33,6 +33,7 @@ const Ticketing = ({
   onDateClick,
   onFilteringTabClick,
   onTimeClick,
+  onPayClick,
 }) => {
   return (
     <>
@@ -85,6 +86,7 @@ const Ticketing = ({
                 customerDivision={data.CustomerDivision.Items}
                 fees={data.Fees.Items}
                 playMovieInfo={playMovieInfo}
+                onPayClick={onPayClick}
               />
             );
           }}

@@ -245,6 +245,7 @@ const Step02 = ({
   customerDivision,
   fees,
   playMovieInfo,
+  onPayClick,
 }) => {
   const [customerCount, setCustomerCount] = useState({
     adult: 0,
@@ -265,17 +266,17 @@ const Step02 = ({
   const yScaleRatio = screenSeatInfo.StartYCoordinate / 96;
   const seatsBlockWidth = screenSeatInfo.EndXCoordinate / xScaleRatio + 100;
 
-  const price = numberWithCommas(
-    fees.reduce((acc, item) => {
-      const key = customerDivision
-        .find(
-          (division) =>
-            division.CustomerDivisionCode === item.CustomerDivisionCode
-        )
-        .CustomerDivisionNameUS.toLowerCase();
-      return acc + customerCount[key] * item.MovieFee;
-    }, 0)
-  );
+  const price = fees.reduce((acc, item) => {
+    const key = customerDivision
+      .find(
+        (division) =>
+          division.CustomerDivisionCode === item.CustomerDivisionCode
+      )
+      .CustomerDivisionNameUS.toLowerCase();
+    return acc + customerCount[key] * item.MovieFee;
+  }, 0);
+
+  const textPrice = numberWithCommas(price);
 
   const handleCustomerCountUpClick = (key) => {
     const totalNextCount =
@@ -326,6 +327,22 @@ const Step02 = ({
         ? [...activeSeats, seatNo]
         : activeSeats
     );
+  };
+
+  const handlePayClick = () => {
+    const totalPersonCount =
+      customerCount.adult +
+      customerCount.youth +
+      customerCount.senior +
+      customerCount.disabled;
+    if (totalPersonCount !== activeSeats.length) {
+      alert('좌석을 선택하세요.');
+      return;
+    }
+    onPayClick({
+      activeSeats,
+      price,
+    });
   };
 
   return (
@@ -425,9 +442,11 @@ const Step02 = ({
       </SeatsInfoBlock>
       <PersonSeatSummary>
         <div className="seat-result">
-          총 합계 <span className="result">{price}</span>원
+          총 합계 <span className="result">{textPrice}</span>원
         </div>
-        <button className="btn-pay">결제하기</button>
+        <button className="btn-pay" onClick={handlePayClick}>
+          결제하기
+        </button>
       </PersonSeatSummary>
     </StepBlock>
   );

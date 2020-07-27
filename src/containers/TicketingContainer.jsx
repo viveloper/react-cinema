@@ -336,6 +336,32 @@ const TicketingContainer = ({ history }) => {
     [history, dispatch, cinemaId, loginData]
   );
 
+  const handlePayClick = useCallback(
+    ({ activeSeats, price }) => {
+      const ticketing = {
+        movieCode: playMovieInfo.RepresentationMovieCode,
+        movieName: playMovieInfo.MovieNameKR,
+        posterUrl: playMovieInfo.PosterURL,
+        viewGradeCode: playMovieInfo.ViewGradeCode,
+        cinemaId,
+        cinemaName: playMovieInfo.divisions[0].CinemaNameKR,
+        screenId: playMovieInfo.divisions[0].times[0].ScreenID,
+        screenName: playMovieInfo.divisions[0].times[0].ScreenNameKR,
+        screenDivisionCode: playMovieInfo.divisions[0].ScreenDivisionCode,
+        screenDivisionName: playMovieInfo.divisions[0].ScreenDivisionNameKR,
+        playSequence: playMovieInfo.divisions[0].times[0].PlaySequence,
+        playDate: playMovieInfo.divisions[0].times[0].PlayDt,
+        playDay: playMovieInfo.divisions[0].times[0].PlayDayKR,
+        startTime: playMovieInfo.divisions[0].times[0].StartTime,
+        endTime: playMovieInfo.divisions[0].times[0].EndTime,
+        activeSeats,
+        price,
+      };
+      console.log(ticketing);
+    },
+    [playMovieInfo, cinemaId]
+  );
+
   if (loading) return <div>loading...</div>;
   if (error) return <div>error!</div>;
   if (!ticketingInfo) return null;
@@ -368,6 +394,7 @@ const TicketingContainer = ({ history }) => {
       onDateClick={handleDateClick}
       onFilteringTabClick={handleFilteringTabClick}
       onTimeClick={handleTimeClick}
+      onPayClick={handlePayClick}
     />
   );
 };
