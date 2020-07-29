@@ -122,6 +122,58 @@ export const getSeats = async (
   return res.data;
 };
 
+export const reserveSeats = async (
+  token,
+  movieCode,
+  movieName,
+  posterUrl,
+  viewGradeCode,
+  divisionCode,
+  detailDivisionCode,
+  cinemaId,
+  cinemaName,
+  screenId,
+  screenName,
+  screenDivisionCode,
+  screenDivisionName,
+  playSequence,
+  playDate,
+  playDay,
+  startTime,
+  endTime,
+  seatNoList,
+  price
+) => {
+  const res = await axios.put(
+    `/api/ticketing/seats`,
+    {
+      movieCode,
+      movieName,
+      posterUrl,
+      viewGradeCode,
+      divisionCode,
+      detailDivisionCode,
+      cinemaId,
+      cinemaName,
+      screenId,
+      screenName,
+      screenDivisionCode,
+      screenDivisionName,
+      playSequence,
+      playDate,
+      playDay,
+      startTime,
+      endTime,
+      seatNoList,
+      price,
+    },
+    {
+      headers: { Authorization: 'Bearer ' + token },
+    }
+  );
+  return res.data;
+};
+
 export const login = async (email, password) => {
   try {
     const res = await axios.post('/api/auth/login', {

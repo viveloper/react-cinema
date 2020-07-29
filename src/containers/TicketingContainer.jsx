@@ -4,7 +4,7 @@ import Ticketing from '../components/Ticketing';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTicketingInfo, setSelectedCinema } from '../modules/ticketing';
 import { getPlaySeqs } from '../modules/playSeqs';
-import { getSeats } from '../modules/seats';
+import { getSeats, reserveSeats } from '../modules/seats';
 
 const getToday = () => {
   // const date = new Date();
@@ -338,28 +338,33 @@ const TicketingContainer = ({ history }) => {
 
   const handlePayClick = useCallback(
     ({ activeSeats, price }) => {
-      const ticketing = {
-        movieCode: playMovieInfo.RepresentationMovieCode,
-        movieName: playMovieInfo.MovieNameKR,
-        posterUrl: playMovieInfo.PosterURL,
-        viewGradeCode: playMovieInfo.ViewGradeCode,
-        cinemaId,
-        cinemaName: playMovieInfo.divisions[0].CinemaNameKR,
-        screenId: playMovieInfo.divisions[0].times[0].ScreenID,
-        screenName: playMovieInfo.divisions[0].times[0].ScreenNameKR,
-        screenDivisionCode: playMovieInfo.divisions[0].ScreenDivisionCode,
-        screenDivisionName: playMovieInfo.divisions[0].ScreenDivisionNameKR,
-        playSequence: playMovieInfo.divisions[0].times[0].PlaySequence,
-        playDate: playMovieInfo.divisions[0].times[0].PlayDt,
-        playDay: playMovieInfo.divisions[0].times[0].PlayDayKR,
-        startTime: playMovieInfo.divisions[0].times[0].StartTime,
-        endTime: playMovieInfo.divisions[0].times[0].EndTime,
-        activeSeats,
-        price,
-      };
-      console.log(ticketing);
+      if (window.confirm('결제를 진행하시겠습니까?')) {
+        const divisionCode = divisionTab === 'all' ? 1 : 2;
+        const ticketing = {
+          movieCode: playMovieInfo.RepresentationMovieCode,
+          movieName: playMovieInfo.MovieNameKR,
+          posterUrl: playMovieInfo.PosterURL,
+          viewGradeCode: playMovieInfo.ViewGradeCode,
+          divisionCode,
+          detailDivisionCode,
+          cinemaId,
+          cinemaName: playMovieInfo.divisions[0].CinemaNameKR,
+          screenId: playMovieInfo.divisions[0].times[0].ScreenID,
+          screenName: playMovieInfo.divisions[0].times[0].ScreenNameKR,
+          screenDivisionCode: playMovieInfo.divisions[0].ScreenDivisionCode,
+          screenDivisionName: playMovieInfo.divisions[0].ScreenDivisionNameKR,
+          playSequence: playMovieInfo.divisions[0].times[0].PlaySequence,
+          playDate: playMovieInfo.divisions[0].times[0].PlayDt,
+          playDay: playMovieInfo.divisions[0].times[0].PlayDayKR,
+          startTime: playMovieInfo.divisions[0].times[0].StartTime,
+          endTime: playMovieInfo.divisions[0].times[0].EndTime,
+          seatNoList: activeSeats,
+          price,
+        };
+        dispatch(reserveSeats(ticketing));
+      }
     },
-    [playMovieInfo, cinemaId]
+    [dispatch, playMovieInfo, cinemaId, detailDivisionCode, divisionTab]
   );
 
   if (loading) return <div>loading...</div>;
