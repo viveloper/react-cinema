@@ -4,7 +4,7 @@ import Ticketing from '../components/Ticketing';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTicketingInfo, setSelectedCinema } from '../modules/ticketing';
 import { getPlaySeqs } from '../modules/playSeqs';
-import { getSeats, reserveSeats } from '../modules/seats';
+import { getSeats } from '../modules/seats';
 
 const getToday = () => {
   // const date = new Date();
@@ -163,6 +163,7 @@ const TicketingContainer = ({ history }) => {
   const [selectedDate, setSelectedDate] = useState(getToday());
   const [filteringTab, setFilteringTab] = useState('all');
   const [playMovieInfo, setPlayMovieInfo] = useState(null);
+  const [userTicketingInfo, setUserTicketingInfo] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -314,6 +315,7 @@ const TicketingContainer = ({ history }) => {
         history.push('/login');
         return;
       }
+      setStep(2);
       const {
         playMovieInfo,
         screenId,
@@ -336,36 +338,40 @@ const TicketingContainer = ({ history }) => {
     [history, dispatch, cinemaId, loginData]
   );
 
-  const handlePayClick = useCallback(
+  const goPayment = useCallback(
     ({ activeSeats, price }) => {
-      if (window.confirm('결제를 진행하시겠습니까?')) {
-        const divisionCode = divisionTab === 'all' ? 1 : 2;
-        const ticketing = {
-          movieCode: playMovieInfo.RepresentationMovieCode,
-          movieName: playMovieInfo.MovieNameKR,
-          posterUrl: playMovieInfo.PosterURL,
-          viewGradeCode: playMovieInfo.ViewGradeCode,
-          divisionCode,
-          detailDivisionCode,
-          cinemaId,
-          cinemaName: playMovieInfo.divisions[0].CinemaNameKR,
-          screenId: playMovieInfo.divisions[0].times[0].ScreenID,
-          screenName: playMovieInfo.divisions[0].times[0].ScreenNameKR,
-          screenDivisionCode: playMovieInfo.divisions[0].ScreenDivisionCode,
-          screenDivisionName: playMovieInfo.divisions[0].ScreenDivisionNameKR,
-          playSequence: playMovieInfo.divisions[0].times[0].PlaySequence,
-          playDate: playMovieInfo.divisions[0].times[0].PlayDt,
-          playDay: playMovieInfo.divisions[0].times[0].PlayDayKR,
-          startTime: playMovieInfo.divisions[0].times[0].StartTime,
-          endTime: playMovieInfo.divisions[0].times[0].EndTime,
-          seatNoList: activeSeats,
-          price,
-        };
-        dispatch(reserveSeats(ticketing));
-      }
+      setStep(3);
+      const divisionCode = divisionTab === 'all' ? 1 : 2;
+      setUserTicketingInfo({
+        movieCode: playMovieInfo.RepresentationMovieCode,
+        movieName: playMovieInfo.MovieNameKR,
+        posterUrl: playMovieInfo.PosterURL,
+        viewGradeCode: playMovieInfo.ViewGradeCode,
+        divisionCode,
+        detailDivisionCode,
+        cinemaId,
+        cinemaName: playMovieInfo.divisions[0].CinemaNameKR,
+        screenId: playMovieInfo.divisions[0].times[0].ScreenID,
+        screenName: playMovieInfo.divisions[0].times[0].ScreenNameKR,
+        screenDivisionCode: playMovieInfo.divisions[0].ScreenDivisionCode,
+        screenDivisionName: playMovieInfo.divisions[0].ScreenDivisionNameKR,
+        playSequence: playMovieInfo.divisions[0].times[0].PlaySequence,
+        playDate: playMovieInfo.divisions[0].times[0].PlayDt,
+        playDay: playMovieInfo.divisions[0].times[0].PlayDayKR,
+        startTime: playMovieInfo.divisions[0].times[0].StartTime,
+        endTime: playMovieInfo.divisions[0].times[0].EndTime,
+        seatNoList: activeSeats,
+        price,
+      });
+      history.push('/ticketing/payment');
     },
-    [dispatch, playMovieInfo, cinemaId, detailDivisionCode, divisionTab]
+    [history, playMovieInfo, cinemaId, detailDivisionCode, divisionTab]
   );
+
+  const goPaymentComplete = useCallback(() => {
+    setStep(3);
+    history.push('/ticketing/PaymentComplete');
+  }, [history, userTicketingInfo]);
 
   if (loading) return <div>loading...</div>;
   if (error) return <div>error!</div>;
@@ -389,6 +395,7 @@ const TicketingContainer = ({ history }) => {
       filteringTab={filteringTab}
       playMovieInfo={playMovieInfo}
       seatsState={seatsState}
+      userTicketingInfo={userTicketingInfo}
       onDivisionClick={handleDivisionClick}
       onCinemaClick={handleCinemaClick}
       onMovieListSortTypeClick={handleMovieListSortTypeClick}
@@ -399,7 +406,8 @@ const TicketingContainer = ({ history }) => {
       onDateClick={handleDateClick}
       onFilteringTabClick={handleFilteringTabClick}
       onTimeClick={handleTimeClick}
-      onPayClick={handlePayClick}
+      goPayment={goPayment}
+      goPaymentComplete={goPaymentComplete}
     />
   );
 };

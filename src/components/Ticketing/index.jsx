@@ -1,10 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import TicketingBlock from './TicketingBlock';
 import AsideStepMenu from './AsideStepMenu';
 import Step01 from './Step01';
 import Step02 from './Step02';
+import Step03 from './Step03';
+import Step04 from './Step04';
 
 const Ticketing = ({
   divisions,
@@ -23,6 +25,7 @@ const Ticketing = ({
   filteringTab,
   playMovieInfo,
   seatsState,
+  userTicketingInfo,
   onStepClick,
   onDivisionTabClick,
   onDivisionClick,
@@ -33,7 +36,8 @@ const Ticketing = ({
   onDateClick,
   onFilteringTabClick,
   onTimeClick,
-  onPayClick,
+  goPayment,
+  goPaymentComplete,
 }) => {
   return (
     <>
@@ -77,7 +81,7 @@ const Ticketing = ({
 
             if (loading) return <div>loading...</div>;
             if (error) return <div>error!</div>;
-            if (!data) return null;
+            if (!data) return <Redirect to="/ticketing" />;
 
             return (
               <Step02
@@ -86,9 +90,32 @@ const Ticketing = ({
                 customerDivision={data.CustomerDivision.Items}
                 fees={data.Fees.Items}
                 playMovieInfo={playMovieInfo}
-                onPayClick={onPayClick}
+                goPayment={goPayment}
               />
             );
+          }}
+        />
+
+        <Route
+          path="/ticketing/payment"
+          render={() => {
+            if (!userTicketingInfo)
+              return <Redirect to="/ticketing/PersonSeat" />;
+            return (
+              <Step03
+                userTicketingInfo={userTicketingInfo}
+                goPaymentComplete={goPaymentComplete}
+              />
+            );
+          }}
+        />
+
+        <Route
+          path="/ticketing/PaymentComplete"
+          render={() => {
+            if (!userTicketingInfo)
+              return <Redirect to="/ticketing/PersonSeat" />;
+            return <Step04 userTicketingInfo={userTicketingInfo} />;
           }}
         />
       </TicketingBlock>

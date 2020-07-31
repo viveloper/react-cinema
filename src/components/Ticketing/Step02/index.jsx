@@ -245,7 +245,7 @@ const Step02 = ({
   customerDivision,
   fees,
   playMovieInfo,
-  onPayClick,
+  goPayment,
 }) => {
   const [customerCount, setCustomerCount] = useState({
     adult: 0,
@@ -335,11 +335,11 @@ const Step02 = ({
       customerCount.youth +
       customerCount.senior +
       customerCount.disabled;
-    if (totalPersonCount !== activeSeats.length) {
+    if (activeSeats.length === 0 || totalPersonCount !== activeSeats.length) {
       alert('좌석을 선택하세요.');
       return;
     }
-    onPayClick({
+    goPayment({
       activeSeats,
       price,
     });
