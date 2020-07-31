@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getTicketingInfo, setSelectedCinema } from '../modules/ticketing';
 import { getPlaySeqs } from '../modules/playSeqs';
 import { getSeats } from '../modules/seats';
+import { addUserTicketing } from '../modules/userTicketing';
 
 const getToday = () => {
   // const date = new Date();
@@ -154,6 +155,10 @@ const TicketingContainer = ({ history }) => {
     state.ticketing.data ? state.ticketing.data.Cinemas.SelectedCinema : ''
   );
 
+  const userTicketingState = useSelector(
+    (state) => state.userTicketing.userTicketing
+  );
+
   const [step, setStep] = useState(1);
   const [divisionTab, setDivisionTab] = useState('all');
   const [detailDivisionCode, setDetailDivisionCode] = useState('0001');
@@ -163,7 +168,7 @@ const TicketingContainer = ({ history }) => {
   const [selectedDate, setSelectedDate] = useState(getToday());
   const [filteringTab, setFilteringTab] = useState('all');
   const [playMovieInfo, setPlayMovieInfo] = useState(null);
-  const [userTicketingInfo, setUserTicketingInfo] = useState(null);
+  const [tempUserTicketingInfo, setTempUserTicketingInfo] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -216,7 +221,7 @@ const TicketingContainer = ({ history }) => {
   };
 
   const handleStepClick = useCallback((step) => {
-    setStep(step);
+    // setStep(step);
   }, []);
 
   const handleDivisionTabClick = useCallback(
@@ -342,7 +347,7 @@ const TicketingContainer = ({ history }) => {
     ({ activeSeats, price }) => {
       setStep(3);
       const divisionCode = divisionTab === 'all' ? 1 : 2;
-      setUserTicketingInfo({
+      setTempUserTicketingInfo({
         movieCode: playMovieInfo.RepresentationMovieCode,
         movieName: playMovieInfo.MovieNameKR,
         posterUrl: playMovieInfo.PosterURL,
@@ -368,10 +373,14 @@ const TicketingContainer = ({ history }) => {
     [history, playMovieInfo, cinemaId, detailDivisionCode, divisionTab]
   );
 
-  const goPaymentComplete = useCallback(() => {
-    setStep(3);
-    history.push('/ticketing/PaymentComplete');
-  }, [history, userTicketingInfo]);
+  const handlePay = useCallback(async () => {
+    if (window.confirm('결제를 진행하시겠습니까?')) {
+      await dispatch(addUserTicketing(tempUserTicketingInfo));
+      setTempUserTicketingInfo(null);
+      setStep(4);
+      history.push('/ticketing/PaymentComplete');
+    }
+  }, [dispatch, history, tempUserTicketingInfo]);
 
   if (loading) return <div>loading...</div>;
   if (error) return <div>error!</div>;
@@ -395,7 +404,8 @@ const TicketingContainer = ({ history }) => {
       filteringTab={filteringTab}
       playMovieInfo={playMovieInfo}
       seatsState={seatsState}
-      userTicketingInfo={userTicketingInfo}
+      tempUserTicketingInfo={tempUserTicketingInfo}
+      userTicketingState={userTicketingState}
       onDivisionClick={handleDivisionClick}
       onCinemaClick={handleCinemaClick}
       onMovieListSortTypeClick={handleMovieListSortTypeClick}
@@ -407,7 +417,7 @@ const TicketingContainer = ({ history }) => {
       onFilteringTabClick={handleFilteringTabClick}
       onTimeClick={handleTimeClick}
       goPayment={goPayment}
-      goPaymentComplete={goPaymentComplete}
+      onPay={handlePay}
     />
   );
 };

@@ -25,7 +25,8 @@ const Ticketing = ({
   filteringTab,
   playMovieInfo,
   seatsState,
-  userTicketingInfo,
+  tempUserTicketingInfo,
+  userTicketingState,
   onStepClick,
   onDivisionTabClick,
   onDivisionClick,
@@ -37,7 +38,7 @@ const Ticketing = ({
   onFilteringTabClick,
   onTimeClick,
   goPayment,
-  goPaymentComplete,
+  onPay,
 }) => {
   return (
     <>
@@ -99,12 +100,12 @@ const Ticketing = ({
         <Route
           path="/ticketing/payment"
           render={() => {
-            if (!userTicketingInfo)
+            if (!tempUserTicketingInfo)
               return <Redirect to="/ticketing/PersonSeat" />;
             return (
               <Step03
-                userTicketingInfo={userTicketingInfo}
-                goPaymentComplete={goPaymentComplete}
+                tempUserTicketingInfo={tempUserTicketingInfo}
+                onPay={onPay}
               />
             );
           }}
@@ -113,9 +114,12 @@ const Ticketing = ({
         <Route
           path="/ticketing/PaymentComplete"
           render={() => {
-            if (!userTicketingInfo)
-              return <Redirect to="/ticketing/PersonSeat" />;
-            return <Step04 userTicketingInfo={userTicketingInfo} />;
+            const { loading, data, error } = userTicketingState;
+            if (loading) return <div>loading...</div>;
+            if (error) return <div>error!</div>;
+            if (!data) return <Redirect to="/ticketing" />;
+
+            return <Step04 userTicketing={data} />;
           }}
         />
       </TicketingBlock>

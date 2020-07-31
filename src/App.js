@@ -7,6 +7,7 @@ import MovieListPage from './pages/MovieListPage';
 import MovieDetailPage from './pages/MovieDetailPage';
 import TicketingPage from './pages/TicketingPage';
 import LoginPage from './pages/LoginPage';
+import MyPage from './pages/MyPage';
 import ErrorPage from './pages/Error';
 
 import rootReducer, { rootSaga } from './modules';
@@ -42,6 +43,7 @@ function App() {
           <Route path="/movies/:listType" component={MovieListPage} />
           <Route path="/movieDetail/:movieCode" component={MovieDetailPage} />
           <Route path="/ticketing" component={TicketingPage} />
+          <Route path="/mypage" component={MyPage} />
           <Route path="*" component={ErrorPage} />
         </Switch>
       </Router>

@@ -122,7 +122,14 @@ export const getSeats = async (
   return res.data;
 };
 
-export const reserveSeats = async (
+export const getUserTicketing = async (token) => {
+  const res = await axios.get(`/api/ticketing/userTicketing`, {
+    headers: { Authorization: 'Bearer ' + token },
+  });
+  return res.data;
+};
+
+export const addUserTicketing = async (
   token,
   movieCode,
   movieName,
@@ -144,8 +151,8 @@ export const reserveSeats = async (
   seatNoList,
   price
 ) => {
-  const res = await axios.put(
-    `/api/ticketing/seats`,
+  const res = await axios.post(
+    `/api/ticketing/userTicketing`,
     {
       movieCode,
       movieName,

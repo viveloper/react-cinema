@@ -81,12 +81,12 @@ const Header = ({ theme, isLogin, onLogout }) => {
                   회원가입
                 </a>
               ) : (
-                <a href="##">
+                <Link to="/MyPage">
                   <span>
                     <i className="fas fa-user"></i>
                   </span>{' '}
                   마이페이지
-                </a>
+                </Link>
               )}
             </li>
             <li>

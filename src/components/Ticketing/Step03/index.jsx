@@ -95,28 +95,21 @@ const Payment = styled.div`
   }
 `;
 
-const Step03 = ({ userTicketingInfo, goPaymentComplete }) => {
+const Step03 = ({ tempUserTicketingInfo, onPay }) => {
   const {
-    movieCode,
     movieName,
     posterUrl,
     viewGradeCode,
-    divisionCode,
-    detailDivisionCode,
-    cinemaId,
     cinemaName,
-    screenId,
     screenName,
-    screenDivisionCode,
     screenDivisionName,
-    playSequence,
     playDate,
     playDay,
     startTime,
     endTime,
     seatNoList,
     price,
-  } = userTicketingInfo;
+  } = tempUserTicketingInfo;
 
   const viewGradeIconOptions = getViewGradeIconOptions(viewGradeCode);
 
@@ -134,19 +127,19 @@ const Step03 = ({ userTicketingInfo, goPaymentComplete }) => {
             />
             <span>{movieName}</span>
           </div>
-          <div className="detail-info time">
+          <div className="detail-info">
             <span>일시</span>
             <span className="text">{`${playDate} (${playDay}) ${startTime} ~ ${endTime}`}</span>
           </div>
-          <div className="detail-info cinema">
+          <div className="detail-info">
             <span>영화관</span>
             <span className="text">{`${cinemaName} ${screenName} - ${screenDivisionName}`}</span>
           </div>
-          <div className="detail-info person">
+          <div className="detail-info">
             <span>인원</span>
             <span className="text">{seatNoList.length}</span>
           </div>
-          <div className="detail-info seats">
+          <div className="detail-info">
             <span>좌석</span>
             <span className="text">
               {seatNoList.map((seatNo) => seatNo.substring(1)).join(', ')}
@@ -179,7 +172,7 @@ const Step03 = ({ userTicketingInfo, goPaymentComplete }) => {
               총<span className="price">{numberWithCommas(price)}</span>원
             </span>
           </div>
-          <button className="btn-pay" onClick={goPaymentComplete}>
+          <button className="btn-pay" onClick={onPay}>
             결제하기
           </button>
         </Payment>

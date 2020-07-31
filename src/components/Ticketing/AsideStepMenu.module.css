@@ -11,7 +11,7 @@
   border-bottom: 1px solid #ccc;
   font-size: 13px;
   color: #555;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 .aside-step-menu .step:last-of-type {
   border-bottom: none;
