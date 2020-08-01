@@ -1,7 +1,10 @@
 import React, { useEffect, useCallback } from 'react';
 import MyPage from '../components/MyPage';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUserTicketing } from '../modules/userTicketing';
+import {
+  getUserTicketing,
+  deleteUserTicketing,
+} from '../modules/userTicketing';
 
 const MyPageContainer = () => {
   const { loading, data: userTicketingList, error } = useSelector(
@@ -14,9 +17,14 @@ const MyPageContainer = () => {
     dispatch(getUserTicketing());
   }, [dispatch]);
 
-  const handleMovieCancel = useCallback((ticketingId) => {
-    console.log(ticketingId);
-  }, []);
+  const handleMovieCancel = useCallback(
+    (ticketingId) => {
+      if (window.confirm('정말 취소하시겠습니까?')) {
+        dispatch(deleteUserTicketing(ticketingId));
+      }
+    },
+    [dispatch]
+  );
 
   if (loading) return <div>loading...</div>;
   if (error) return <div>error!</div>;

@@ -11,6 +11,9 @@ const GET_USER_TICKETING_LIST_ERROR = 'GET_USER_TICKETING_LIST_ERROR';
 const ADD_USER_TICKETING = 'ADD_USER_TICKETING';
 const ADD_USER_TICKETING_SUCCESS = 'ADD_USER_TICKETING_SUCCESS';
 const ADD_USER_TICKETING_ERROR = 'ADD_USER_TICKETING_ERROR';
+const DELETE_USER_TICKETING = 'DELETE_USER_TICKETING';
+const DELETE_USER_TICKETING_SUCCESS = 'DELETE_USER_TICKETING_SUCCESS';
+const DELETE_USER_TICKETING_ERROR = 'DELETE_USER_TICKETING_ERROR';
 
 // action creator
 export const getUserTicketing = () => ({
@@ -19,6 +22,10 @@ export const getUserTicketing = () => ({
 export const addUserTicketing = (params) => ({
   type: ADD_USER_TICKETING,
   payload: params,
+});
+export const deleteUserTicketing = (ticketingId) => ({
+  type: DELETE_USER_TICKETING,
+  payload: ticketingId,
 });
 
 // worker saga
@@ -121,11 +128,62 @@ function* addUserTicketingSaga(action) {
     });
   }
 }
+function* deleteUserTicketingSaga(action) {
+  const ticketingId = action.payload;
+  const { token, user } = yield select((state) => state.login.data);
+  try {
+    const resData = yield call(api.deleteUserTicketing, token, ticketingId);
+    const {
+      divisionCode,
+      detailDivisionCode,
+      cinemaId,
+      screenId,
+      screenDivisionCode,
+      playSequence,
+      playDate,
+    } = resData.userTicketing;
+    yield put({
+      type: DELETE_USER_TICKETING_SUCCESS,
+      payload: ticketingId,
+    });
+    yield put(
+      setUser({
+        ...user,
+        ticketingList: user.ticketingList.filter(
+          (item) => item !== ticketingId
+        ),
+      })
+    );
+    yield put(
+      getPlaySeqs({
+        playDate,
+        divisionCode,
+        detailDivisionCode,
+        cinemaId,
+      })
+    );
+    yield put(
+      getSeats({
+        cinemaId,
+        screenId,
+        playDate,
+        playSequence,
+        screenDivisionCode,
+      })
+    );
+  } catch (e) {
+    yield put({
+      type: DELETE_USER_TICKETING_ERROR,
+      payload: e,
+    });
+  }
+}
 
 // watcher saga
 export function* userTicketingSaga() {
   yield takeLatest(GET_USER_TICKETING_LIST, getUserTicketingSaga);
   yield takeLatest(ADD_USER_TICKETING, addUserTicketingSaga);
+  yield takeLatest(DELETE_USER_TICKETING, deleteUserTicketingSaga);
 }
 
 // initial state
@@ -196,6 +254,36 @@ export default function userTicketingReducer(state = initialState, action) {
         userTicketing: {
           loading: false,
           data: null,
+          error: action.paylod,
+        },
+      };
+    case DELETE_USER_TICKETING:
+      return {
+        ...state,
+        userTicketingList: {
+          loading: true,
+          data: state.userTicketingList.data,
+          error: null,
+        },
+      };
+    case DELETE_USER_TICKETING_SUCCESS:
+      const ticketingId = action.payload;
+      return {
+        ...state,
+        userTicketingList: {
+          loading: false,
+          data: state.userTicketingList.data.filter(
+            (item) => item.ticketingId !== ticketingId
+          ),
+          error: null,
+        },
+      };
+    case DELETE_USER_TICKETING_ERROR:
+      return {
+        ...state,
+        userTicketingList: {
+          loading: false,
+          data: state.userTicketingList.data,
           error: action.paylod,
         },
       };

@@ -181,6 +181,16 @@ export const addUserTicketing = async (
   return res.data;
 };
 
+export const deleteUserTicketing = async (token, ticketingId) => {
+  const res = await axios.delete(
+    `/api/ticketing/userTicketing/${ticketingId}`,
+    {
+      headers: { Authorization: 'Bearer ' + token },
+    }
+  );
+  return res.data;
+};
+
 export const login = async (email, password) => {
   try {
     const res = await axios.post('/api/auth/login', {
