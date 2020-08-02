@@ -19,16 +19,22 @@ const MyPage = ({ userTicketingList, onMovieCancel }) => {
   return (
     <div className="center">
       <MyPageBlock>
-        <div className="header">결제내역</div>
-        <TicketingList>
-          {userTicketingList.map((userTicketing) => (
-            <TicketingItem
-              key={userTicketing.ticketingId}
-              userTicketing={userTicketing}
-              onMovieCancel={onMovieCancel}
-            />
-          ))}
-        </TicketingList>
+        {userTicketingList.length === 0 ? (
+          <div className="header">결제내역이 없습니다.</div>
+        ) : (
+          <>
+            <div className="header">결제내역</div>
+            <TicketingList>
+              {userTicketingList.map((userTicketing) => (
+                <TicketingItem
+                  key={userTicketing.ticketingId}
+                  userTicketing={userTicketing}
+                  onMovieCancel={onMovieCancel}
+                />
+              ))}
+            </TicketingList>
+          </>
+        )}
       </MyPageBlock>
     </div>
   );

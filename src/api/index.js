@@ -1,5 +1,12 @@
 import axios from 'axios';
 
+export const getUser = async (token) => {
+  const res = await axios.get(`/api/user`, {
+    headers: { Authorization: token ? 'Bearer ' + token : undefined },
+  });
+  return res.data;
+};
+
 export const getCarouselItems = async () => {
   const res = await axios.get('/api/carousel');
   return res.data;
@@ -196,6 +203,22 @@ export const login = async (email, password) => {
     const res = await axios.post('/api/auth/login', {
       email,
       password,
+    });
+    return res.data;
+  } catch (error) {
+    throw error.response && error.response.data
+      ? error.response.data.message
+      : error.message;
+  }
+};
+
+export const signin = async (name, email, password, confirmPassword) => {
+  try {
+    const res = await axios.post('/api/auth/signin', {
+      name,
+      email,
+      password,
+      confirmPassword,
     });
     return res.data;
   } catch (error) {

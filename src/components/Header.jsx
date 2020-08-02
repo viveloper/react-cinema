@@ -74,12 +74,12 @@ const Header = ({ theme, isLogin, onLogout }) => {
           <ul className={`${classes.menu} ${classes.menu3}`}>
             <li>
               {!isLogin ? (
-                <a href="##">
+                <Link to="/signin">
                   <span>
                     <i className="fas fa-user"></i>
                   </span>{' '}
                   회원가입
-                </a>
+                </Link>
               ) : (
                 <Link to="/MyPage">
                   <span>

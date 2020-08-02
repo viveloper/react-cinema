@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { setError } from '../../modules/login';
 
-const LoginBlock = styled.div`
+const SigninBlock = styled.div`
   padding: 60px 0;
   margin: 80px 0;
 `;
 
-const LoginFormBlock = styled.div`
+const SigninFormBlock = styled.div`
   background: #f5f5f5;
   width: 100%;
   height: 360px;
@@ -62,7 +62,7 @@ const LoginFormBlock = styled.div`
   }
 `;
 
-const Login = ({ error, onSubmit }) => {
+const Signin = ({ error, onSubmit }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     return () => {
@@ -71,8 +71,10 @@ const Login = ({ error, onSubmit }) => {
   }, [dispatch]);
 
   const [inputs, setInputs] = useState({
+    name: '',
     email: '',
     password: '',
+    confirmPassword: '',
   });
 
   const handleChange = (e) => {
@@ -88,12 +90,19 @@ const Login = ({ error, onSubmit }) => {
   };
 
   return (
-    <LoginBlock>
+    <SigninBlock>
       <div className="tabs"></div>
-      <LoginFormBlock>
+      <SigninFormBlock>
         <div className="center">
           <form onSubmit={handleSubmit}>
             <div className="input-group">
+              <input
+                type="text"
+                name="name"
+                placeholder="이름을 입력해주세요"
+                value={inputs.name}
+                onChange={handleChange}
+              />
               <input
                 type="text"
                 name="email"
@@ -108,14 +117,21 @@ const Login = ({ error, onSubmit }) => {
                 value={inputs.password}
                 onChange={handleChange}
               />
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="비밀번호를 다시 한번 입력해주세요"
+                value={inputs.confirmPassword}
+                onChange={handleChange}
+              />
             </div>
-            <button type="submit">로그인</button>
+            <button type="submit">회원가입</button>
           </form>
           {error && <p className="error-message">{error}</p>}
         </div>
-      </LoginFormBlock>
-    </LoginBlock>
+      </SigninFormBlock>
+    </SigninBlock>
   );
 };
 
-export default Login;
+export default Signin;
