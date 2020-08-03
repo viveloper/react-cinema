@@ -8,7 +8,7 @@ const Layout = ({ children, theme }) => {
   const { data } = useSelector((state) => state.login);
   const dispatch = useDispatch();
   const handleLogout = () => {
-    dispatch(logout(data.user.email));
+    dispatch(logout());
   };
   return (
     <>

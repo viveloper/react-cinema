@@ -1,5 +1,4 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects';
-import * as loginApi from '../api/login';
 import * as api from '../api';
 
 const SIGNIN = 'SIGNIN';
@@ -36,9 +35,8 @@ export const login = (email, password) => ({
   },
 });
 
-export const logout = (email) => ({
+export const logout = () => ({
   type: LOGOUT,
-  payload: email,
 });
 
 export const getUser = () => ({ type: GET_USER });
@@ -104,10 +102,10 @@ function* loginWorkerSaga(action) {
     });
   }
 }
-function* logoutWorkerSaga(action) {
-  const email = action.payload;
+function* logoutWorkerSaga() {
+  const { token } = yield select((state) => state.login.data);
   try {
-    yield call(loginApi.logout, email);
+    yield call(api.logout, token);
     yield put({
       type: LOGOUT_SUCCESS,
     });
@@ -190,7 +188,7 @@ export default function loginReducer(state = initialState, action) {
     case LOGOUT:
       return {
         loading: true,
-        data: null,
+        data: state.data,
         error: null,
       };
     case LOGOUT_SUCCESS:

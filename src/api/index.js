@@ -227,3 +227,10 @@ export const signin = async (name, email, password, confirmPassword) => {
       : error.message;
   }
 };
+
+export const logout = async (token) => {
+  const res = await axios.get(`/api/auth/logout`, {
+    headers: { Authorization: 'Bearer ' + token },
+  });
+  return res.data;
+};
