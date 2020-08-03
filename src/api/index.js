@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+
 export const getUser = async (token) => {
   const res = await axios.get(`/api/user`, {
     headers: { Authorization: token ? 'Bearer ' + token : undefined },
