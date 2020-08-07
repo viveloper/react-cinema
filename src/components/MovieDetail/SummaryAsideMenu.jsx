@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './SummaryAsideMenu.module.css';
 import { numberWithCommas } from '../../util';
 
-const SummaryAsideMenu = ({ likeCount }) => {
+const SummaryAsideMenu = ({ likeCount, onTicketingClick }) => {
   return (
     <div className={classes['aside-menu']}>
       <button className={classes['btn-link']}>
@@ -14,7 +14,9 @@ const SummaryAsideMenu = ({ likeCount }) => {
           {numberWithCommas(likeCount)}
         </span>
       </button>
-      <button className={classes['btn-ticketing']}>예매하기</button>
+      <button className={classes['btn-ticketing']} onClick={onTicketingClick}>
+        예매하기
+      </button>
     </div>
   );
 };

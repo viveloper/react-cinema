@@ -36,6 +36,7 @@ const MovieDetail = ({
   movieReviewError,
   reviewMode,
   targetReview,
+  onTicketingClick,
   onTabClick,
   onReviewSortClick,
   onReviewMoreClick,
@@ -68,7 +69,10 @@ const MovieDetail = ({
             movieDetail.Movie.SpecialScreenDivisionCode
           }
         />
-        <SummaryAsideMenu likeCount={movieDetail.Movie.LikeCount} />
+        <SummaryAsideMenu
+          likeCount={movieDetail.Movie.LikeCount}
+          onTicketingClick={onTicketingClick}
+        />
       </Summary>
 
       <DetailInfo>

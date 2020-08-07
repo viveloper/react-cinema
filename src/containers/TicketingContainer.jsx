@@ -214,11 +214,14 @@ const TicketingContainer = ({ history }) => {
     () => getPlayMovieList(playSeqs, filteringTab),
     [playSeqs, filteringTab]
   );
-  const playMovieListState = {
-    loading: playSeqsState.loading,
-    data: playMovieList,
-    error: playSeqsState.error,
-  };
+  const playMovieListState = useMemo(
+    () => ({
+      loading: playSeqsState.loading,
+      data: playMovieList,
+      error: playSeqsState.error,
+    }),
+    [playSeqsState, playMovieList]
+  );
 
   const handleStepClick = useCallback((step) => {
     // setStep(step);

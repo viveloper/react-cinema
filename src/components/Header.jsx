@@ -90,12 +90,12 @@ const Header = ({ theme, isLogin, onLogout }) => {
               )}
             </li>
             <li>
-              <a href="##">
+              <Link to="/ticketing">
                 <span>
                   <i className="fas fa-bookmark"></i>
                 </span>{' '}
                 바로예매
-              </a>
+              </Link>
             </li>
             <li>
               <button className={classes['btn-menu']}>

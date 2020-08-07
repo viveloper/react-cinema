@@ -40,4 +40,4 @@ const MyPage = ({ userTicketingList, onMovieCancel }) => {
   );
 };
 
-export default MyPage;
+export default React.memo(MyPage);

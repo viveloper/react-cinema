@@ -76,11 +76,15 @@ const MovieDetailContainer = ({ movieCode }) => {
     [movieReview]
   );
 
-  const likedReviewList = loginData
-    ? loginData.user
-      ? loginData.user.reviewLikeList
-      : []
-    : [];
+  const likedReviewList = useMemo(
+    () =>
+      loginData ? (loginData.user ? loginData.user.reviewLikeList : []) : [],
+    [loginData]
+  );
+
+  const handleTicketingClick = useCallback(() => {
+    history.push('/ticketing');
+  }, [history]);
 
   const handleTabClick = useCallback((tabName) => {
     setActiveTab(tabName);
@@ -181,6 +185,7 @@ const MovieDetailContainer = ({ movieCode }) => {
       movieReviewError={movieReviewError}
       reviewMode={reviewMode}
       targetReview={targetReview}
+      onTicketingClick={handleTicketingClick}
       onTabClick={handleTabClick}
       onReviewSortClick={handleReviewSortClick}
       onReviewMoreClick={handleReivewMoreClick}
