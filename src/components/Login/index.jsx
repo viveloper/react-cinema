@@ -71,8 +71,8 @@ const Login = ({ error, onSubmit }) => {
   }, [dispatch]);
 
   const [inputs, setInputs] = useState({
-    email: '',
-    password: '',
+    email: 'hong@email.com',
+    password: '123456',
   });
 
   const handleChange = (e) => {
